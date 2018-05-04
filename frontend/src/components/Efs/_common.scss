@@ -1,46 +1,46 @@
-%overviewBorder {
-  border-bottom: 1px solid;
-  border-color: rgba(#666, 0.6);
+%tank-strenght {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  content: ' ';
 }
 
-%overviewBorderPadded {
-  padding-bottom: 0.2rem;
-  @extend %overviewBorder;
-}
-
-%spacer{
-  margin-bottom: 0.2rem;
-}
-
-%small-spacer{
-  padding-bottom: 0.1rem;
-}
-
-.tanking {
-  display: inline-block;
+.tank {
+  display: flex;
+  justify-content: space-between;
   position: relative;
-  height: 7px;
-  width: 1.0rem;
-  margin-right: 0.1rem;
-  
-  &:nth-child(4) {
-    margin-right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+
+  &__value {
+    position: relative;
+    z-index: 5;
   }
-  
-  &--em {
-    background: #253642;
+
+  &__item {
+    flex: 0 0 23%;
+    text-align: center;
+    color: white;
+    font-size: 10px;
+    padding: 1px 0;
+    position: relative;
+
+    &--em {
+      background: #253642;
+    }
+    &--thermal {
+      background: #442929;
+    }
+    &--kinetic {
+      background: #442929;
+    }
+    &--explosive {
+      background: #443A29;
+    }
   }
-  &--thermal {
-    background: #442929;
-  }
-  &--kinetic {
-    background: #442929;
-  }
-  &--explosive {
-    background: #443A29;
-  }
-  
-  &__active {
+
+  &__strength {
     position: absolute;
     top: 0;
     left: 0;

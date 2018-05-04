@@ -70,8 +70,14 @@ export default function (ships) {
     if (ship.metaLevel === 9) ship.special = true;
     if (ship.metaLevel === 5) ship.metaLevel = 'Tech II';
     else if (ship.metaLevel > 5) ship.metaLevel = 'Faction';
-    else if (ship.metaLevel) ship.metaLevel = 'Tech I';
-
+    else ship.metaLevel = 'Tech I';
+    
+    // Preset some of the values
+    if (!ship.traits) ship.traits = {};
+    ship.align = ship.agility * ship.mass;
+    ship.cpuOutput = ship.cpuOutput || 0;
+    ship.powerOutput = ship.powerOutput || 0;
+    
     // Let's compress this into one object for easier access and lets unify the attribute naming
     // Afterwards delete original attributes
     ship.sensorStrength = {};

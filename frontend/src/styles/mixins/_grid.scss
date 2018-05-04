@@ -1,3 +1,9 @@
+@mixin make-flex() {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 @mixin flex($value) {
   flex: 0 0 $value;
   @include ie-flex-fix($value)

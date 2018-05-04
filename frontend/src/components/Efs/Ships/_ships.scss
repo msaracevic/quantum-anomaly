@@ -1,154 +1,107 @@
 @import "../common";
 
-.overview-ships {
-  font-size: small;
-  line-height: 1.25;
-
-  &__group {
-    display: flex;
-    flex-wrap: wrap;
-    &--hidden {
-      display: none;
-    }
-  }
-
-  &__title {
-    @include flex(100%);
-    margin-bottom: 0;
-    span {
-      cursor: pointer;
-    }
-  }
-
-  &__item {
-    @include flex(300px);
-    margin: 0.3rem;
-    padding: 0.3rem;
-  }
-
-  &__toggle {
-    margin-right: .3rem;
-    min-width: initial;
-    @extend .press-grey;
-    @extend .press-sm;
-  }
+@mixin eve-racial-gradient($color) {
+  background: linear-gradient(to top right, #fff -20%, rgba($color, 0.5) 160%);
 }
 
-.overview-ship {
-  &--amarr {
-    background-color: rgba(#7D622E, 0.5);
-  }
-  &--caldari {
-    background-color: rgba(#41566A, 0.5);
-  }
-  &--gallente {
-    background-color: rgba(#336356, 0.5);
-  }
-  &--minmatar {
-    background-color: rgba(#644636, 0.5);
-  }
-  &--jove {
-    background-color: rgba(#644636, 0.5);
-  }
-  &--pirate {
-    background-color: rgba(#7D622E, 0.5);
-  }
-  &--ore {
-    background-color: rgba(#726E16, 0.5);
-  }
-  &--concord {
-    background-color: rgba(#AAAAAA, 0.5);
-  }
-  
+.efs {
+  font-size: small;
+  line-height: 1.25;
+  @include make-flex;
+  justify-content: initial;
+
   &__selector {
     font-size: 1rem;
     margin-bottom: 0.5rem;
+    flex: 0 0 100%;
+  }
+  
+  &__header {
+    flex-wrap: nowrap !important;
   }
 
-  &__simulate-link {
-    position: absolute;
-    padding: 0.1rem;
-    top: -0.2rem;
-    right: -0.3rem;
-    display: inline-block;
-    background: white;
-    float: right;
-    @extend .btn;
-    @extend .press-black;
-    @extend .press-sm;
-    @extend .press-ghost;
+  &__ship {
+    width: 300px;
+    margin: 0.3rem;
+    border-radius: 2px;
+    &--amarr {
+      @include eve-racial-gradient(#7D622E);
+    }
+    &--caldari {
+      @include eve-racial-gradient(#41566A);
+    }
+    &--gallente {
+     @include eve-racial-gradient(#336356);
+    }
+    &--minmatar {
+     @include eve-racial-gradient(#644636);
+    }
+    &--jove {
+     @include eve-racial-gradient(#644636);
+    }
+    &--pirate {
+     @include eve-racial-gradient(#7D622E);
+    }
+    &--ore {
+     @include eve-racial-gradient(#726E16);
+    }
+    &--concord {
+     @include eve-racial-gradient(#AAAAAA);
+    }
   }
 
-  &__name {
-    font-weight: bold;
-    margin-top: 0;
-    @extend %overviewBorder;
-    position: relative;
+  &__ship-inner {
+    padding: 0.3rem 0.5rem;
   }
 
-  &__basics, &__slots, &__tank, &__velocity, &__sensors {
-    display: flex;
-    @extend %spacer;
+  &__ship-name {
+    margin: 0;
+    font-size: larger;
+    @extend .bold;
   }
 
-  &__drones {
-    @extend %spacer;
-  }
-
-  &__stat {
-    display: flex;
-    padding-bottom: 0.1rem;
-  }
-
-  &__stat-label {
-    font-weight: bold;
-  }
-
-  &__stat-value {
-    flex: 1 0 auto;
-    text-align: right;
-  }
-
-  &__traits {
-    @extend %spacer;
-  }
-
-  &__trait {
-    display: flex;
-    margin-left: 0.3rem;
-    @extend %small-spacer;
-  }
-
-  &__trait-label {
-    font-weight: bold;
-    @extend %spacer;
-  }
-
-  &__trait-value {
-    @include flex(2.5rem);
-    text-align: right;
-  }
-
-  &__trait-text {
-    flex-grow: 1;
-    padding-left: 0.3rem;
+  &__columns {
+    @include make-flex();
   }
 
   &__column {
-    &:nth-of-type(odd) {
-      padding-right: 0.4rem;
+    flex: 0 0 48%;
+    &--label {
+      flex: 0 1 auto;
     }
-    &:nth-of-type(even) {
-      padding-left: 0.4rem;
-    }
-    &--auto {
-      flex: 0 0 auto;
-    }
-    &--grow {
+    &--value {
       flex: 1 0 auto;
     }
-    &--half {
-      @include flex(50%);
+    &:nth-of-type(even) {
+      text-align: right;
     }
+  }
+
+  &__ship-preview {
+    flex: 0 0 74px;
+    img {
+      width: 64px;
+    }
+  }
+
+  &__ship-info {
+    flex: 1 0 auto;
+    text-align: left !important;
+    p {
+      font-size: 14px;
+      margin: 0.2rem 0;
+    }
+  }
+  
+  &__stat-section {
+    margin: 0.5rem 0 0;
+  }
+
+  &__traits {
+    margin: 0.1rem 0 0;
+  }
+
+  &__trait {
+    margin: 0 0 0 0.5rem;
   }
 }

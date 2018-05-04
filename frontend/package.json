@@ -1,6 +1,6 @@
 {
   "name": "quantum_anomaly_frontend",
-  "version": "0.1.1",
+  "version": "0.2.1",
   "dependencies": {
     "node-sass-chokidar": "0.0.3",
     "npm-run-all": "^4.1.2",

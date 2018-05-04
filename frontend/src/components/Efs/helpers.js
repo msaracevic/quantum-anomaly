@@ -1,18 +1,18 @@
-function humanReadableStat(stat) {
+export function getHumanLabel(stat) {
   let human = {
     shieldCapacity:      {
       label:  'Shield',
-      units:  null,
+      units:  'pts.',
       format: true
     },
     armorHP:             {
       label:  'Armor',
-      units:  null,
+      units:  'pts.',
       format: true
     },
     hp:                  {
       label:  'Hull',
-      units:  null,
+      units:  'pts.',
       format: true
     },
     cpuOutput:           {
@@ -56,11 +56,11 @@ function humanReadableStat(stat) {
     },
     turretSlotsLeft:     {
       label: 'Turrets',
-      units: null
+      units: 'slots'
     },
     launcherSlotsLeft:   {
       label: 'Launchers',
-      units: null
+      units: 'slots'
     },
     align:               {
       label: 'Align',
@@ -91,7 +91,7 @@ function humanReadableStat(stat) {
     },
     maxLockedTargets:    {
       label: 'Max Locks',
-      units: null
+      units: 'targets'
     },
     scanResolution:      {
       label:  'Scan Res.',
@@ -120,21 +120,21 @@ function humanReadableStat(stat) {
   return human[stat];
 }
 
-function operationSign(unit,trait) {
-  let operationSign = {
-    9: 'm3',
+export function getOperationSign(unit, trait) {
+  let getOperationSign = {
+    9:   'm3',
     105: '%',
     139: '+'
   };
-  
-  if (!operationSign[unit] && unit) {
+
+  if (!getOperationSign[unit] && unit) {
     // console.log(trait);
   }
-  
-  return operationSign[unit];
+
+  return getOperationSign[unit];
 }
 
-function humanRigSize(size) {
+export function getRigSizeLabel(size) {
   if (!size) size = '';
   else if (size === 1) size = ' small';
   else if (size === 2) size = ' medium';
@@ -143,8 +143,34 @@ function humanRigSize(size) {
   return size;
 }
 
-export {
-  humanReadableStat,
-  humanRigSize,
-  operationSign
-};
+export function getStatObject(value, stat) {
+  let humanValues = getHumanLabel(stat);
+
+  humanValues.value = value || 0;
+
+  if (stat === 'upgradeSlotsLeft') {
+    humanValues.value += getRigSizeLabel(value);
+  } else if (stat === 'align') {
+    humanValues.value = Math.LN2 * value / 500000;
+    humanValues.value = Math.round(humanValues.value * 100) / 100;
+  } else if (stat === 'agility') {
+    humanValues.value = Math.round(value * 100) / 100;
+  } else if (stat === 'maxTargetRange') {
+    humanValues.value = value / 1000;
+  } else if (stat === 'mass') {
+    humanValues.value = value / 1000;
+  } else if (stat === 'sensorStrength') {
+    humanValues.label = value.label;
+    humanValues.units = '';
+    humanValues.value = value.value;
+  }
+
+  if (humanValues.units === 'slots' && humanValues.value === 1) humanValues.units = 'slot';
+  if (humanValues.format) humanValues.value = humanValues.value.toLocaleString();
+
+  return {
+    label: humanValues.label,
+    value: humanValues.value,
+    units: humanValues.units
+  }
+}
