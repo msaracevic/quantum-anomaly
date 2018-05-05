@@ -94,6 +94,23 @@ table {
   }
 }
 
+.columns {
+  @include make-flex();
+}
+
+.column {
+  flex: 0 0 48%;
+  &--label {
+    flex: 0 1 auto;
+  }
+  &--value {
+    flex: 1 0 auto;
+  }
+  &:nth-of-type(even) {
+    text-align: right;
+  }
+}
+
 .box {
   @include box;
 }

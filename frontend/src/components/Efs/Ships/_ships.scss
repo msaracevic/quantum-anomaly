@@ -8,7 +8,7 @@
   font-size: small;
   line-height: 1.25;
   @include make-flex;
-  justify-content: initial;
+  justify-content: space-around;
 
   &__selector {
     font-size: 1rem;
@@ -18,12 +18,25 @@
   
   &__header {
     flex-wrap: nowrap !important;
+    flex: 0 0 100%;
+    background: rgba(white, 0.2);
+    padding: 0.3rem;
+    img {
+      display: block;
+    }
   }
 
   &__ship {
-    width: 300px;
-    margin: 0.3rem;
+    width: 310px;
+    margin-bottom: 1.5rem;
     border-radius: 2px;
+    @include media-breakpoint-up(eve-md) {
+      width: 600px;
+    }
+    @include media-breakpoint-up(eve-lg) {
+      width: 1200px;
+    }
+
     &--amarr {
       @include eve-racial-gradient(#7D622E);
     }
@@ -52,29 +65,16 @@
 
   &__ship-inner {
     padding: 0.3rem 0.5rem;
+    @include media-breakpoint-up(eve-lg) {
+      @include make-flex();
+    }
+    margin-bottom: 1rem;
   }
 
   &__ship-name {
     margin: 0;
     font-size: larger;
     @extend .bold;
-  }
-
-  &__columns {
-    @include make-flex();
-  }
-
-  &__column {
-    flex: 0 0 48%;
-    &--label {
-      flex: 0 1 auto;
-    }
-    &--value {
-      flex: 1 0 auto;
-    }
-    &:nth-of-type(even) {
-      text-align: right;
-    }
   }
 
   &__ship-preview {
@@ -103,5 +103,21 @@
 
   &__trait {
     margin: 0 0 0 0.5rem;
+  }
+
+  @include media-breakpoint-up(eve-md) {
+    &__columns-desktop {
+      @include make-flex();
+    }
+
+    &__column-desktop {
+      flex: 0 0 48%;
+    }
+  }
+
+  @include media-breakpoint-up(eve-lg) {
+    &__columns-lg{
+      flex: 0 0 49%;
+    }
   }
 }
