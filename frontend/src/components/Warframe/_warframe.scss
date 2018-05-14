@@ -134,12 +134,29 @@
       background-image: url("/images/night.svg");
     }
   }
-  
+
+  &__planets {
+    @include make-flex();
+    justify-content: flex-start;
+  }
+
+  &__planet-name {
+    margin: 0.3rem 0;
+  }
+
+  &__planet {
+    flex: 0 0 200px;
+    padding: 0 1rem 2rem 0;
+  }
+
   &__resource {
     display: flex;
-  }
-  
-  &__resource-name {
-    flex: 0 0 125px;
+    align-items: center;
+    img {
+      width: 32px;
+      height: 20px;
+      margin-right: 0.3rem;
+      display: inline-block;
+    }
   }
 }

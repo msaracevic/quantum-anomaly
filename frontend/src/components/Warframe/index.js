@@ -37,7 +37,7 @@ export default class WarframeStatus extends Component {
       return <LoadingScreen/>;
     } else {
       return (
-        <section>
+        <article>
           <Cetus cetus={this.state.status.cetus}/>
           <section className="warframe__columns warframe__seperator">
             <Alerts alerts={this.state.status.alerts}/>
@@ -47,10 +47,8 @@ export default class WarframeStatus extends Component {
             <Sortie sortie={this.state.status.sortie}/>
             <Invasions invasions={this.state.status.invasions}/>
           </section>
-          <section className="warframe__seperator">
-            <Resources resources={this.state.status.resources}/>
-          </section>
-        </section>
+          <Resources planets={this.state.status.planets}/>
+        </article>
       );
     }
   }
