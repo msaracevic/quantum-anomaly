@@ -41,7 +41,11 @@
   }
 
   &__sortie-mission {
-    margin: 1.5rem 0;
+    margin-top: 1rem;
+    flex: 0 0 100%;
+    @include media-breakpoint-up(md) {
+      flex: 0 0 30%;
+    }
   }
 
   &__header {
@@ -145,7 +149,7 @@
   }
 
   &__planet {
-    flex: 0 0 200px;
+    flex: 0 0 180px;
     padding: 0 1rem 2rem 0;
   }
 
@@ -153,8 +157,8 @@
     display: flex;
     align-items: center;
     img {
-      width: 32px;
-      height: 20px;
+      width: 24px;
+      height: 24px;
       margin-right: 0.3rem;
       display: inline-block;
     }

@@ -20,7 +20,9 @@ const renderSortieInfo = (sortie) => (
     <p className="warframe__small">
       Ends in <span className="bold"><Time time={sortie.timeEnd}/></span>
     </p>
-    {sortie.missions.map(renderMissions)}
+    <section className="warframe__columns">
+      {sortie.missions.map(renderMissions)}
+    </section>
   </section>
 );
 
@@ -31,7 +33,7 @@ const renderExpired = () => (
 );
 
 const renderSortie = (sortie) => (
-  <section className="warframe__column">
+  <section className="warframe__seperator">
     <h3 className="warframe__header">Sortie information</h3>
     {sortie.expired ? renderExpired() : renderSortieInfo(sortie)}
   </section>

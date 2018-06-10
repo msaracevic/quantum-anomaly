@@ -2,7 +2,7 @@
   "name": "quantum_anomaly_frontend",
   "version": "0.2.1",
   "dependencies": {
-    "node-sass-chokidar": "0.0.3",
+    "node-sass": "^4.9.0",
     "npm-run-all": "^4.1.2",
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
@@ -21,8 +21,8 @@
     "build": "npm run build-css-production && react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "build-css-production": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o public/ --output-style compressed",
-    "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o public/",
-    "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o public/ --watch --recursive"
+    "build-css-production": "node-sass --include-path ./src --include-path ./node_modules src/ -o public/ --output-style compressed",
+    "build-css": "node-sass --include-path ./src --include-path ./node_modules src/ -o public/",
+    "watch-css": "npm run build-css && node-sass --include-path ./src --include-path ./node_modules src/ -o public/ --watch --recursive"
   }
 }

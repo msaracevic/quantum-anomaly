@@ -16,7 +16,7 @@ const renderFissure = (fissure) => (
 );
 
 const renderFissures = (label, fissures) => (
-  <div className="warframe__fissures" key={label}>
+  <div className="warframe__fissures warframe__column" key={label}>
     <h3 className="warframe__header">{label} fissures</h3>
     {fissures.length !== 0 ? fissures.map(fissure => renderFissure(fissure)) : 'None at the moment'}
   </div>
@@ -25,7 +25,7 @@ const renderFissures = (label, fissures) => (
 export default class Fissures extends Component {
   render() {
     return (
-      <section className="warframe__column">
+      <section className="warframe__seperator warframe__columns">
         {Object.keys(this.props.fissures)
           .map(key => renderFissures(key, this.props.fissures[key]))}
       </section>

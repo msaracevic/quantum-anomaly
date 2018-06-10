@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 const renderNodes = (invasions) => (
   invasions.map(invasion => (
-      <section className="warframe__invasion-planet" key={invasion.node.value}>
+      <section className="warframe__invasion-planet warframe__column" key={invasion.node.value}>
         <header className="warframe__invasion-parties">
           <span className="warframe__invasion-party warframe__invasion-party--attacker">{invasion.defender}</span>
           <span className="warframe__invasion-party warframe__invasion-party--planet">{invasion.node.value} ({invasion.planet})</span>
@@ -32,7 +32,7 @@ const renderNodes = (invasions) => (
 export default class Invasions extends Component {
   render() {
     return (
-      <section className="warframe__column warframe__invasions">
+      <section className="warframe__seperator warframe__columns">
         <h3 className="warframe__header">Invasions</h3>
         {Object.keys(this.props.invasions).map(key =>
           renderNodes(this.props.invasions[key])
