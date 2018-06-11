@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import LoadingScreen from '../../componentsCommon/LoadingScreen';
+import Tabs from '../../componentsCommon/Tabs';
 
 import Alerts from './Alerts';
 import Sortie from './Sortie';
@@ -35,16 +36,32 @@ export default class WarframeStatus extends Component {
 
   render() {
     if (Object.keys(this.state.status).length === 0) {
-      return <LoadingScreen />;
+      return <LoadingScreen/>;
     } else {
+      let alertCount = this.state.status.alerts.length,
+          cetusDay   = this.state.status.cetus.day ? 'Day' : 'Night';
       return (
         <article>
-          <Cetus cetus={this.state.status.cetus} />
-          <Alerts alerts={this.state.status.alerts} />
-          <Fissures fissures={this.state.status.fissures} />
-          <Sortie sortie={this.state.status.sortie} />
-          <Invasions invasions={this.state.status.invasions} />
-          <Resources planets={this.state.status.planets} />
+          <Tabs tabs={[{
+            title:   `Cetus (${cetusDay})`,
+            content: <Cetus cetus={this.state.status.cetus}/>
+          }, {
+            title:   `Alerts (${alertCount})`,
+            content: <Alerts alerts={this.state.status.alerts}/>
+          }, {
+            title:   `Fissures`,
+            content: <Fissures fissures={this.state.status.fissures}/>
+          }, {
+            title:   `Sortie`,
+            content: <Sortie sortie={this.state.status.sortie}/>
+          }, {
+            title:   `Invasions`,
+            content: <Invasions invasions={this.state.status.invasions}/>
+          }, {
+            title:   `Resources`,
+            content: <Resources planets={this.state.status.planets}/>
+          }
+          ]}/>
         </article>
       );
     }

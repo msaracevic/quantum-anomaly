@@ -3,8 +3,8 @@ import React, {Component} from 'react';
 const getTimeClass = (time) => {
   if (time.days === 0 && time.hours === 0) {
     if (time.minutes < 1) return 'time time--critical';
-    if (time.minutes < 2) return 'time time--danger';
-    if (time.minutes < 5) return 'time time--low';
+    if (time.minutes < 3) return 'time time--danger';
+    if (time.minutes < 10) return 'time time--low';
   }
 };
 

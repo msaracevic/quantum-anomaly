@@ -16,19 +16,19 @@ export default class Tabs extends Component {
     });
   }
 
-  static setClass(type, active) {
+  setClass(type, index) {
     let className = `tabs__${type}`;
-    if (active) className += ` ${className}--active`;
+    if (index === this.state.visible) className += ` ${className}--active`;
     return className;
   }
 
   renderHeader(tab, index) {
     return (
       <React.Fragment key={index}>
-        <div className={Tabs.setClass('header', index === this.state.visible)} onClick={() => this.onClick(index)}>
+        <div className={this.setClass('header', index)} onClick={() => this.onClick(index)}>
           {tab.title}
         </div>
-        <div className={Tabs.setClass('content', index === this.state.visible)}>
+        <div className={this.setClass('content', index)}>
           {tab.content}
         </div>
       </React.Fragment>

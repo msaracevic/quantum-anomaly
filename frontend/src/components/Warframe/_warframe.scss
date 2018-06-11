@@ -23,21 +23,15 @@
   }
 
   &__seperator {
-    background: linear-gradient(to right, #FFFFFF 0%, #F0F0F3 50%, #FFFFFF 100%);
-    margin: 1rem 0 0;
-    padding: 1rem 0;
+    padding: 1rem;
   }
 
   &__alert {
     margin: 0 0 1.5rem;
   }
-
-  &__fissures {
-    margin: 0 0 2rem;
-  }
-
+  
   &__fissure {
-    margin: 0 0 0.5rem;
+    margin: 0 0 1.5rem;
   }
 
   &__sortie-mission {
@@ -51,6 +45,7 @@
   &__header {
     font-size: large;
     margin-bottom: 0.3rem;
+    margin-top: 0;
     &:first-letter {
       text-transform: capitalize;
     }

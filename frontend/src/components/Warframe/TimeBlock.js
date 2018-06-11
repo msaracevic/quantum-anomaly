@@ -10,10 +10,9 @@ export default class Common extends Component {
 
     return (
       <p className={this.props.className}>
-        <span>{timeStart.future ? 'Starts in ' : 'Started '}</span>
-        <Time time={timeStart} showSeconds={showSeconds}/>
-        <span>{timeStart.future ? ', ends in ' : ' ago, ends in '}</span>
-        <span className="bold"><Time time={timeEnd} showSeconds={showSeconds}/></span>
+        <span className="bold">{timeStart.future ? 'Starts in' : 'Started'}: </span>
+        <Time time={timeStart} showSeconds={showSeconds}/>{timeStart.future ? '' : ' ago'}<br/>
+        <span className="bold">Ends in: </span><Time colorCode='true' time={timeEnd} showSeconds={showSeconds}/>
       </p>
     );
   }

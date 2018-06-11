@@ -4,10 +4,15 @@ import Time from '../../componentsCommon/Time';
 
 const renderMissions = (mission, index) => (
   <section className="warframe__sortie-mission" key={index}>
+    <h3 className="warframe__header">
+      {mission.node.value}
+    </h3>
     <p className="warframe__small">
-      <span className="bold">{mission.type}</span> at {mission.node.value}
+      <span className="bold">Type:</span> {mission.type}
     </p>
-    <p className="warframe__small">Enemies are lvl. {mission.level}</p>
+    <p>
+      <span className="bold">Enemy:</span> lvl. {mission.level}
+    </p>
     <p className="warframe__small bold">{mission.effect}</p>
   </section>
 );
@@ -15,10 +20,13 @@ const renderMissions = (mission, index) => (
 const renderSortieInfo = (sortie) => (
   <section className="warframe__sortie">
     <p className="warframe__small">
-      {sortie.boss}, against <span className="bold">{sortie.enemy}</span>
+      <span className="bold">Boss:</span> {sortie.boss}
+    </p>    
+    <p className="warframe__small">
+      <span className="bold">Enemy:</span> {sortie.enemy}
     </p>
     <p className="warframe__small">
-      Ends in <span className="bold"><Time time={sortie.timeEnd}/></span>
+      <span className="bold">Ends in:</span> <Time time={sortie.timeEnd}/>
     </p>
     <section className="warframe__columns">
       {sortie.missions.map(renderMissions)}
@@ -34,7 +42,6 @@ const renderExpired = () => (
 
 const renderSortie = (sortie) => (
   <section className="warframe__seperator">
-    <h3 className="warframe__header">Sortie information</h3>
     {sortie.expired ? renderExpired() : renderSortieInfo(sortie)}
   </section>
 );

@@ -1,31 +1,49 @@
 .tabs {
   display: flex;
   flex-wrap: wrap;
+  //background: linear-gradient(to left bottom, #F0F0F3 0%, #FFFFFF 100%);
 }
 
 .tabs__header {
+  position: relative;
+  z-index: 5;
   flex: 0 0 100%;
-  padding: 0.3rem 0;
-  border-bottom: 2px solid transparent;
+  padding: 0.3rem 1rem;
+  margin-top: 0.5rem;
+
   cursor: pointer;
   font-size: 110%;
   font-weight: bold;
-  background: whitesmoke;
-  margin-top: 0.3rem;
-
+  
+  border: 1px solid gray;
+  
   &:hover {
-    border-bottom: 2px solid rgba(black, 0.5);
+    color: rgba(black, 0.8);
+    background-color: rgba(blue, 0.1);
   }
 
   &--active {
-    border-bottom: 2px solid black !important;
+    background-color: white !important;
+    border-top: 2px solid gray !important;
+    border-left: 1px solid gray !important;
+    border-right: 1px solid gray !important;
   }
 
   @include media-breakpoint-up(md) {
     order: 1;
-    flex: 1 0 auto;
+    flex: 0 0 auto;
     margin-top: 0;
     text-align: center;
+
+    border-top: 2px solid transparent;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    border-radius: 5px 5px 0 0;
+
+    &:first-of-type {
+      margin-left: 1rem;
+    }
   }
 }
 
@@ -33,6 +51,9 @@
   display: none;
   &--active {
     display: block;
+    position: relative;
+    top: -1px;
+    border-top: 1px solid gray;
     flex: 0 0 100%;
     @include media-breakpoint-up(md) {
       order: 2;
