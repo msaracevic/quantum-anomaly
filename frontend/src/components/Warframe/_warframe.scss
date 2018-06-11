@@ -70,7 +70,13 @@
 
   &__invasion-planet {
     margin: 0 0 2rem;
-    max-width: 400px;
+    flex: 0 0 100%;
+    @include media-breakpoint-up(md) {
+      flex: 0 0 48%;
+    }
+    @include media-breakpoint-up(lg) {
+      flex: 0 0 40%;
+    }
   }
 
   &__invasion-parties {

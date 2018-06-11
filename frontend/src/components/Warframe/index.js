@@ -27,6 +27,7 @@ export default class WarframeStatus extends Component {
         console.log(response);
       });
   }
+
   componentWillMount() {
     this.getData();
     setInterval(this.getData.bind(this), 1000 * 60);
@@ -34,16 +35,16 @@ export default class WarframeStatus extends Component {
 
   render() {
     if (Object.keys(this.state.status).length === 0) {
-      return <LoadingScreen/>;
+      return <LoadingScreen />;
     } else {
       return (
         <article>
-          <Cetus cetus={this.state.status.cetus}/>
-          <Alerts alerts={this.state.status.alerts}/>
-          <Fissures fissures={this.state.status.fissures}/>
-          <Sortie sortie={this.state.status.sortie}/>
-          <Invasions invasions={this.state.status.invasions}/>
-          <Resources planets={this.state.status.planets}/>
+          <Cetus cetus={this.state.status.cetus} />
+          <Alerts alerts={this.state.status.alerts} />
+          <Fissures fissures={this.state.status.fissures} />
+          <Sortie sortie={this.state.status.sortie} />
+          <Invasions invasions={this.state.status.invasions} />
+          <Resources planets={this.state.status.planets} />
         </article>
       );
     }

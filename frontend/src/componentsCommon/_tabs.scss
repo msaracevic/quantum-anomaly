@@ -1,0 +1,41 @@
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tabs__header {
+  flex: 0 0 100%;
+  padding: 0.3rem 0;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  font-size: 110%;
+  font-weight: bold;
+  background: whitesmoke;
+  margin-top: 0.3rem;
+
+  &:hover {
+    border-bottom: 2px solid rgba(black, 0.5);
+  }
+
+  &--active {
+    border-bottom: 2px solid black !important;
+  }
+
+  @include media-breakpoint-up(md) {
+    order: 1;
+    flex: 1 0 auto;
+    margin-top: 0;
+    text-align: center;
+  }
+}
+
+.tabs__content {
+  display: none;
+  &--active {
+    display: block;
+    flex: 0 0 100%;
+    @include media-breakpoint-up(md) {
+      order: 2;
+    }
+  }
+}
