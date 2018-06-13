@@ -24,7 +24,7 @@ export default function (arg) {
       invasions[planet].push({
         start:           invasion['Activation']['$date']['$numberLong'],
         timeStart:       time.timeFrom(invasion['Activation']['$date']['$numberLong']),
-        node:            node,
+        node:            node.value,
         planet:          planet,
         status:          status.toFixed(2),
         description:     translations(invasion['LocTag']),

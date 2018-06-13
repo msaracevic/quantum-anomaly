@@ -6,7 +6,7 @@ const renderCetus = (cetus) => (
   <section className="warframe__seperator">
     <p>
       <span>Currently it is </span>
-      <span className={cetus.day ? 'warframe__icons warframe__icons--day bold' : 'warframe__icons warframe__icons--night bold'}>
+      <span className={`warframe__icons warframe__icons--${cetus.day ? 'day' : 'night'} bold`}>
         {cetus.day ? 'day' : 'night'}
       </span>
       <span> for another </span>

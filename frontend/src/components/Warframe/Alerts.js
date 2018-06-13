@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import TimeBlock from './TimeBlock';
 
 const renderAlert = ({location, timeStart, timeEnd, faction, level, type, rewards}, index) => (
-  <section className="warframe__alert warframe__column" key={index}>
+  <section className="warframe__column" key={index}>
     <h3 className="warframe__header">
       {location}
     </h3>
