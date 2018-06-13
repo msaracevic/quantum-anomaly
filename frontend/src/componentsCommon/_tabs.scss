@@ -48,9 +48,13 @@
 }
 
 .tabs__content {
-  display: none;
+  max-height: 0;
+  overflow: hidden;
+  width: 100%;
   &--active {
-    display: block;
+    max-height: 10000px;
+    transition: max-height 1.5s ease-in-out;
+    overflow: auto;
     position: relative;
     top: -1px;
     border-top: 1px solid gray;

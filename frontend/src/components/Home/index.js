@@ -13,33 +13,31 @@ const homePageLinks = [{
   label:       'Incursion manager',
   content:     'EVE Online current active incursions with system data...'
 }, {
-  url:         '/warframe-status',
+  url:         '/warframe',
   cover:       '/images/warframe-logo.png',
   cbackground: 'white',
-  label:       'WarFrame Status',  
+  label:       'WarFrame',  
   content:     'Current status of ingame happening in Warframe...'
 }];
 
-export default class Home extends Component {
-  static homeLinks() {
-    return homePageLinks.map((link, index) => (
-      <li className="home__link-wrapper" key={index}>
-        <a href={link.url} className="home__link">
-          <p className={`home__img home__img--${link.cbackground}`}>
-            <img src={link.cover} alt={link.url}/>
-          </p>
-          <p className="home__link-label">{link.label}</p>
-          <p className="home__link-content">{link.content}</p>
-        </a>
-      </li>
-    ));
-  }
+const renderHomeLinks = (link) => (
+  <li className="home__link-wrapper" key={link.url}>
+    <a href={link.url} className="home__link">
+      <p className={`home__img home__img--${link.cbackground}`}>
+        <img src={link.cover} alt={link.url}/>
+      </p>
+      <p className="home__link-label">{link.label}</p>
+      <p className="home__link-content">{link.content}</p>
+    </a>
+  </li>
+);
 
+export default class Index extends Component {
   render() {
     return (
       <article className="home">
         <ul className="home__links">
-          {Home.homeLinks()}
+          {homePageLinks.map(link => renderHomeLinks(link))}
         </ul>
       </article>
     );

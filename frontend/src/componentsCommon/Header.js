@@ -37,7 +37,7 @@ export default class Header extends Component {
               <a href="/epic-arcs" title="EVE Epic Arcs">EVE Epic arcs</a>
             </li>
             <li className="navigation__link">
-              <a href="/warframe-status">WarFrame Status</a>
+              <a href="/warframe">WarFrame</a>
             </li>
             {this.userLoggedIn() ? (
               <li className="navigation__link"><a href="/auth/google">Login</a></li>

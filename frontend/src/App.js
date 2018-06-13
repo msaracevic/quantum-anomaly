@@ -3,17 +3,15 @@ import { Switch, Route } from 'react-router-dom';
 
 import Header from './componentsCommon/Header';
 import Footer from './componentsCommon/Footer';
-
-import Home from './components/pages/Home';
 import UnderConstruction from './componentsCommon/UnderConstruction';
 import NotFound from './componentsCommon/NotFound';
 
-import EfsShips from './components/Efs/Ships/index';
-import Skills from './components/Efs/Skills/index';
-import OverviewEpicArcs from './components/EpicArcs/index';
-import Incursions from './components/Incursions/index';
-
-import WarframeStatus from './components/Warframe/index';
+import Home from './components/Home/';
+import EfsShips from './components/Efs/Ships/';
+import Skills from './components/Efs/Skills/';
+import OverviewEpicArcs from './components/EpicArcs/';
+import Incursions from './components/Incursions/';
+import Warframe from './components/Warframe/';
 
 const App = () => (
   <div>
@@ -27,7 +25,7 @@ const App = () => (
         <Route path='/epic-arcs/:faction' component={OverviewEpicArcs}/>
         <Route path='/epic-arcs/' component={OverviewEpicArcs}/>
         <Route path='/incursion-manager' component={Incursions}/>
-        <Route path='/warframe-status' component={WarframeStatus}/>
+        <Route path='/warframe' component={Warframe}/>
         <Route path="*" component={NotFound}/>
       </Switch>
     </main>

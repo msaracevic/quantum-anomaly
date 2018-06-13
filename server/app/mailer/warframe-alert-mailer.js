@@ -1,5 +1,5 @@
 import sendMail from './index';
-import warframeStatus from '../warframe-status';
+import warframeStatus from '../warframe';
 
 const mailQueue = [];
 
