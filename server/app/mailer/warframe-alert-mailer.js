@@ -83,9 +83,7 @@ function hasInterestingRewards(rewards) {
   let hasInterestingRewards = false;
   rewards.forEach(reward => {
     if (
-      reward.indexOf('Sheev') !== -1 ||
-      reward.indexOf('Strun Wraith') !== -1 ||
-      reward.indexOf('Wraith Twin Vipers') !== -1 ||
+      reward.indexOf('Forma') !== -1 ||
       reward.indexOf('Exilus') !== -1 ||
       reward.indexOf('Orokin Reactor') !== -1 ||
       reward.indexOf('Orokin Catalyst') !== -1 ||
