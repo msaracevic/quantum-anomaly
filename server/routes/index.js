@@ -11,6 +11,7 @@ import {ensureAuthenticated} from '../middleware/auth';
 import * as epicArcs from './epic-arcs';
 import * as incursions from './incursions';
 import * as eveFitting from './efs';
+import * as tasks from './tasks';
 import * as warframeStatus from './warframe';
 
 const router = express.Router(),
@@ -28,6 +29,16 @@ export default function (app) {
   router.use('/api/get-all-ships', eveFitting.getAllShips);
   router.use('/api/get-all-skills', eveFitting.getAllSkills);
   router.use('/api/warframe', warframeStatus.getWarframeStatus);
+
+  // for time being, poor flag until we get user roles setup (to enable these
+  // routes, flip the env variable on server)
+  if (process.env.ESI_UPDATES_ENABLED === 'true') {
+    router.use('/tasks/generateShips', tasks.generateShips);
+    router.use('/tasks/updateMarket', tasks.updateMarket);
+    router.use('/tasks/updateInventory', tasks.updateInventory);
+    logger.appWarning('ESI tasks routes are loaded', 'red');
+  }
+
 
   router.use('*', serveStatic(frontendPublicPath));
   logger.appLog(`React build files from ${frontendPublicPath} loaded on '*' route`);
