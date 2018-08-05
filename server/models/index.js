@@ -10,6 +10,11 @@ import incursionMapModel from './incursion-map';
 import incursionsModel from './incursions';
 import warframeStatusModel from './warframe-status';
 
+import eveInvTypesModel from './eveInvTypes';
+import eveMarketGroupsModel from './eveMarketGroups';
+import eveShipsModel from './eveShips';
+import eveShipTypesModel from './eveShipTypes';
+
 function overwriteEntry(error, response, Model) {
   if (error) return;
   let data = JSON.parse(response.body);
@@ -48,13 +53,17 @@ let models = {};
 
 export default function (sequelize, silent) {
   models = {
-    Sessions:       sessionsModel(sequelize),
-    Users:          usersModel(sequelize),
-    Ships:          shipsModel(sequelize),
-    Skills:         skillsModel(sequelize),
-    IncursionMaps:  incursionMapModel(sequelize),
-    Incursions:     incursionsModel(sequelize),
-    WarframeStatus: warframeStatusModel(sequelize)
+    EveInvTypes:     eveInvTypesModel(sequelize),
+    EveMarketGroups: eveMarketGroupsModel(sequelize),
+    EveShips:   eveShipsModel(sequelize),
+    EveShipTypes:    eveShipTypesModel(sequelize),
+    Sessions:        sessionsModel(sequelize),
+    Users:           usersModel(sequelize),
+    Ships:           shipsModel(sequelize),
+    Skills:          skillsModel(sequelize),
+    IncursionMaps:   incursionMapModel(sequelize),
+    Incursions:      incursionsModel(sequelize),
+    WarframeStatus:  warframeStatusModel(sequelize)
   };
 
   return sequelize.sync().then(() => {

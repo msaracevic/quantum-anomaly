@@ -18,6 +18,10 @@ import routes from './routes';
 import database from './database';
 import models from './models';
 
+import eveGetInvTypes from './tasks/eve/get-inv-types';
+import eveGetMarketGroups from './tasks/eve/get-market-groups';
+import eveGenerateShips from './tasks/eve/generate-ships';
+
 import warframeAlerts from './app/mailer/warframe-alert-mailer';
 
 const PORT = process.env.PORT || 3000,
@@ -40,6 +44,10 @@ models(sequelize).then(models => {
 
   app.listen(PORT);
   logger.appLog('App started');
+
+  // eveGetInvTypes(models);
+  // eveGetMarketGroups(models);
+  // eveGenerateShips(models);
 
   if (process.env.NODE_ENV === 'production') {
     warframeAlerts();
