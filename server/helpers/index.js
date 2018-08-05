@@ -7,12 +7,12 @@ function request(options, callback, args) {
   if (!args) args = {options: options};
   remoteRequest(options, (error, response, body) => {
     if (!error) {
-      logger.action(`Request for ${options.url} got response`, [], 'gray');
+      logger.action(`Request for ${options.url} got response`, 'gray');
       callback(null, response, args);
     } else {
-      logger.action(`Failed to retrieve ${options.url}`, ['error']);
+      logger.error(`Failed to retrieve ${options.url}`);
       logger.inspect(error);
-      logger.action(`-----------------------`, ['error']);
+      logger.error(`-----------------------`);
       callback(error, response, args);
     }
   });

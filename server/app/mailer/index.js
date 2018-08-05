@@ -15,7 +15,7 @@ function createTransporter() {
 }
 
 function wrongDataProvided(error) {
-  logger.action(`Email sender: ${error}`, ['error']);
+  logger.error(`Email sender: ${error}`);
   return true;
 }
 
@@ -40,6 +40,6 @@ export default function (mail = {}, successMessage) {
   
   transporter.sendMail(mail, (error, info) => {
     if (error) return console.log(error);
-    logger.action(successMessage, [], 'magenta');
+    logger.action(successMessage, 'magenta');
   });
 }

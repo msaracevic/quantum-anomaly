@@ -28,7 +28,7 @@ Example:
 ```javascript
 export default function () {
   const sequelize = new Sequelize(process.env.DATABASE_URL);
-  logger.init('Database connection established');
+  logger.appLog('Database connection established');
   return modelsCollection.init(sequelize);
 };
 ```
