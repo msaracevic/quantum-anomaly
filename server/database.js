@@ -18,6 +18,7 @@ export default function () {
     },
     logging:        configuration.database.logging
   });
-  logger.init('Database connection established');
+
+  logger.appLog('Database connection established');
   return sequelize;
 };

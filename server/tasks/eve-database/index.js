@@ -14,7 +14,7 @@ function startMigration() {
   let rowsAdded = 0;
 
   const eveSequelize = new Sequelize(process.env.EVE_DATABASE_URL, {logging: false});
-  logger.init('EVE Database connection established');
+  logger.appLog('EVE Database connection established');
 
   let sequelize;
 
@@ -33,11 +33,11 @@ function startMigration() {
         acquire: 20000
       }
     });
-    logger.init('Database connection established');
+    logger.appLog('Database connection established');
     logger.log('YOU ARE CONNECTED TO LIVE DATABASE, BETTER NOT MESS THIS UP!', ['access'], 'red');
   } else {
     sequelize = new Sequelize(process.env.DATABASE_URL, {logging: false});
-    logger.init('Database connection established');
+    logger.appLog('Database connection established');
   }
 
   ships(eveSequelize, sequelize)

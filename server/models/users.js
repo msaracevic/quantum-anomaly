@@ -22,7 +22,7 @@ function findByEmail(email) {
 
 function login(user) {
   if (!user.emails.length) {
-    logger.action('Unauthorized login attempt - no email provided', ['error']);
+    logger.error('Unauthorized login attempt - no email provided');
     return {err: 'unauthorized'};
   }
 
@@ -35,18 +35,18 @@ function login(user) {
   return this.findByEmail(user.email)
     .then((userRecord) => {
       if (userRecord) {
-        logger.action(userRecord.email + ' logged in (group: ' + userRecord.userGroup + ')', ['access']);
+        logger.action(userRecord.email + ' logged in (group: ' + userRecord.userGroup + ')');
         return userRecord;
       } else {
         if (process.env.REGISTRATION === 'true') {
-          logger.action('Registering new user ' + user.email, ['userAction']);
+          logger.action('Registering new user ' + user.email);
           return this.create({
             name:      user.email.split('@')[0],
             userGroup: ['guest'],
             email:     user.email
           });
         } else {
-          logger.action('Unauthorized login attempt - registrations are disabled', ['error']);
+          logger.error('Unauthorized login attempt - registrations are disabled');
           return {err: 'unauthorized'};
         }
       }

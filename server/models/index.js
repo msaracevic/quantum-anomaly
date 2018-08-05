@@ -1,7 +1,7 @@
 import Sequelize from 'sequelize';
+import * as logger from '../helpers/logger';
 import * as helpers from '../helpers';
 
-import * as logger from '../helpers/logger';
 import sessionsModel from './sessions';
 import usersModel from './users';
 import shipsModel from './ships';
@@ -14,7 +14,7 @@ function overwriteEntry(error, response, Model) {
   if (error) return;
   let data = JSON.parse(response.body);
   if (data.error) {
-    logger.action(`Request was successful, but incoming data has error:  ${data.error}`, ['error']);
+    logger.error(`Request was successful, but incoming data has error:  ${data.error}`);
     return;
   }
 
@@ -41,7 +41,7 @@ function updateEntry(Model, modelName, timer) {
   setInterval(function () {
     helpers.request({url: urls[modelName]}, overwriteEntry, Model);
   }, timer * 60 * 1000);
-  logger.init(`Model ${modelName} started autoupdate every ${timer} minutes`, 'gray');
+  logger.appLog(`Model ${modelName} started autoupdate every ${timer} minutes`, 'gray');
 }
 
 let models = {};
@@ -58,7 +58,7 @@ export default function (sequelize, silent) {
   };
 
   return sequelize.sync().then(() => {
-    if (!silent) logger.init('Database models synced');
+    if (!silent) logger.appLog('Database models synced');
     updateEntry(models.Incursions, 'incursions', 10);
     updateEntry(models.WarframeStatus, 'warframeStatus', 3);
     return models;

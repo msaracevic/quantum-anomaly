@@ -28,7 +28,7 @@ function setupPassport() {
             if (!userRecord.err) {
               return done(null, userRecord);
             } else {
-              logger.action('Registration - something went wrong', ['error']);
+              logger.error('Registration - something went wrong');
               return done(userRecord.err, null);
             }
           });
@@ -67,7 +67,7 @@ function ensureAuthenticated(req, res, next) {
       }
     });
     if (!publicRoute) {
-      logger.access(req, 'Not allowed to access route', ['error']);
+      logger.error(req, 'Not allowed to access route');
       res.redirect('/');
     }
   }
@@ -120,7 +120,7 @@ export default function (app) {
 
   app.get('/logout', (req, res) => {
     if (req.user) {
-      logger.action(req.user.name + ' logged out', [], 'gray');
+      logger.action(req.user.name + ' logged out', 'gray');
     }
     req.logout();
     res.cookie('loggedIn', '', {expires: new Date(0)});
