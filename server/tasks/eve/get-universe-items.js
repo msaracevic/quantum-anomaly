@@ -1,5 +1,5 @@
 import axios from 'axios';
-import * as logger from '../../helpers/logger'
+import * as logger from '../../helpers/logger';
 import {models} from '../../models';
 
 const URLS = {
@@ -23,7 +23,7 @@ function getListOfIds(url, currentPage, arrayOfIds) {
         id:        type,
         createdAt: new Date(),
         updatedAt: new Date()
-      }
+      };
     });
   }).catch(function (error) {
     logger.error(`URL: ${url}&page=${currentPage}, ${error}`);
@@ -40,6 +40,25 @@ function getData(url, id, model) {
     });
   }).catch(function (error) {
     logger.error(`URL: ${url}, ${error}`);
+  });
+}
+
+export function updateNullData(table) {
+  let model,
+      dataUrl;
+
+  if (table === 'market') model = models.EveMarketGroups;
+  if (table === 'invTypes') model = models.EveInvTypes;
+
+  return model.findAll({where: {data: null}}).then(data => {
+    data.forEach((item, index) => {
+      setTimeout(() => {
+        if (table === 'market') dataUrl = `${URLS.groupsInfo}${item.id}${URLS.appendix}`;
+        if (table === 'invTypes') dataUrl = `${URLS.typesInfo}${item.id}${URLS.appendix}`;
+        getData(dataUrl, item.id, model);
+        logger.action(`Requesting ${dataUrl}`);
+      }, index * 50);
+    });
   });
 }
 
@@ -72,7 +91,7 @@ export default function (table) {
   }).then(() => {
     return model.destroy({truncate: true});
   }).then(() => {
-    logger.action(`Removed all items from ${label}`)
+    logger.action(`Removed all items from ${label}`);
   }).then(() => {
     return model.bulkCreate(arrayOfIds);
   }).then(() => {

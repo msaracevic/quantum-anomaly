@@ -35,7 +35,9 @@ export default function (app) {
   if (process.env.ESI_UPDATES_ENABLED === 'true') {
     router.use('/tasks/generateShips', tasks.generateShips);
     router.use('/tasks/updateMarket', tasks.updateMarket);
+    router.use('/tasks/updateMarketNull', tasks.updateMarketNull);
     router.use('/tasks/updateInventory', tasks.updateInventory);
+    router.use('/tasks/updateInventoryNull', tasks.updateInventoryNull);
     logger.appWarning('ESI tasks routes are loaded', 'red');
   }
 
