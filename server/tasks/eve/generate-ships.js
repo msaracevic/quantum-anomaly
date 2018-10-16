@@ -8,13 +8,13 @@ export default function () {
 
   return models.EveMarketGroups.findAll().then(marketGroups => {
     shipTypesBulk = marketGroups
-      .filter(marketGroup => marketGroup.dataValues.data.category_id === 6 && marketGroup.dataValues.data.published)
+      .filter(marketGroup => marketGroup.data.category_id === 6 && marketGroup.data.published)
       .map(marketGroup => {
-        shipIds = shipIds.concat(marketGroup.dataValues.data.types);
+        shipIds = shipIds.concat(marketGroup.data.types);
         return {
-          id:        marketGroup.dataValues.data.group_id,
-          name:      marketGroup.dataValues.data.name,
-          data:      marketGroup.dataValues.data.types,
+          id:        marketGroup.data.group_id,
+          name:      marketGroup.data.name,
+          data:      marketGroup.data.types,
           createdAt: new Date(),
           updatedAt: new Date()
         };
@@ -27,8 +27,8 @@ export default function () {
       models.EveInvTypes.find({
         where: {id: id}
       }).then(ship => {
-        if (ship) {
-          return ship.dataValues.data;
+        if (ship && ship.data.published) {
+          return ship.data;
         } else {
           return null;
         }

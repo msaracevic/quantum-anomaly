@@ -1,0 +1,164 @@
+@mixin racial-colors {
+  &--grineer {
+    background: #CC0000;
+  }
+  &--infestation {
+    background: #006600;
+  }
+  &--corpus {
+    background: #000099;
+  }
+}
+
+.tabs {
+  padding: 1rem;
+  margin-bottom: 0;
+}
+
+.warframe {
+  &__columns {
+    @include make-flex();
+  }
+
+  &__column {
+    @include flex-grid(45%, 45%, 45%, 100%);
+    @include media-breakpoint-up(sm) {
+      max-width: 45%;
+    }
+    margin: 0 0 1.5rem;
+  }
+
+  &__seperator {
+    padding: $base-padding;
+  }
+  
+  &__fissure-endless {
+    color: green;
+  }
+  
+  &__sortie-mission {
+    margin-top: 1rem;
+    flex: 0 0 100%;
+    @include media-breakpoint-up(md) {
+      flex: 0 0 30%;
+    }
+  }
+
+  &__header {
+    font-size: large;
+    margin-bottom: 0.3rem;
+    margin-top: 0;
+    &:first-letter {
+      text-transform: capitalize;
+    }
+    &--small {
+      margin-bottom: 0;
+    }
+  }
+
+  &__small {
+    margin-bottom: 0.1rem;
+  }
+
+  &__reward {
+    list-style-type: disc;
+    margin-left: 1.3rem;
+  }
+
+  &__invasion {
+    height: 10px;
+    width: 100%;
+    border: 1px solid black;
+    position: relative;
+    background: rgba(gray, 0.1);
+    margin: 0 0.5rem 0 0;
+    @include racial-colors;
+  }
+
+  &__invasion-zero {
+    position: absolute;
+    width: 2px;
+    background: white;
+    height: 5px;
+    transform: translate(-50%, 2px);
+    left: 50%;
+  }
+
+  &__invasion-current {
+    height: 10px;
+    border: 1px solid black;
+    position: absolute;
+    display: inline-block;
+    left: 0;
+    transform: translate(-1px, -1px);
+    @include racial-colors;
+  }
+  
+  &__invasion-factions {
+    display: flex;
+    margin-top: 0.3rem;
+    justify-content: space-between;
+  }
+
+  &__invasion-faction {
+    flex: 0 0 45%;
+    max-width: 45%;
+    &:nth-child(even) {
+      text-align: right;
+    }
+  }
+  
+  &__invasion-reward {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  
+  &__icons {
+    padding-left: 1.1rem;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: -0.1rem 0;
+    &--day {
+      background-image: url("/images/day.svg");
+    }
+    &--night {
+      background-image: url("/images/night.svg");
+    }
+  }
+
+  &__planets {
+    @include make-flex();
+    justify-content: flex-start;
+  }
+
+  &__planet {
+    flex: 0 0 180px;
+    margin: 0 0 1.5rem;
+  }
+
+  &__resource {
+    display: flex;
+    align-items: center;
+    img {
+      width: 24px;
+      height: 24px;
+      margin-right: 0.3rem;
+      display: inline-block;
+    }
+  }
+  
+  &__update-info {
+    @extend .disclaimer;
+    position: absolute;
+    bottom: 0.3rem;   
+    left: 0;
+    right: 0;
+    padding: 0 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    // for time being
+    display: none;
+  }
+}

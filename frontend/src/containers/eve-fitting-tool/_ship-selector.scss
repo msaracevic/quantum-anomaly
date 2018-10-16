@@ -1,0 +1,29 @@
+.ship-selector {
+  padding: 1rem;
+
+  &__form {
+    width: 240px;
+  }
+
+  &__ships {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__ship {
+    flex: 0 0 128px;
+    box-shadow: 1px 1px 3px gray;
+    border-radius: 5px;
+    margin: 0 0.4rem 0.4rem;
+    text-align: center;
+    &:hover {
+      background: rgba(gray, 0.2);
+    }
+  }
+
+  &__ship-image {
+    display: inline-block;
+    border-radius: 5px 5px 0 0;
+    width: 128px;
+  }
+}

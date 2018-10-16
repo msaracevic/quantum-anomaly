@@ -1,0 +1,30 @@
+.home {
+  $block: 'home';
+  padding: 1rem;
+
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__link {
+    display: block;
+    color: black;
+    flex: 0 0 320px;
+    box-shadow: 1px 1px 3px gray;
+    border-radius: 5px;
+    padding: 0.5rem;
+    margin: 0 0.4rem 0.4rem;
+    &:hover {
+      background: rgba(gray, 0.1);
+    }
+    // escape for transparent image backgrounds
+    img {
+      background: black;
+    }
+  }
+
+  &__link-label {
+    margin: 0.3rem 0;
+  }
+}

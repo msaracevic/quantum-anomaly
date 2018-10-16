@@ -1,0 +1,95 @@
+.incursions {
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.incursion {
+  margin-bottom: 2rem;
+  flex: 0 0 100%;
+  @include media-breakpoint-up(md) {
+    flex: 0 0 48%;
+  }
+
+  &__header {
+    display: flex;
+    align-content: center;
+    @include paddless-header;
+    padding: 0.5rem 0;
+  }
+
+  &__header-image {
+    flex: 0 0 42px;
+    margin-right: 0.7rem;
+    img {
+      display: block;
+    }
+  }
+
+  &__toggle {
+    float: right;
+  }
+}
+
+.incursion-info {
+  @include box;
+
+  &__label {
+    @include box__label (80px);
+  }
+
+  &__value {
+    @include box__value;
+  }
+}
+
+$base-cell-width: 3.5rem;
+.systems {
+  padding: 0.5rem 0;
+  &__header {
+    background-color: rgba(200, 200, 200, 0.4);
+    font-weight: bold;
+    display: flex;
+  }
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #FFFFFF;
+    &:nth-of-type(even) {
+      background-color: rgba(200, 200, 200, 0.2);
+    }
+  }
+
+  &__cell {
+    margin: 0.3rem;
+    flex: 0 0 $base-cell-width;
+    text-align: center;
+
+    &--name {
+      text-align: left;
+      flex: 1 0 auto;
+    }
+
+    &--stations {
+      font-size: smaller;
+      flex: 0 0 100%;
+      text-align: left;
+      padding: 0 0 0.3rem 4.8rem;
+      margin: 0;
+      &--hidden {
+        display: none;
+      }
+    }
+
+    &--hidden {
+      display: none;
+    }
+  }
+
+  &__station {
+    margin: 0 0;
+    padding: 0.1rem 0.3rem;
+  }
+}

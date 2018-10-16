@@ -6,7 +6,8 @@ import * as logger from './helpers/logger';
 export default function () {
   const sequelize = new Sequelize(process.env.DATABASE_URL, {
     dialectOptions: {
-      timeout: 30
+      timeout: 30,
+      // ssl: true
     },
     operatorsAliases: Sequelize.Op,
     pool:           {

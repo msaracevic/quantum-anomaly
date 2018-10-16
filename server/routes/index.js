@@ -11,6 +11,7 @@ import {ensureAuthenticated} from '../middleware/auth';
 import * as epicArcs from './epic-arcs';
 import * as incursions from './incursions';
 import * as eveFitting from './efs';
+import * as eveFittingSimulator from './eve-fitting-simulator';
 import * as tasks from './tasks';
 import * as warframeStatus from './warframe';
 
@@ -29,6 +30,9 @@ export default function (app) {
   router.use('/api/get-all-ships', eveFitting.getAllShips);
   router.use('/api/get-all-skills', eveFitting.getAllSkills);
   router.use('/api/warframe', warframeStatus.getWarframeStatus);
+
+  router.use('/api/eve-fitting-simulator/group', eveFittingSimulator.getShipGroup);
+  router.use('/api/eve-fitting-simulator/groups', eveFittingSimulator.getShipGroups);
 
   // for time being, poor flag until we get user roles setup (to enable these
   // routes, flip the env variable on server)

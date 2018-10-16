@@ -1,0 +1,111 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+a:hover, a:visited, a:link, a:active {
+  text-decoration: none;
+}
+
+button:focus {
+  outline: 0;
+}
+
+body {
+  max-width: $base-max-width;
+  min-width: 320px;
+  position: relative;
+  background: lightgrey;
+  margin: 0 auto;
+  font-family: "Helvetica", "Arial", sans-serif;
+  font-size: $base-font-size;
+}
+
+.page-content-main {
+  display: block;
+  position: relative;
+  max-width: $base-max-width;
+  min-height: calc(100vh - calc(#{$navbar-height} + #{$base-padding-v} * 2));
+  background: $base-background;
+}
+
+.long-text {
+  max-width: 600px;
+}
+
+.spacer {
+  width: 100%;
+  flex: 0 0 100%;
+  border: none;
+  padding: 1rem;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  background-color: #FFFFFF;
+  td, th {
+    padding: 0.3rem;
+    &.number {
+      text-align: right;
+    }
+    &.center {
+      text-align: center;
+    }
+  }
+  thead {
+    tr {
+      background-color: rgba(200, 200, 200, 0.4);
+    }
+    th {
+      text-align: left;
+      font-weight: bold;
+    }
+  }
+  tbody {
+    tr {
+      background-color: #FFFFFF;
+      &:nth-of-type(even) {
+        background-color: rgba(200, 200, 200, 0.2);
+      }
+    }
+  }
+}
+
+// Prolly needs to go away at one point...
+.columns {
+  @include make-flex();
+}
+
+.column {
+  flex: 0 0 48%;
+  &--label {
+    flex: 0 1 auto;
+  }
+  &--value {
+    flex: 1 0 auto;
+  }
+  &:nth-of-type(even) {
+    text-align: right;
+  }
+}
+
+.box {
+  @include box;
+}
+
+.box__label {
+  @include box__label(100px);
+}
+
+.box__value {
+  @include box__value;
+}

@@ -1,25 +1,26 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import Header from './componentsCommon/Header';
-import Footer from './componentsCommon/Footer';
-import UnderConstruction from './componentsCommon/UnderConstruction';
-import NotFound from './componentsCommon/NotFound';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import UnderConstruction from './components/UnderConstruction';
+import NotFound from './components/NotFound';
 
-import Home from './components/Home/';
-import EfsShips from './components/Efs/Ships/';
-import Skills from './components/Efs/Skills/';
-import OverviewEpicArcs from './components/EpicArcs/';
-import Incursions from './components/Incursions/';
-import Warframe from './components/Warframe/';
+import Home from './components/Home';
+import ShipSelector from './containers/eve-fitting-tool/ShipSelector';
+
+import Skills from './containers/legacy/Efs/Skills/';
+import OverviewEpicArcs from './containers/legacy/EpicArcs/';
+import Incursions from './containers/legacy/Incursions/';
+import Warframe from './containers/legacy/Warframe/';
 
 const App = () => (
-  <div>
+  <React.Fragment>
     <Header />
     <main className="page-content-main">
       <Switch>
         <Route exact path='/' component={Home}/>
-        <Route path='/efs-ships' component={EfsShips}/>
+        <Route path='/eve-fitting-simulator' component={ShipSelector}/>
         <Route path='/efs-fitting-screen/:shipID' component={UnderConstruction}/>
         <Route path='/skills' component={Skills}/>
         <Route path='/epic-arcs/:faction' component={OverviewEpicArcs}/>
@@ -30,7 +31,7 @@ const App = () => (
       </Switch>
     </main>
     <Footer />
-  </div>
+  </React.Fragment>
 );
 
 export default App;

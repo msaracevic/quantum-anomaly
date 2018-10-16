@@ -1,0 +1,71 @@
+$form-padding: 0.5rem 1rem;
+
+.form {
+  $block: '.form';
+  display: block;
+  width: 100%;
+  text-align: center;
+
+  input, textarea, select {
+    width: 100%;
+    padding: 1.4rem 1rem 0.7rem;
+    font-size: 14px;
+    font-family: "Helvetica", "Arial", sans-serif;
+    box-shadow: 0 0 2px black;
+    border: none;
+    margin: 0.3rem 0;
+    border-radius: 5px;
+    background-color: white;
+    outline: none;
+  }
+
+  &__control {
+    position: relative;
+  }
+
+  &__control-label {
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    top: 0.7rem;
+    pointer-events: none;
+    text-align: left;
+    font-size: 13px;
+    line-height: 13px;
+    opacity: 0.6;
+  }
+
+  select {
+    box-shadow: 0 0 2px black;
+    border: none;
+    vertical-align: top;
+    height: 50px;
+    padding: 0.6rem 0.7rem 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+  }
+
+  &__control-buttons {
+    display: flex;
+    justify-content: center;
+    .btn {
+      margin: 0.5rem;
+    }
+  }
+
+  &__error {
+    font-size: 0.8rem;
+    margin: 0.4rem 0;
+    color: red;
+  }
+
+  button {
+    margin: 0.5rem 0;
+  }
+
+  &--short {
+    max-width: 300px;
+  }
+}
+
