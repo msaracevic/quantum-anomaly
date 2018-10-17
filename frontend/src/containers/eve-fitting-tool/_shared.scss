@@ -1,0 +1,39 @@
+.tech-level {
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 24px;
+    width: 24px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+  }
+  @for $i from 0 through 4 {
+    &--#{$i} {
+      &:before {
+        background-image: url('/images/eve/icons/73_16_241.png');
+      }
+    }
+  }
+  &--5 {
+    &:before {
+      background-image: url('/images/eve/icons/73_16_242.png');
+    }
+  }
+  @for $i from 6 through 12 {
+    &--#{$i} {
+      &:before {
+        background-image: url('/images/eve/icons/73_16_246.png');
+      }
+    }
+  }
+  &--9 {
+    &:before {
+      background-image: url('/images/eve/icons/73_16_248.png');
+    }
+  }
+}

@@ -4,8 +4,6 @@
 @import "_styles/mixins/breakpoints";
 @import "_styles/mixins/grid";
 
-@import "_styles/vendor/press/press";
-
 @import "_styles/base-layout";
 @import "_styles/base-ui-messages";
 @import "_styles/base-typography";
@@ -19,7 +17,9 @@
 @import "components/tabs";
 
 @import "components/home";
+@import "containers/eve-fitting-tool/shared";
 @import "containers/eve-fitting-tool/ship-selector";
+@import "containers/eve-fitting-tool/ship-view";
 
 @import "containers/legacy/Efs/Ships/ships";
 @import "containers/legacy/EpicArcs/epicArcs";

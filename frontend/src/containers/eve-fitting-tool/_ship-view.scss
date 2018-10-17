@@ -1,0 +1,20 @@
+.ship-view {
+  padding: 1rem;
+  &__header {
+    display: flex;
+  }
+
+  &__ship-image {
+    flex: 0 0 128px;
+    margin-right: 1rem;
+    img {
+      display: block;
+      border-radius: 5px;
+      box-shadow: 1px 1px 3px gray;
+    }
+  }
+
+  &__header-info {
+    flex: 1 0 auto;
+  }
+}

@@ -1,10 +1,7 @@
-$baseFontSize: 1rem;
-$baseLineHeight: 1.3;
-
 body {
-  font-family: 'Lato', 'Helvetica','Verdana','Arial' sans-serif;
+  font-family: 'Lato', 'Helvetica','Verdana','Arial', sans-serif;
   font-size: 1rem;
-  line-height: 1.3;
+  line-height: 1.2;
 }
 
 p {
@@ -82,3 +79,13 @@ h6 {
 .a:visited { color: #00c }  /* visited links   */
 .a:hover   { color: #06e }  /* user hovers     */
 .a:active  { color: #00c }  /* active links    */
+
+.link {
+  &--secondary {
+    text-decoration: underline;
+    color: #999;
+    &:hover {
+      color: #444;
+    }
+  }
+}

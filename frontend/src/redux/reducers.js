@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
-import shipSelectorReducer from './shipSelectorReducer'
+import eveFittingSimulatorReducer from './eveFittingSimulatorReducer'
 
 export default combineReducers({
-  shipSelectorReducer
+  eveFittingSimulatorReducer
 });

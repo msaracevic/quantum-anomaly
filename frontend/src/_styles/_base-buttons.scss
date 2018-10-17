@@ -1,23 +1,40 @@
-.press {
-  @include press(false);
-}
-
 .btn {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0.5em 0.75em;
   min-width: 100px;
-  @extend .press;
-  @extend .press-sm;
-
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s linear;
+  display: inline-block;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  
   &--cta {
-    background: white;
-    @extend .btn;
-    @extend .press-black;
-    @extend .press-sm;
-    @extend .press-ghost;
+    
   }
 
+  &--secondary {
+    color: white;
+    background-color: gray;
+    border: 2px solid gray;
+  }
+  
+  &--back {
+    &:before {
+      // content: '\2190';
+      content: '\21E6';
+      padding-right: 4px;
+    }
+  }
+
+
   &--cancel {
-    @extend .press-deeporange;
-    @extend .press-ghost;
+  }
+
+
+  &--seperated {
+    margin-bottom: 1rem;
   }
 
   &--small {

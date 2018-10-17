@@ -2,7 +2,6 @@ export default function reducer(state = {shipGroups: null, groupInfo: null}, act
   switch (action.type) {
     case 'FETCH_SHIP_GROUPS': {
       return {
-        ...state,
         shipGroups: action.payload
       };
     }
@@ -10,6 +9,13 @@ export default function reducer(state = {shipGroups: null, groupInfo: null}, act
       return {
         ...state,
         activeGroupInfo: action.payload
+      };
+    }
+    case 'FETCH_SHIP': {
+      return {
+        ...state,
+        ...action.payload,
+        shipFetched: true
       };
     }
     default: {

@@ -15,3 +15,11 @@ export function fetchShipGroup(id) {
       .catch(err => console.log(err));
   };
 }
+
+export function fetchShip(id) {
+  return (dispatch) => {
+    return axios.post('/api/eve-fitting-simulator/ship', {id: id})
+      .then(response => dispatch({type: 'FETCH_SHIP', payload: response.data}))
+      .catch(err => console.log(err));
+  };
+}

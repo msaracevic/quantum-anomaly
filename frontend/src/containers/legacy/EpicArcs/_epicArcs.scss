@@ -120,9 +120,7 @@
   }
   &__control {
     @extend .btn;
-    @extend .press-black;
-    @extend .press-sm;
-    @extend .press-ghost;
+    @extend .btn--secondary;
     min-width: auto;
     margin-right: 5px;
     padding: 1px 7px;

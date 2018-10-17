@@ -5,7 +5,14 @@
     width: 240px;
   }
 
+  &__name {
+    font-size: 1.1rem;
+    line-height: 1.1;
+    margin: 0.3rem 0;
+  }
+
   &__ships {
+    margin-top: 1rem;
     display: flex;
     flex-wrap: wrap;
   }
@@ -14,16 +21,19 @@
     flex: 0 0 128px;
     box-shadow: 1px 1px 3px gray;
     border-radius: 5px;
-    margin: 0 0.4rem 0.4rem;
+    margin: 0 0.5rem 0.5rem;
     text-align: center;
+    color: black;
     &:hover {
       background: rgba(gray, 0.2);
     }
   }
 
   &__ship-image {
-    display: inline-block;
-    border-radius: 5px 5px 0 0;
     width: 128px;
+    img {
+      display: block;
+      border-radius: 5px 5px 0 0;
+    }
   }
 }

@@ -21,6 +21,21 @@ $form-padding: 0.5rem 1rem;
 
   &__control {
     position: relative;
+
+    &--select {
+      &:after {
+        content: '';
+        width: 0;
+        height: 0;
+        position: absolute;
+        right: 0.5rem;
+        top: 50%;
+        transform: translate(0, -50%);
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-top: 8px solid #9C9C9C;
+      }
+    }
   }
 
   &__control-label {
@@ -40,10 +55,12 @@ $form-padding: 0.5rem 1rem;
     border: none;
     vertical-align: top;
     height: 50px;
-    padding: 0.6rem 0.7rem 0;
+    padding: 0.6rem 1rem 0;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
   }
 
   &__control-buttons {
