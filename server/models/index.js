@@ -10,8 +10,13 @@ import incursionMapModel from './incursion-map';
 import incursionsModel from './incursions';
 import warframeStatusModel from './warframe-status';
 
-import eveInvTypesModel from './eveInvTypes';
-import eveMarketGroupsModel from './eveMarketGroups';
+// Data which get filled from EVE API
+import eveTypesModel from './eveTypes';
+import eveGroupsModel from './eveGroups';
+import eveDogmaAttributesModel from './eveDogmaAttributes';
+import eveDogmaEffectsModel from './eveDogmaEffects';
+
+// Custom data which gets created afterwards
 import eveShipsModel from './eveShips';
 import eveShipTypesModel from './eveShipTypes';
 
@@ -59,17 +64,19 @@ let models = {};
 
 export default function (sequelize, silent) {
   models = {
-    EveInvTypes:     eveInvTypesModel(sequelize),
-    EveMarketGroups: eveMarketGroupsModel(sequelize),
-    EveShips:        eveShipsModel(sequelize),
-    EveShipTypes:    eveShipTypesModel(sequelize),
-    Sessions:        sessionsModel(sequelize),
-    Users:           usersModel(sequelize),
-    Ships:           shipsModel(sequelize),
-    Skills:          skillsModel(sequelize),
-    IncursionMaps:   incursionMapModel(sequelize),
-    Incursions:      incursionsModel(sequelize),
-    WarframeStatus:  warframeStatusModel(sequelize)
+    EveTypes:           eveTypesModel(sequelize),
+    EveGroups:          eveGroupsModel(sequelize),
+    EveDogmaAttributes: eveDogmaAttributesModel(sequelize),
+    EveDogmaEffects:    eveDogmaEffectsModel(sequelize),
+    EveShips:           eveShipsModel(sequelize),
+    EveShipTypes:       eveShipTypesModel(sequelize),
+    Sessions:           sessionsModel(sequelize),
+    Users:              usersModel(sequelize),
+    Ships:              shipsModel(sequelize),
+    Skills:             skillsModel(sequelize),
+    IncursionMaps:      incursionMapModel(sequelize),
+    Incursions:         incursionsModel(sequelize),
+    WarframeStatus:     warframeStatusModel(sequelize)
   };
 
   return sequelize.sync().then(() => {

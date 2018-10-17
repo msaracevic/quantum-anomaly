@@ -1,5 +1,5 @@
 export default function (sequelize) {
-  return sequelize.define('EveInvTypes', {
+  return sequelize.define('EveGroups', {
     id:   {
       type:       sequelize.Sequelize.INTEGER,
       primaryKey: true

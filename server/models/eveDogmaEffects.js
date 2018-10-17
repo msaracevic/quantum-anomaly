@@ -1,5 +1,5 @@
 export default function (sequelize) {
-  return sequelize.define('EveMarketGroups', {
+  return sequelize.define('EveDogmaEffects', {
     id:   {
       type:       sequelize.Sequelize.INTEGER,
       primaryKey: true
