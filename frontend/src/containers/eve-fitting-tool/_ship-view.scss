@@ -17,4 +17,59 @@
   &__header-info {
     flex: 1 0 auto;
   }
+
+  &__title {
+    margin: 0 0 0.3rem;
+  }
+
+}
+
+.fitting {
+  display: flex;
+  margin-top: 1rem;
+  overflow-x: auto;
+
+  &__equipment {
+    flex: 0 0 250px;
+  }
+
+  &__equipment {
+    flex: 0 0 250px;
+  }
+
+  &__slots {
+    flex: 1 0 auto;
+    min-width: 600px;
+    margin: 0 1rem;
+  }
+
+  &__stats {
+    flex: 0 0 300px;
+  }
+
+  &__title {
+    margin: 1rem 0;
+    &--small {
+      margin-bottom: 0.3rem !important;
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  &__attribute {
+    position: relative;
+    margin-left: 24px;
+    margin-right: 16px;
+    display: inline-block;
+  }
+
+  &__icon {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    left: -22px;
+  }
 }
