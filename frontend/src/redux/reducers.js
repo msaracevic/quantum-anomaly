@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
-import eveFittingSimulatorReducer from './eveFittingSimulatorReducer'
+import efsReducer from './efsReducer'
 
 export default combineReducers({
-  eveFittingSimulatorReducer
+  efsReducer
 });

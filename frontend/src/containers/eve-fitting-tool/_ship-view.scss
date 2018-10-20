@@ -2,6 +2,7 @@
   padding: 1rem;
   &__header {
     display: flex;
+    margin: 1rem 0 0;
   }
 
   &__ship-image {
@@ -19,23 +20,19 @@
   }
 
   &__title {
-    margin: 0 0 0.3rem;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
   }
 
+  &__description {
+    max-width: 600px;
+  }
 }
 
 .fitting {
   display: flex;
   margin-top: 1rem;
   overflow-x: auto;
-
-  &__equipment {
-    flex: 0 0 250px;
-  }
-
-  &__equipment {
-    flex: 0 0 250px;
-  }
 
   &__slots {
     flex: 1 0 auto;

@@ -20,16 +20,32 @@ body {
   position: relative;
   background: lightgrey;
   margin: 0 auto;
-  font-family: "Helvetica", "Arial", sans-serif;
-  font-size: $base-font-size;
+}
+
+.page-content-header {
+  position: relative;
+  max-width: $base-max-width;
+  z-index: 10;
 }
 
 .page-content-main {
   display: block;
   position: relative;
   max-width: $base-max-width;
-  min-height: calc(100vh - calc(#{$navbar-height} + #{$base-padding-v} * 2));
+  min-height: calc(100vh - calc(#{$navbar-height} + #{$footer-height}));
   background: $base-background;
+}
+
+.page-content-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: $footer-height;
+  font-size: 10px;
+  text-align: center;
+  background-color: black;
+  color: white;
 }
 
 .long-text {

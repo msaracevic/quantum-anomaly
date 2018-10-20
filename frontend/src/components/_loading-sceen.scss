@@ -1,0 +1,21 @@
+.loading-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  font-size: large;
+  animation: fadeInFromNone 1.2s ease-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes fadeInFromNone {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}

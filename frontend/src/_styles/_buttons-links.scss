@@ -11,7 +11,6 @@
   font-size: 0.8rem;
   
   &--cta {
-    
   }
 
   &--secondary {
@@ -19,19 +18,9 @@
     background-color: gray;
     border: 2px solid gray;
   }
-  
-  &--back {
-    &:before {
-      // content: '\2190';
-      content: '\21E6';
-      padding-right: 4px;
-    }
-  }
-
 
   &--cancel {
   }
-
 
   &--seperated {
     margin-bottom: 1rem;
@@ -50,5 +39,20 @@
   &--center {
     margin: 0 auto;
     display: block;
+  }
+}
+
+.a:link    { color: #00c }  /* unvisited links */
+.a:visited { color: #00c }  /* visited links   */
+.a:hover   { color: #06e }  /* user hovers     */
+.a:active  { color: #00c }  /* active links    */
+
+.link {
+  &--secondary {
+    text-decoration: underline;
+    color: #999;
+    &:hover {
+      color: #444;
+    }
   }
 }

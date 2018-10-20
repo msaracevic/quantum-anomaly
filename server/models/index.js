@@ -18,7 +18,7 @@ import eveDogmaEffectsModel from './eveDogmaEffects';
 
 // Custom data which gets created afterwards
 import eveShipsModel from './eveShips';
-import eveShipTypesModel from './eveShipTypes';
+import eveShipGroupsModel from './eveShipGroups';
 
 function overwriteEntry(error, response, Model) {
   if (error) return;
@@ -69,7 +69,7 @@ export default function (sequelize, silent) {
     EveDogmaAttributes: eveDogmaAttributesModel(sequelize),
     EveDogmaEffects:    eveDogmaEffectsModel(sequelize),
     EveShips:           eveShipsModel(sequelize),
-    EveShipTypes:       eveShipTypesModel(sequelize),
+    EveShipGroups:      eveShipGroupsModel(sequelize),
     Sessions:           sessionsModel(sequelize),
     Users:              usersModel(sequelize),
     Ships:              shipsModel(sequelize),

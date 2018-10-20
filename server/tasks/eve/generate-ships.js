@@ -56,11 +56,14 @@ export default function () {
     // after all this information is avaiable, go back to the ship groups
     // and attach real ship name to each ID, so we end up with options to later
     // search ships via ID or by name
-    shipGroupsBulk.forEach(shipType => {
-      shipType.data = shipType.data.map(id => {
+    shipGroupsBulk.forEach(shipGroup => {
+      shipGroup.data = shipGroup.data.map(id => {
         let shipName = null;
         shipsBulk.forEach(ship => {
-          if (ship.id === id) shipName = ship.name;
+          if (ship.id === id) {
+            shipName = ship.name;
+            ship.data.group_name = shipGroup.name;
+          }
         });
         if (shipName) {
           return {
@@ -73,10 +76,10 @@ export default function () {
       }).filter(data => data !== null);
     });
   }).then(() => {
-    return models.EveShipTypes.destroy({truncate: true});
+    return models.EveShipGroups.destroy({truncate: true});
   }).then(() => {
     logger.action(`Creating ${shipGroupsBulk.length} groups of ships`);
-    return models.EveShipTypes.bulkCreate(shipGroupsBulk);
+    return models.EveShipGroups.bulkCreate(shipGroupsBulk);
   }).then(() => {
     return models.EveShips.destroy({truncate: true});
   }).then(() => {

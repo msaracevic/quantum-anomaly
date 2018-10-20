@@ -1,20 +1,34 @@
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  eve-md: 610px,
+  eve-lg: 1210px
+) !default;
+
+$base-max-width: 1440px;
+$base-background: white;
+$footer-height: 2rem;
+$navbar-height: 3rem;
+
 @import "_styles/reset";
-@import "_styles/variables";
 
 @import "_styles/mixins/breakpoints";
 @import "_styles/mixins/grid";
 
-@import "_styles/base-layout";
-@import "_styles/base-ui-messages";
-@import "_styles/base-typography";
-@import "_styles/base-buttons";
+@import "_styles/layout";
+@import "_styles/ui-messages";
+@import "_styles/typography";
+@import "_styles/buttons-links";
 @import "_styles/forms";
 
-@import "components/header";
-@import "components/footer";
+@import "components/navigation";
 @import "components/cookies";
 @import "components/time";
 @import "components/tabs";
+@import "components/loading-sceen";
 
 @import "components/home";
 @import "containers/eve-fitting-tool/shared";

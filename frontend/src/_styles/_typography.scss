@@ -1,6 +1,6 @@
 body {
-  font-family: 'Lato', 'Helvetica','Verdana','Arial', sans-serif;
-  font-size: 1rem;
+  font-family: 'Arial', sans-serif;
+  font-size: 14px;
   line-height: 1.2;
 }
 
@@ -73,19 +73,4 @@ h6 {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.a:link    { color: #00c }  /* unvisited links */
-.a:visited { color: #00c }  /* visited links   */
-.a:hover   { color: #06e }  /* user hovers     */
-.a:active  { color: #00c }  /* active links    */
-
-.link {
-  &--secondary {
-    text-decoration: underline;
-    color: #999;
-    &:hover {
-      color: #444;
-    }
-  }
 }
