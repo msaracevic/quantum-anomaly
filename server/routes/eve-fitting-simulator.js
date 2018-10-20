@@ -5,7 +5,7 @@ import units from '../app/eve-fitting-simulator/units';
 import * as logger from '../helpers/logger';
 
 export function getShipGroups(req, res) {
-  models.EveShipTypes.findAll({
+  models.EveShipGroups.findAll({
     order: ['name']
   }).then(data => res.json(data.map(data => {
     return {id: data.id, name: data.name};
@@ -13,35 +13,43 @@ export function getShipGroups(req, res) {
 }
 
 export function getShipGroup(req, res) {
-  models.EveShipTypes.findOne({
-    where: {
-      id: req.body.id
-    }
-  }).then(group => Promise.all(
-    group.data.map(ship =>
+  let groupInfo = null;
+
+  models.EveShipGroups.findOne({
+    where: {id: req.body.id}
+  }).then(group => {
+    groupInfo = group;
+    return Promise.all(group.data.map(ship =>
       models.EveShips.findOne({
         where: {id: ship.id}
       }).then(ship => {
         return {
           name:       ship.data.name,
           type_id:    ship.data.type_id,
-          meta_level: ship.data.dogma_attributes.filter(attribute => attribute.attribute_id === 633)[0].value
+          meta_level: ship.data.dogma_attributes
+                        .filter(attribute => attribute.attribute_id === 633)[0].value
         };
       }))
-  )).then(data => {
-    data.sort(dynamicSortMultiple('meta_level', 'name'));
-    res.json(data);
+    );
+  }).then(ships => {
+    ships.sort(dynamicSortMultiple('meta_level', 'name'));
+    res.json({
+      name:  groupInfo.name,
+      id:    groupInfo.id,
+      ships: ships
+    });
   });
 }
 
 export function getShip(req, res) {
-  let shipData = null;
+  let shipData  = null,
+      groupInfo = null;
+
   models.EveShips.findOne({
-    where: {
-      id: req.body.id
-    }
+    where: {id: req.body.id}
   }).then(ship => {
     shipData = ship.data;
+
     shipData.dogmaAttributesNamed = {};
     // for each dogma attribute we need name and unit if it has it
     // keep the originals intact and create new object where we can reference

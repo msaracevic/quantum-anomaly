@@ -1,7 +1,7 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom';
 
-import Header from './components/Header';
+import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 // import UnderConstruction from './components/UnderConstruction';
 import NotFound from './components/NotFound';
@@ -17,7 +17,9 @@ import Warframe from './containers/legacy/Warframe/';
 
 const App = () => (
   <React.Fragment>
-    <Header />
+    <header className="page-content-header">
+      <Navigation />
+    </header>
     <main className="page-content-main">
       <Switch>
         <Route exact path='/' component={Home} />
@@ -31,7 +33,9 @@ const App = () => (
         <Route path="*" component={NotFound} />
       </Switch>
     </main>
-    <Footer />
+    <footer className="page-content-footer">
+      <Footer />
+    </footer>
   </React.Fragment>
 );
 

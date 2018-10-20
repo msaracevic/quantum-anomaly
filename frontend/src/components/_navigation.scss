@@ -1,0 +1,84 @@
+$navbar-background: black;
+$navbar-color: #ccc;
+$navbar-color-hover: #fff;
+$navbar-breakpoint: lg;
+
+.navigation {
+  display: flex;
+  flex-wrap: wrap;
+  background: $navbar-background;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+  color: $navbar-color-hover;
+  height: $navbar-height;
+  padding: 0 1rem;
+  align-items: center;
+
+  a, a:link, a:visited, a:active {
+    color: $navbar-color;
+  }
+
+  a:hover {
+    color: $navbar-color-hover;
+  }
+
+  &__title {
+    font-size: 18px;
+    text-transform: uppercase;
+    a {
+      color: $navbar-color-hover !important;
+    }
+  }
+
+  &__content {
+    display: none;
+    @include absolute($navbar-height, 0, auto, 0);
+  }
+
+  &__link {
+    padding: 0 1rem;
+    display: block;
+  }
+
+  &__mobile {
+    &:before {
+      display: block;
+      margin-right: 1rem;
+      font-size: 18px;
+      color: $navbar-color-hover;
+      content: '\2630';
+      cursor: pointer;
+    }
+  }
+
+  &--visible {
+    @include media-breakpoint-down(md) {
+      .navigation__content {
+        display: block;
+        border-top: 1px solid $navbar-color;
+        padding: 0.5rem 1rem;
+        background: rgba($navbar-background, 0.90);
+        .navigation__link {
+          padding: 0.5rem 1rem;
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-up($navbar-breakpoint) {
+    &__title {
+      flex: 0 0 auto;
+    }
+
+    &__content {
+      display: flex;
+      flex-wrap: wrap;
+      position: static;
+      flex: 1 1 auto;
+      justify-content: flex-end;
+    }
+
+    &__mobile {
+      display: none;
+    }
+  }
+}

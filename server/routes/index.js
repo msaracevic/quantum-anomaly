@@ -22,6 +22,7 @@ export default function (app) {
   const frontendPublicPath = path.join(root, '..', 'frontend', 'build');
 
   router.use('/', serveStatic(frontendPublicPath));
+  router.use('/robots.txt', serveStatic(path.join(frontendPublicPath, 'robots.txt')));
   logger.appLog(`React build files from ${frontendPublicPath} loaded on '/' route`);
 
   router.use('/api/get-epic-arcs', epicArcs.getEpicArcs);

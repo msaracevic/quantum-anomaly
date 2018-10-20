@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
-import * as shipSelectorActions from '../../redux/eveFittingSimulatorActions';
+import LoadingScreen from '../../components/LoadingScreen';
+import * as efsActions from '../../redux/efsActions';
 
 class ShipView extends Component {
   constructor(props) {
@@ -14,12 +15,12 @@ class ShipView extends Component {
 
   componentWillMount() {
     this.props.fetchShip(this.state.shipId).then(() => {
-      console.log(this.props.eveFittingSimulatorReducer);
+      console.log(this.props.efsReducer);
     });
   }
 
   renderDogmaAttribute(current = null, attribute) {
-    let dogma = this.props.eveFittingSimulatorReducer.dogmaAttributesNamed,
+    let dogma = this.props.efsReducer.ship.dogmaAttributesNamed,
         currentValue;
 
     if (!dogma[attribute]) return null;
@@ -40,7 +41,7 @@ class ShipView extends Component {
   }
 
   renderSlots(type) {
-    let slotNumber = this.props.eveFittingSimulatorReducer.dogmaAttributesNamed[type].value,
+    let slotNumber = this.props.efsReducer.ship.dogmaAttributesNamed[type].value,
         slots      = [];
 
     for (let index = 0; index < slotNumber; index++) {
@@ -62,28 +63,25 @@ class ShipView extends Component {
   }
 
   render() {
-    if (this.props.eveFittingSimulatorReducer.shipFetched) {
-      let ship  = this.props.eveFittingSimulatorReducer,
-          dogma = ship.dogmaAttributesNamed;
+    if (this.props.efsReducer.ship) {
+      const ship  = this.props.efsReducer.ship,
+            dogma = ship.dogmaAttributesNamed;
+
+      let groupNamePlural = this.props.efsReducer.currentGroup.name + 's';
+      groupNamePlural = groupNamePlural.replace('ss','s');
 
       return (
         <article className="ship-view">
-          <Link to='/eve-fitting-simulator' className='btn btn--secondary btn--back btn--seperated'>
-            Back to ship selection
+          <h2 className="ship-view__title">{ship.name}</h2>
+          <Link to='/eve-fitting-simulator' className='link link--secondary'>
+            back to {groupNamePlural}
           </Link>
           <section className="ship-view__header">
             <div className={`ship-view__ship-image tech-level tech-level--${dogma['Meta Level'].value}`}>
               <img src={`https://image.eveonline.com/Render/${ship.type_id}_128.png`} alt="ship" />
             </div>
-            <div className="ship_view__info">
-              <h4 className="ship-view__title">{ship.name}</h4>
-              <p dangerouslySetInnerHTML={{__html: ship.description}}></p>
-            </div>
           </section>
           <section className='fitting'>
-            <div className='fitting__equipment'>
-              <h5 className='fitting__title'>Equipment</h5>
-            </div>
             <div className='fitting__slots'>
               {this.renderSlots('High Slots')}
               {this.renderSlots('Medium Slots')}
@@ -99,11 +97,11 @@ class ShipView extends Component {
         </article>
       );
     }
-    else return (<p>Please wait...</p>);
+    else return <LoadingScreen />;
   }
 }
 
 const mapStateToProps    = state => state,
-      mapDispatchToProps = {...shipSelectorActions};
+      mapDispatchToProps = {...efsActions};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShipView);
