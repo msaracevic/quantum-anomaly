@@ -36,9 +36,12 @@ export default function (app) {
   // for time being, poor flag until we get user roles setup (to enable these
   // routes, flip the env variable on server)
   if (process.env.ESI_UPDATES_ENABLED === 'true') {
+    router.use('/tasks/update-all/', tasks.updateAll);
+    router.use('/tasks/create-all/', tasks.createAll);
     router.use('/tasks/update/:type', tasks.getData);
     router.use('/tasks/update-nulled/:type', tasks.updateData);
-    router.use('/tasks/generateShips', tasks.generateShips);
+    router.use('/tasks/generate-all', tasks.generateAll);
+    router.use('/tasks/generate-ships', tasks.generateShips);
     logger.appWarning('ESI tasks routes are loaded', 'red');
   }
 

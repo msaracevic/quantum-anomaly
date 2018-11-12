@@ -5,8 +5,7 @@
   "main": "./server/index.js",
   "scripts": {
     "start": "nodemon ./index.js --exec babel-node --presets es2017-node7",
-    "build": "babel ./ -d build --presets es2017-node7 --ignore 'node_modules/*'",
-    "populate-eve-database": "babel-node ./tasks/eve-database/index.js --presets es2017-node7"
+    "build": "babel ./ -d build --presets es2017-node7 --ignore 'node_modules/*'"
   },
   "repository": {
     "type": "git",
