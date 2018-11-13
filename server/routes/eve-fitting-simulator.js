@@ -1,5 +1,4 @@
 import {models} from '../models';
-import {dynamicSortMultiple} from '../helpers';
 import units from '../app/eve-fitting-simulator/units';
 
 import * as logger from '../helpers/logger';
@@ -13,37 +12,19 @@ export function getShipGroups(req, res) {
 }
 
 export function getShipGroup(req, res) {
-  let groupInfo = null;
-
-  models.EveShipGroups.findOne({
+ models.EveShipGroups.findOne({
     where: {id: req.body.id}
   }).then(group => {
-    groupInfo = group;
-    return Promise.all(group.data.map(ship =>
-      models.EveShips.findOne({
-        where: {id: ship.id}
-      }).then(ship => {
-        return {
-          name:       ship.data.name,
-          type_id:    ship.data.type_id,
-          meta_level: ship.data.dogma_attributes
-                        .filter(attribute => attribute.attribute_id === 633)[0].value
-        };
-      }))
-    );
-  }).then(ships => {
-    ships.sort(dynamicSortMultiple('meta_level', 'name'));
     res.json({
-      name:  groupInfo.name,
-      id:    groupInfo.id,
-      ships: ships
+      name:  group.name,
+      id:    group.id,
+      ships: group.data
     });
   });
 }
 
 export function getShip(req, res) {
-  let shipData  = null,
-      groupInfo = null;
+  let shipData  = null;
 
   models.EveShips.findOne({
     where: {id: req.body.id}

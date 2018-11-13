@@ -27,9 +27,9 @@ class ShipSelector extends Component {
     return (
       <div className="ship-selector__ships">
         {currentGroupShips.map(ship => (
-          <Link to={`/eve-fitting-simulator/${ship.type_id}`} className="ship-selector__ship" key={ship.type_id}>
+          <Link to={`/eve-fitting-simulator/${ship.id}`} className="ship-selector__ship" key={ship.id}>
             <div className={`ship-selector__ship-image tech-level tech-level--${ship.meta_level}`}>
-              <img src={`https://image.eveonline.com/Render/${ship.type_id}_128.png`} alt="ship" />
+              <img src={`https://image.eveonline.com/Render/${ship.id}_128.png`} alt="ship" />
             </div>
             <h2 className='ship-selector__name'>{ship.name}</h2>
           </Link>

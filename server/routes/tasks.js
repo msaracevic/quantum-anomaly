@@ -1,9 +1,9 @@
 import * as eveApiAdapter from '../tasks/eve/eve-api-adapter';
-import eveGenerateShips from '../tasks/eve/generate-ships';
-import {appWarning} from '../helpers/logger';
+import eveGenerateData from '../tasks/eve/generate-data';
 
 const ALLOWED = ['groups', 'types', 'dogmaAttributes', 'dogmaEffects'];
 
+// only for single group by type name
 export function getData(req, res) {
   const type = req.params.type;
   if (ALLOWED.indexOf(type) !== -1) {
@@ -14,6 +14,7 @@ export function getData(req, res) {
   }
 }
 
+// only for single group by type name
 export function updateData(req, res) {
   const type = req.params.type;
   if (ALLOWED.indexOf(type) !== -1) {
@@ -22,12 +23,6 @@ export function updateData(req, res) {
   } else {
     res.json(`${type} table does not exist, hence it can't be updated`);
   }
-}
-
-export function generateShips(req, res) {
-  eveGenerateShips().then(() =>
-    res.json('Triggered ship table generation, check server logs for progress')
-  );
 }
 
 export function updateAll(req, res) {
@@ -41,7 +36,7 @@ export function createAll(req, res) {
 }
 
 export function generateAll(req, res) {
-  eveGenerateShips().then(() =>
-    res.json('Triggered ship table generation, check server logs for progress')
-  );
+  // notable: 6 - ships, 7 - modules , 8 - charges, 16 - implants, 18 - drones, 32 - T3 subsystems, 87 - fighters
+  eveGenerateData(6).then(data => eveGenerateData(7)).then(data => res.json('Triggered all data generation, check server logs for progress'));
 }
+
