@@ -33,6 +33,12 @@ export default function reducer(state = initialState, action) {
         }
       };
     }
+    case 'FETCH_MODULE_GROUPS': {
+      return {
+        ...state,
+        moduleGroups: action.payload
+      };
+    }
     default: {
       return {...state};
     }

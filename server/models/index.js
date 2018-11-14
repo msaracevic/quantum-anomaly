@@ -4,23 +4,25 @@ import * as helpers from '../helpers';
 
 import sessionsModel from './sessions';
 import usersModel from './users';
-import shipsModel from './ships';
 import skillsModel from './skills';
 import incursionMapModel from './incursion-map';
 import incursionsModel from './incursions';
 import warframeStatusModel from './warframe-status';
 
 // Data which get filled from EVE API
-import eveTypesModel from './eveTypes';
-import eveGroupsModel from './eveGroups';
-import eveDogmaAttributesModel from './eveDogmaAttributes';
-import eveDogmaEffectsModel from './eveDogmaEffects';
+import esiMarketGroupsModel from './esiMarketGroups';
+import esiUniverseCategoriesModel from './esiUniverseCategories';
+import esiUniverseTypesModel from './esiUniverseTypes';
+import esiUniverseModel from './esiUniverseGroups';
+import esiDogmaAttributesModel from './esiDogmaAttributes';
+import esiDogmaEffectsModel from './esiDogmaEffects';
 
 // Custom data which gets created afterwards
 import eveShipsModel from './eveShips';
 import eveShipGroupsModel from './eveShipGroups';
 import eveModulesModel from './eveModules';
 import eveModuleGroupsModel from './eveModuleGroups';
+import eveCacheModel from './eveCache';
 
 function overwriteEntry(error, response, Model) {
   if (error) return;
@@ -66,21 +68,23 @@ let models = {};
 
 export default function (sequelize, silent) {
   models = {
-    EveTypes:           eveTypesModel(sequelize),
-    EveGroups:          eveGroupsModel(sequelize),
-    EveDogmaAttributes: eveDogmaAttributesModel(sequelize),
-    EveDogmaEffects:    eveDogmaEffectsModel(sequelize),
-    EveShips:           eveShipsModel(sequelize),
-    EveShipGroups:      eveShipGroupsModel(sequelize),
-    EveModules:         eveModulesModel(sequelize),
-    EveModuleGroups:    eveModuleGroupsModel(sequelize),
-    Sessions:           sessionsModel(sequelize),
-    Users:              usersModel(sequelize),
-    Ships:              shipsModel(sequelize),
-    Skills:             skillsModel(sequelize),
-    IncursionMaps:      incursionMapModel(sequelize),
-    Incursions:         incursionsModel(sequelize),
-    WarframeStatus:     warframeStatusModel(sequelize)
+    EsiMarketGroups:       esiMarketGroupsModel(sequelize),
+    EsiUniverseCategories: esiUniverseCategoriesModel(sequelize),
+    EsiUniverseTypes:      esiUniverseTypesModel(sequelize),
+    EsiUniverseGroups:     esiUniverseModel(sequelize),
+    EsiDogmaAttributes:    esiDogmaAttributesModel(sequelize),
+    EsiDogmaEffects:       esiDogmaEffectsModel(sequelize),
+    EveShips:              eveShipsModel(sequelize),
+    EveShipGroups:         eveShipGroupsModel(sequelize),
+    EveModules:            eveModulesModel(sequelize),
+    EveModuleGroups:       eveModuleGroupsModel(sequelize),
+    EveCache:              eveCacheModel(sequelize),
+    Sessions:              sessionsModel(sequelize),
+    Users:                 usersModel(sequelize),
+    Skills:                skillsModel(sequelize),
+    IncursionMaps:         incursionMapModel(sequelize),
+    Incursions:            incursionsModel(sequelize),
+    WarframeStatus:        warframeStatusModel(sequelize)
   };
 
   return sequelize.sync().then(() => {

@@ -14,9 +14,13 @@ class ShipView extends Component {
   };
 
   componentWillMount() {
-    this.props.fetchShip(this.state.shipId).then(() => {
-      console.log(this.props.efsReducer);
-    });
+    this.props.fetchShip(this.state.shipId)
+      .then(() => {
+        return this.props.fetchModuleGroups()
+      })
+      .then(() => {
+        console.log(this.props.efsReducer);
+      });
   }
 
   renderDogmaAttribute(current = null, attribute) {
@@ -68,7 +72,7 @@ class ShipView extends Component {
             dogma = ship.dogmaAttributesNamed;
 
       let groupNamePlural = this.props.efsReducer.currentGroup.name + 's';
-      groupNamePlural = groupNamePlural.replace('ss','s');
+      groupNamePlural     = groupNamePlural.replace('ss', 's');
 
       return (
         <article className="ship-view">

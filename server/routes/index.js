@@ -32,15 +32,17 @@ export default function (app) {
   router.use('/api/eve-fitting-simulator/group', eveFittingSimulator.getShipGroup);
   router.use('/api/eve-fitting-simulator/groups', eveFittingSimulator.getShipGroups);
   router.use('/api/eve-fitting-simulator/ship', eveFittingSimulator.getShip);
+  router.use('/api/eve-fitting-simulator/module-groups', eveFittingSimulator.getModuleGroups);
 
   // for time being, poor flag until we get user roles setup (to enable these
   // routes, flip the env variable on server)
   if (process.env.ESI_UPDATES_ENABLED === 'true') {
-    router.use('/tasks/update-all', tasks.updateAll);
-    router.use('/tasks/create-all', tasks.createAll);
-    router.use('/tasks/update/:type', tasks.getData);
-    router.use('/tasks/update-nulled/:type', tasks.updateData);
-    router.use('/tasks/generate-all', tasks.generateAll);
+    router.use('/tasks/create/all', tasks.createAll);
+    router.use('/tasks/create/:type', tasks.create);
+    router.use('/tasks/update/all', tasks.updateAll);
+    router.use('/tasks/update/null/:type', tasks.updateNullData);
+    router.use('/tasks/generate/all', tasks.generateAll);
+    router.use('/tasks/generate/market', tasks.generateMarket);
     logger.appWarning('ESI tasks routes are loaded', 'red');
   }
 

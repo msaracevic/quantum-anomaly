@@ -29,3 +29,11 @@ export function fetchShip(id) {
       .catch(err => console.log(err));
   };
 }
+
+export function fetchModuleGroups(id) {
+  return (dispatch) => {
+    return axios.post('/api/eve-fitting-simulator/module-groups', {id: id})
+      .then(response => dispatch({type: 'FETCH_MODULE_GROUPS', payload: response.data}))
+      .catch(err => console.log(err));
+  };
+}

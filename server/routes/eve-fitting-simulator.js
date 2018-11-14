@@ -6,13 +6,13 @@ import * as logger from '../helpers/logger';
 export function getShipGroups(req, res) {
   models.EveShipGroups.findAll({
     order: ['name']
-  }).then(data => res.json(data.map(data => {
+  }).then(data => data.map(data => {
     return {id: data.id, name: data.name};
-  })));
+  })).then(data => res.json(data));
 }
 
 export function getShipGroup(req, res) {
- models.EveShipGroups.findOne({
+  models.EveShipGroups.findOne({
     where: {id: req.body.id}
   }).then(group => {
     res.json({
@@ -23,8 +23,16 @@ export function getShipGroup(req, res) {
   });
 }
 
+export function getModuleGroups(req, res) {
+  models.EveModuleGroups.findAll({
+    order: ['name']
+  }).then(data => data.map(data => {
+    return {id: data.id, name: data.name};
+  })).then(data => res.json(data));
+}
+
 export function getShip(req, res) {
-  let shipData  = null;
+  let shipData = null;
 
   models.EveShips.findOne({
     where: {id: req.body.id}
@@ -35,7 +43,7 @@ export function getShip(req, res) {
     // for each dogma attribute we need name and unit if it has it
     // keep the originals intact and create new object where we can reference
     // it by name
-    return models.EveDogmaAttributes.findAll().then(dogmaAttributes => {
+    return models.EsiDogmaAttributes.findAll().then(dogmaAttributes => {
       let dogmaAttributesById = {};
       // from the database response, these are all defined attributes in game
       // build in form of

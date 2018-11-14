@@ -17,7 +17,7 @@ const NAME = {
   7: 'module'
 };
 
-async function getGroups(type) {
+function getGroups(type) {
   /* getGroups returns array of objects like
     {
       id:        330,
@@ -27,21 +27,27 @@ async function getGroups(type) {
       updatedAt: 2018-11-12T23:56:23.408Z
     }
   */
-  return models.EveGroups.findAll().then(groups =>
-    groups.filter(group => group.data.category_id === type && group.data.published)
-      .map(group => {
-        return {
-          id:        group.data.group_id,
-          name:      group.data.name,
-          data:      group.data.types,
-          createdAt: new Date(),
-          updatedAt: new Date()
-        };
-      })
-  );
+  return models.EsiUniverseGroups.findAll()
+    .then(groups =>
+      groups.filter(group => group.data.category_id === type && group.data.published)
+        .map(group => {
+          return {
+            id:        group.data.group_id,
+            name:      group.data.name,
+            data:      group.data.types,
+            createdAt: new Date(),
+            updatedAt: new Date()
+          };
+        }))
+    .catch(e => logger.inspect(e));
 }
 
-async function getItems(group) {
+function getMetaLevel(item) {
+  let metaLevel = item.data.dogma_attributes.filter(attr => attr.attribute_id === 633);
+  return metaLevel[0] ? metaLevel[0].value : 0;
+}
+
+function getItems(group) {
   /* getItems returns each item in group in form of
     {
       'id':        11370,
@@ -50,9 +56,15 @@ async function getItems(group) {
       'updatedAt': '2018-11-12T17:28:43.218Z'
     };
    */
-  return Promise.all(group.data.map((itemId, index) => {
-    return models.EveTypes.findOne({where: {id: itemId}});
-  })).then(items => items.filter(item => item.data.published === true));
+  return Promise.all(
+    group.data.map((itemId, index) =>
+      models.EsiUniverseTypes.findOne({where: {id: itemId}})
+    )).then(items => items.filter(item => item.data.published === true))
+    .then(items => items.map(item => {
+      item.data.meta_level = getMetaLevel(item);
+      return item;
+    }))
+    .catch(e => logger.inspect(e));
 }
 
 function addDetails(item) {
@@ -65,16 +77,12 @@ function addDetails(item) {
       'updatedAt': '2018-11-12T23:57:54.580Z'
     }
   */
-  const metaLevel = item.data.dogma_attributes.filter(attr => attr.attribute_id === 633);
 
-  let data = {
-    id:   item.id,
-    name: item.data.name
+  return {
+    id:         item.id,
+    name:       item.data.name,
+    meta_level: getMetaLevel(item)
   };
-
-  if (metaLevel[0]) data.meta_level = metaLevel[0].value;
-  else data.meta_level = 0;
-  return data;
 }
 
 export default async function (type = 7) {
@@ -95,11 +103,12 @@ export default async function (type = 7) {
       itemsInGroup = itemsInGroup.map(item => {
         item.data.group_name = group.name;
         return {
-          id:        item.data.type_id,
-          name:      item.data.name,
-          data:      item.data,
-          createdAt: new Date(),
-          updatedAt: new Date()
+          id:              item.data.type_id,
+          name:            item.data.name,
+          data:            item.data,
+          market_group_id: item.data.market_group_id || item.data.group_id,
+          createdAt:       new Date(),
+          updatedAt:       new Date()
         };
       });
 
