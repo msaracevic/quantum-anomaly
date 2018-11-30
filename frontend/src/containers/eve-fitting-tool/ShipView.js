@@ -16,7 +16,7 @@ class ShipView extends Component {
   componentWillMount() {
     this.props.fetchShip(this.state.shipId)
       .then(() => {
-        return this.props.fetchModuleGroups()
+        return this.props.fetchModuleGroups();
       })
       .then(() => {
         console.log(this.props.efsReducer);
@@ -41,6 +41,40 @@ class ShipView extends Component {
         <img className='fitting__icon' src={`/images/eve/icons/${attribute.replace(' ', '')}.png`} alt='icon' title={attribute} />
         {current ? `${currentValue} / ${attributeValue} ${units}` : `${attributeValue} ${units}`}
       </div>
+    );
+  }
+
+  renderModuleSubtreeOrItems(tree) {
+    if (tree.items) {
+      return (
+        <div className="fitting__module fitting__module--sub-group" key={tree.name}>
+          <h6 className="fitting__subtitle">{tree.name}</h6>
+          {tree.items.map(item =>
+            <div className="fitting__module fitting__module--item" key={item.name}>
+              <img className='fitting__module-image' src={`https://image.eveonline.com/Type/${item.id}_32.png`} alt="ship" />
+              <span className='fitting__module-label'>{item.name}</span>
+            </div>
+          )}
+        </div>
+      );
+    }
+    if (tree.subgroups) return (
+      <div className="fitting__module fitting__module--sub-group" key={tree.name}>
+        <h6 className="fitting__subtitle">{tree.name}</h6>
+        {tree.subgroups.map(subgroup => this.renderModuleSubtreeOrItems(subgroup))}
+      </div>
+    );
+  }
+
+  // WIP, for now just proof of concept
+  renderModules() {
+    const modules = this.props.efsReducer.moduleGroups || [];
+
+    return (
+      <React.Fragment>
+        <h5 className="fitting__title">Modules</h5>
+        {modules.map(mainGroup => this.renderModuleSubtreeOrItems(mainGroup))}
+      </React.Fragment>
     );
   }
 
@@ -86,6 +120,9 @@ class ShipView extends Component {
             </div>
           </section>
           <section className='fitting'>
+            <div className='fitting__modules'>
+              {this.renderModules()}
+            </div>
             <div className='fitting__slots'>
               {this.renderSlots('High Slots')}
               {this.renderSlots('Medium Slots')}

@@ -24,64 +24,39 @@ export function getShipGroup(req, res) {
 }
 
 export function getModuleGroups(req, res) {
-  models.EveModuleGroups.findAll({
-    order: ['name']
-  }).then(data => data.map(data => {
-    return {id: data.id, name: data.name};
-  })).then(data => res.json(data));
+  models.EveCache.findOne({
+    where: {name: 'modules'}
+  }).then(modules => res.json(modules.data));
 }
 
-export function getShip(req, res) {
-  let shipData = null;
+export async function getShip(req, res) {
+  let ship = (await models.EveShips.findOne({where: {id: req.body.id}})).data;
 
-  models.EveShips.findOne({
-    where: {id: req.body.id}
-  }).then(ship => {
-    shipData = ship.data;
+  ship.dogmaAttributesNamed = {};
 
-    shipData.dogmaAttributesNamed = {};
-    // for each dogma attribute we need name and unit if it has it
-    // keep the originals intact and create new object where we can reference
-    // it by name
-    return models.EsiDogmaAttributes.findAll().then(dogmaAttributes => {
-      let dogmaAttributesById = {};
-      // from the database response, these are all defined attributes in game
-      // build in form of
-      // {actualId: actualData, ...}
-      dogmaAttributes.forEach(dogmaAttribute => {
-        dogmaAttributesById[dogmaAttribute.id] = dogmaAttribute.data;
-      });
+  await Promise.all(
+    ship.dogma_attributes.map(async shipAttr => {
+      let attributeInfo = await models.EsiDogmaAttributes.findOne(({where: {id: shipAttr.attribute_id}})),
+          unit          = units(attributeInfo.data.unit_id);
 
       // missing from API export... ccc...
-      dogmaAttributesById[1547].unit += ';4=capital';
+      if (shipAttr.attribute_id === 1547) attributeInfo.data.unit += ';4=capital';
 
-      // from the already known attributes on the ship, go for each and
-      // attach additional data from previous step
-      shipData.dogma_attributes.forEach(shipDogmaAttribute => {
-        let dogmaAttribute = dogmaAttributesById[shipDogmaAttribute.attribute_id],
-            dogmaValue     = shipDogmaAttribute.value,
-            namedIndex     = dogmaAttribute.display_name,
-            dogmaIndexRef  = dogmaAttribute.attribute_id;
+      // yea, well, good luck figuring this out in a month...
+      if (unit) {
+        // if unit is in form of "1=small;2=medium;3=large"
+        unit.split(';').forEach(part => {
+          if (part.indexOf(shipAttr.value) !== -1) unit = part.split('=')[1];
+        });
+      }
 
-        if (!namedIndex || namedIndex === '') namedIndex = dogmaAttribute.name;
+      ship.dogmaAttributesNamed[attributeInfo.data.display_name] = {
+        index: shipAttr.attribute_id,
+        value: shipAttr.value,
+        units: unit
+      };
+    })
+  );
 
-        shipData.dogmaAttributesNamed[namedIndex] = {
-          value: dogmaValue,
-          index: dogmaIndexRef
-        };
-
-        let unit = units(dogmaAttribute.unit_id);
-        // yea, well, good luck figuring this out in a month...
-        if (unit) {
-          // if unit is in form of "1=small;2=medium;3=large"
-          unit.split(';').forEach(part => {
-            if (part.indexOf(dogmaValue) !== -1) unit = part.split('=')[1];
-          });
-          shipData.dogmaAttributesNamed[namedIndex].units = unit;
-        }
-      });
-    });
-  }).then(() => {
-    res.json(shipData);
-  });
+  res.json(ship);
 }

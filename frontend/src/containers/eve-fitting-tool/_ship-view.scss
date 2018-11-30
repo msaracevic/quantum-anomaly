@@ -34,10 +34,35 @@
   margin-top: 1rem;
   overflow-x: auto;
 
+  &__modules {
+    flex: 0 0 400px;
+  }
+
+  &__module {
+    &--main-group {
+      margin: 0.6rem 0;
+    }
+
+    &--sub-group {
+      margin: 0.3rem 0 0.3rem 0.8rem;
+    }
+
+    &--item {
+      margin: 0.3rem 0 0.3rem 0.8rem;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__module-image {
+    width: 24px;
+    margin: 4px 8px 2px 0;
+  }
+
   &__slots {
     flex: 1 0 auto;
-    min-width: 600px;
-    margin: 0 1rem;
+    min-width: 400px;
+    margin: 0 2rem;
   }
 
   &__stats {

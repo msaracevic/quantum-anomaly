@@ -22,7 +22,7 @@
   },
   "proxy": "http://localhost:3000/",
   "scripts": {
-    "start-js": "react-scripts start",
+    "start-js": "set PORT=3001 && react-scripts start",
     "start": "npm-run-all -p watch-css start-js",
     "build": "npm run build-css-production && react-scripts build",
     "test": "react-scripts test --env=jsdom",
