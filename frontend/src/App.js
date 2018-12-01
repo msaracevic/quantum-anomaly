@@ -7,7 +7,7 @@ import Footer from './components/Footer';
 import NotFound from './components/NotFound';
 
 import Home from './components/Home';
-import ShipSelector from './containers/eve-fitting-tool/ShipSelector';
+import ShipSelector from './containers/eve-fitting-tool/Selection-Screen';
 import ShipView from './containers/eve-fitting-tool/ShipView';
 
 import Skills from './containers/legacy/Efs/Skills/';

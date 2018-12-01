@@ -1,4 +1,4 @@
-.ship-selector {
+.selection-screen {
   padding: 1rem;
 
   &__form {
@@ -24,8 +24,9 @@
     margin: 0 0.5rem 0.5rem;
     text-align: center;
     color: black;
+
     &:hover {
-      background: rgba(gray, 0.2);
+      box-shadow: 1px 1px 3px black;
     }
   }
 
@@ -33,6 +34,7 @@
     width: 128px;
     img {
       display: block;
+      height: 128px;
       border-radius: 5px 5px 0 0;
     }
   }

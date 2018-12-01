@@ -1,14 +1,4 @@
-const initialState = {
-  shipGroups:   null,
-  ship:         null,
-  currentGroup: {
-    id:    null,
-    name:  null,
-    ships: []
-  }
-};
-
-export default function reducer(state = initialState, action) {
+export default function reducer(state, action) {
   switch (action.type) {
     case 'FETCH_SHIP_GROUPS': {
       return {

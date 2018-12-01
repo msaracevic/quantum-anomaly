@@ -1,5 +1,6 @@
 .ship-view {
   padding: 1rem;
+
   &__header {
     display: flex;
     margin: 1rem 0 0;
@@ -8,8 +9,10 @@
   &__ship-image {
     flex: 0 0 128px;
     margin-right: 1rem;
+
     img {
       display: block;
+      height: 128px;
       border-radius: 5px;
       box-shadow: 1px 1px 3px gray;
     }
