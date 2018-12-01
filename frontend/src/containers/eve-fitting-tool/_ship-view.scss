@@ -1,4 +1,4 @@
-.ship-view {
+.fitting-main {
   padding: 1rem;
 
   &__header {
@@ -6,7 +6,7 @@
     margin: 1rem 0 0;
   }
 
-  &__ship-image {
+  &__image {
     flex: 0 0 128px;
     margin-right: 1rem;
 
@@ -18,25 +18,23 @@
     }
   }
 
-  &__header-info {
-    flex: 1 0 auto;
-  }
-
   &__title {
     font-weight: bold;
     margin-bottom: 0.3rem;
   }
 
-  &__description {
-    max-width: 600px;
+  &__sections {
+    display: flex;
+    margin-top: 1rem;
+    overflow-x: auto;
+  }
+
+  &__modules {
+    flex: 0 0 400px;
   }
 }
 
 .fitting {
-  display: flex;
-  margin-top: 1rem;
-  overflow-x: auto;
-
   &__modules {
     flex: 0 0 400px;
   }
@@ -70,13 +68,6 @@
 
   &__stats {
     flex: 0 0 300px;
-  }
-
-  &__title {
-    margin: 1rem 0;
-    &--small {
-      margin-bottom: 0.3rem !important;
-    }
   }
 
   &__subtitle {

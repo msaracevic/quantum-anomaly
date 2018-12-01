@@ -8,7 +8,7 @@ import NotFound from './components/NotFound';
 
 import Home from './components/Home';
 import ShipSelector from './containers/eve-fitting-tool/Selection-Screen';
-import ShipView from './containers/eve-fitting-tool/ShipView';
+import ShipView from './containers/eve-fitting-tool/Fitting-Screen';
 
 import Skills from './containers/legacy/Efs/Skills/';
 import OverviewEpicArcs from './containers/legacy/EpicArcs/';
