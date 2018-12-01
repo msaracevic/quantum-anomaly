@@ -1,11 +1,11 @@
 .loading-screen {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 200px;
   font-size: large;
+  padding: 2rem 1rem;
   animation: fadeInFromNone 1.2s ease-out;
   animation-iteration-count: infinite;
+  font-weight: normal;
+  background: #F5F5F5;
+  border-radius: 10px;
 }
 
 @keyframes fadeInFromNone {

@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
-import LoadingScreen from '../../components/LoadingScreen';
 import * as efsActions from '../../redux/efsActions';
 
 import Modules from './Modules';
+import Slots from './Slots';
 
 class FittingScreen extends Component {
   constructor(props) {
@@ -40,28 +40,6 @@ class FittingScreen extends Component {
     );
   }
 
-  renderSlots(type) {
-    let slotNumber = this.props.efsReducer.ship.dogmaAttributesNamed[type].value,
-        slots      = [];
-
-    for (let index = 0; index < slotNumber; index++) {
-      slots.push(<p key={index}>
-        Empty slot
-      </p>);
-    }
-
-    return (
-      <React.Fragment>
-        <h5 className={type === 'High Slots' ? `fitting__title fitting__title--small` : `fitting__title`}>
-          {type}
-        </h5>
-        {type === 'High Slots' ?
-          <div className='fitting__subtitle'>{this.renderDogmaAttribute(null, 'Turret Hardpoints')} {this.renderDogmaAttribute(null, 'Launcher Hardpoints')}</div> : null}
-        {slots}
-      </React.Fragment>
-    );
-  }
-
   render() {
     const ship  = this.props.efsReducer.ship || {},
           group = this.props.efsReducer.currentGroup || {},
@@ -69,13 +47,15 @@ class FittingScreen extends Component {
 
     return (
       <article className="fitting-main">
-        <h2 className="fitting-main__title">{ship.name || 'Loading...'}</h2>
-        <Link to='/eve-fitting-simulator' className='link link--secondary'>
-          back to {`${group.name}s`.replace('ss', 's')}
-        </Link>
         <section className="fitting-main__header">
-          <div className={dogma['Meta Level'] && `fitting-main__image tech-level tech-level--${dogma['Meta Level'].value}`}>
+          <div className={dogma['Meta Level'] ? `fitting-main__image tech-level tech-level--${dogma['Meta Level'].value}` : 'fitting-main__image'}>
             <img src={ship.type_id ? `https://image.eveonline.com/Render/${ship.type_id}_128.png` : '/images/placeholder.png'} alt="ship" />
+          </div>
+          <div className="fitting-main__controls">
+            <h2 className="fitting-main__title">{ship.name || 'Loading...'}</h2>
+            <Link to='/eve-fitting-simulator' className='link link--secondary'>
+              back to {`${group.name}s`.replace('ss', 's')}
+            </Link>
           </div>
         </section>
         <section className="fitting-main__sections">
@@ -83,21 +63,19 @@ class FittingScreen extends Component {
             <Modules />
           </section>
 
-          {this.props.efsReducer.ship &&
-          <section className='fitting__slots'>
-            {this.renderSlots('High Slots')}
-            {this.renderSlots('Medium Slots')}
-            {this.renderSlots('Low Slots')}
-            {this.renderSlots('Rig Slots')}
+          <section className="fitting-main__slots">
+            <Slots ship={this.props.efsReducer.ship} />
           </section>
-          }
-          {this.props.efsReducer.ship &&
-          <section className='fitting__stats'>
+
+          <section className='fitting-main__stats'>
             <h5 className='fitting__title'>Stats</h5>
-            {this.renderDogmaAttribute('CPU Load', 'CPU Output')}
-            {this.renderDogmaAttribute('Power Load', 'Powergrid Output')}
+            {this.props.efsReducer.ship &&
+            <React.Fragment>
+              {this.renderDogmaAttribute('CPU Load', 'CPU Output')}
+              {this.renderDogmaAttribute('Power Load', 'Powergrid Output')}
+            </React.Fragment>
+            }
           </section>
-          }
         </section>
       </article>
     );

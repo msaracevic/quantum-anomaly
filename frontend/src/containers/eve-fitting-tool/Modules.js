@@ -46,7 +46,7 @@ class Modules extends Component {
     const isVisible = this.state.active.indexOf(tree.id) !== -1;
     return (
       <li className={level === 0 ? 'modules__subgroup' : 'modules__subgroup modules__subgroup--border'} key={tree.id}>
-        <button className="btn modules__expand-indicator">{isVisible ? '-' : '+'}</button>
+        <button className="btn modules__expand-indicator" onClick={e => this.expand(e, tree.id, level)}>{isVisible ? '-' : '+'}</button>
         <p className="modules__subgroup-title" onClick={e => this.expand(e, tree.id, level)}>
           {tree.name}
         </p>

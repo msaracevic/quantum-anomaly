@@ -1,0 +1,21 @@
+.slots{
+  &__hardpoints {
+    margin: -0.3rem 0 0.3rem;
+    font-size: 0.9rem;
+  }
+
+  &__hardpoint {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 2rem;
+  }
+
+  &__hardpoint-image{
+    width: 24px;
+    margin: 0 4px;
+  }
+
+  &__items {
+    margin-bottom: 0.5rem;
+  }
+}

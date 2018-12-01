@@ -3,15 +3,15 @@
 
   &__header {
     display: flex;
-    margin: 1rem 0 0;
   }
 
   &__image {
     flex: 0 0 128px;
-    margin-right: 1rem;
+    margin-right: 16px;
 
     img {
       display: block;
+      width: 128px;
       height: 128px;
       border-radius: 5px;
       box-shadow: 1px 1px 3px gray;
@@ -32,33 +32,6 @@
   &__modules {
     flex: 0 0 400px;
   }
-}
-
-.fitting {
-  &__modules {
-    flex: 0 0 400px;
-  }
-
-  &__module {
-    &--main-group {
-      margin: 0.6rem 0;
-    }
-
-    &--sub-group {
-      margin: 0.3rem 0 0.3rem 0.8rem;
-    }
-
-    &--item {
-      margin: 0.3rem 0 0.3rem 0.8rem;
-      display: flex;
-      align-items: center;
-    }
-  }
-
-  &__module-image {
-    width: 24px;
-    margin: 4px 8px 2px 0;
-  }
 
   &__slots {
     flex: 1 0 auto;
@@ -69,7 +42,9 @@
   &__stats {
     flex: 0 0 300px;
   }
+}
 
+.fitting {
   &__subtitle {
     margin-bottom: 0.5rem;
     font-size: 0.9rem;
