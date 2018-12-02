@@ -5,14 +5,6 @@ import LoadingScreen from '../../components/LoadingScreen';
 import * as efsActions from '../../redux/efsActions';
 
 class Slots extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  componentWillMount() {
-
-  }
-
   renderHardpointNumber() {
     let usedGuns    = 0,
         usedMissile = 0,
@@ -27,12 +19,12 @@ class Slots extends Component {
     return (
       <ul className="slots__hardpoints">
         <li className="slots__hardpoint">
-          0 / {maxGuns}
+          {usedGuns} / {maxGuns}
           <img className="slots__hardpoint-image" src={`/images/eve/icons/TurretHardpoints.png`} alt='icon' />
           Hardpoints
         </li>
         <li className="slots__hardpoint">
-          0 / {maxMissile}
+          {usedMissile} / {maxMissile}
           <img className="slots__hardpoint-image" src={`/images/eve/icons/LauncherHardpoints.png`} alt='icon' />
           Hardpoints
         </li>
