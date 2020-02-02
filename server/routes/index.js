@@ -5,6 +5,7 @@ import multer from 'multer';
 import path from 'path';
 import serveStatic from 'serve-static';
 
+import {ensureAuthenticated} from '../middleware/auth';
 import * as logger from '../helpers/logger';
 
 import * as admin from './admin';
@@ -18,11 +19,6 @@ import * as warframeStatus from './warframe';
 const router = express.Router(),
       upload = multer({dest: 'uploads/'}),
       root   = env === 'production' ? path.join(__dirname, '..', '..') : path.join(__dirname, '..');
-
-function ensureAuthenticated(req, res, next) {
-  if (req.isAuthenticated()) return next();
-  res.redirect('/')
-}
 
 export default function (app) {
   const frontendPublicPath = path.join(root, '..', 'frontend', 'build');

@@ -13,7 +13,7 @@ export const data = {
     ],
     'rewards':     [
       '+10% Caldari State faction standing increase (unmodified)',
-      'Hyasyoda Mobile Laboratory (3 000 m3)'
+      'Standup Hyasyoda Research Lab Blueprint (single run, copy, material level: 8, time efficiency: 8)'
     ],
     'notes':       [
       'You need Data Analyzer in mission 11 and 15',
@@ -35,7 +35,8 @@ export const data = {
         'Deliver Dossier - Author Unknown (0.1 m3) to Poinen IV - Moon 13 - Nugoeihuvi Corporation Development Studio which is one jump out and has agent who provides next mission'
       ],
       'tips':        [
-        'Dock your combat ship at this destination, use non-combat small ship for next few missions'
+        'Dock your combat ship at this destination, use non-combat small ship for next few missions',
+        'You could also do next few missions in combat ship and park them after first combat mission to avoid having to pick them up'
       ],
       'objective':   'Fly to destination and start conversation with agent.'
     },
@@ -647,7 +648,8 @@ export const data = {
       'destination': 'Random system in Black Rise region',
       'description': [
         'Take Encoded Message (0.1 m3) and drop it into Conference Center',
-        'There is a high chance that this mission will send you to lowsec'
+        'There is a high chance that this mission will send you to lowsec',
+        'Container where to drop the objective is about 50km from warp in point'
       ],
       'tips':        [
         'Use frigate, take care if you need to go in lowsec'
