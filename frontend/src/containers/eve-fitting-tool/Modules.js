@@ -68,8 +68,8 @@ class Modules extends Component {
   }
 
   renderCpuPG(module) {
-    const cpu = module.data.dogma_attributes[CPU_USAGE_ID],
-      pg = module.data.dogma_attributes[PG_USAGE_ID],
+    const cpu = module.data.dogma_attributes[CPU_USAGE_ID] || 0,
+      pg = module.data.dogma_attributes[PG_USAGE_ID] || 0,
       {dogma_attributes: shipAttributes} = this.props.ship;
 
     return (

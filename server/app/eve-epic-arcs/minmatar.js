@@ -256,7 +256,7 @@ export const data = {
         'Spawns are about 2 minutes apart, start doing mission as soon as you accept it since timer starts from moment of accepting from my experience',
         'Mission can be accepted remotely'
       ],
-      'enemy':       'Angel Cartel (Tank against: Explosive/Kinetic, Best damage: Explosive/Kinetic)',
+      'enemy':       'Angel Cartel',
       'pockets':     [
         [
           {
@@ -560,7 +560,7 @@ export const data = {
         'You don\'t need to clear the site if you want to blitz, just use something fast to get there and get objective complete',
         'Sometimes you might warp in close enough to trigger mission objective which will cause half the NPC\'s to warp off'
       ],
-      'enemy':       'Angel Cartel (Tank against: Explosive/Kinetic, Best damage: Explosive/Kinetic)',
+      'enemy':       'Angel Cartel',
       'pockets':     [
         [
           {
@@ -628,7 +628,7 @@ export const data = {
         'Once you are 5 kilometers of containter you will trigger spawn',
         'You can hack and get out before they engage you, otherwise grab your guns'
       ],
-      'enemy':       'Angel Cartel (Tank against: Explosive/Kinetic, Best damage: Explosive/Kinetic)',
+      'enemy':       'Angel Cartel',
       'pockets':     [
         [
           {
@@ -880,7 +880,7 @@ export const data = {
         'Killing him will cause any remaining rats to disappear',
         'You should have time to kill Angel Energy Neutralizer Sentry II and frigates by time Karkoti gets close to put damage, or if you want to blitz then just use MJD to jump out and wait for Karkoti to get in range'
       ],
-      'enemy':       'Angel Cartel (Tank against: Explosive/Kinetic, Best damage: Explosive/Kinetic)',
+      'enemy':       'Angel Cartel',
       'pockets':     [
         [
           {

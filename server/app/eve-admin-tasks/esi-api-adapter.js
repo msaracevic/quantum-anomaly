@@ -3,6 +3,8 @@ import * as logger from '../../helpers/logger';
 import {models} from '../../models';
 import {wait} from '../../helpers';
 
+const THROTTLE_MS = 10;
+
 const URLS = {
   MarketGroups:       'https://esi.evetech.net/latest/markets/groups',
   UniverseGroups:     'https://esi.evetech.net/latest/universe/groups',
@@ -37,7 +39,7 @@ function requestData(url) {
 }
 
 async function getItem(id, index, table, length) {
-  await wait(index * 30);
+  await wait(index * THROTTLE_MS);
 
   let data = await requestData(`${URLS[table]}/${id}/${URLS.appendix}`);
 
@@ -56,7 +58,7 @@ async function getItem(id, index, table, length) {
 
 async function fetchEndpoint(table) {
   const model = models[`Esi${table}`];
-  
+
   if (!model) {
     logger.error(`Unknown data model ${table}`);
     return;
@@ -104,6 +106,6 @@ export async function updateEndpoints(types) {
   // example of firing async/await in sequence
   for (let i = 0; i < types.length; i++)
     await updateItems(types[i]);
-  
+
   logger.action('Done updating all entries', 'green');
 }

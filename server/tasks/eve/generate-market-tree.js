@@ -29,13 +29,9 @@ export default async function () {
   const tree = await getSubgroups(marketData, 9);
   logger.action(`Finished generating market cache`);
 
-  return models.EveCache.findOne({
-    where: {name: 'modules'}
-  }).then(modules => {
-    if (modules) {
-      logger.action(`Updating existing module cache`);
-      return modules.updateAttributes({data: tree});
-    }
-    else return models.EveCache.create({name: 'modules', data: tree});
-  });
+  await models.EveCache.destroy({where: {name: 'modules'}});
+  logger.action(`Deleting existing cache`);
+
+  await models.EveCache.create({name: 'modules', data: tree});
+  logger.action(`Creating new cache`);
 }
