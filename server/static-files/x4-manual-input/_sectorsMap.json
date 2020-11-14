@@ -1,0 +1,226 @@
+{
+  "Cluster_01_macro": {},
+  "Cluster_02_macro": {},
+  "Cluster_03_macro": {},
+  "Cluster_04_macro": {},
+  "Cluster_05_macro": {},
+  "Cluster_06_macro": {},
+  "Cluster_07_macro": {
+    "position": {
+      "x": 450,
+      "y": 387
+    },
+    "owner": "argon"
+  },
+  "Cluster_08_macro": {},
+  "Cluster_09_macro": {},
+  "Cluster_10_macro": {},
+  "Cluster_11_macro": {},
+  "Cluster_12_macro": {},
+  "Cluster_13_macro": {
+    "position": {
+      "x": 600,
+      "y": 559
+    },
+    "owner": "antigone"
+  },
+  "Cluster_14_macro": {
+    "position": {
+      "x": 525,
+      "y": 430
+    },
+    "owner": "argon"
+  },
+  "Cluster_15_macro": {},
+  "Cluster_16_macro": {},
+  "Cluster_17_macro": {},
+  "Cluster_18_macro": {},
+  "Cluster_19_macro": {},
+  "Cluster_20_macro": {},
+  "Cluster_21_macro": {},
+  "Cluster_22_macro": {},
+  "Cluster_23_macro": {},
+  "Cluster_24_macro": {},
+  "Cluster_25_macro": {},
+  "Cluster_26_macro": {},
+  "Cluster_27_macro": {
+    "position": {
+      "x": 300,
+      "y": 473
+    },
+    "owner": "antigone"
+  },
+  "Cluster_28_macro": {
+    "position": {
+      "x": 225,
+      "y": 516
+    },
+    "owner": "antigone"
+  },
+  "Cluster_29_macro": {
+    "position": {
+      "x": 600,
+      "y": 387
+    },
+    "owner": "argon",
+    "sectorsPosition": "top-right"
+  },
+  "Cluster_30_macro": {
+    "position": {
+      "x": 525,
+      "y": 344
+    },
+    "owner": "argon"
+  },
+  "Cluster_31_macro": {
+    "position": {
+      "x": 375,
+      "y": 258
+    },
+    "owner": "none"
+  },
+  "Cluster_32_macro": {
+    "position": {
+      "x": 600,
+      "y": 215
+    },
+    "owner": "xenon",
+    "sectorsPosition": "top-left"
+  },
+  "Cluster_33_macro": {
+    "position": {
+      "x": 525,
+      "y": 172
+    },
+    "owner": "xenon"
+  },
+  "Cluster_34_macro": {},
+  "Cluster_35_macro": {},
+  "Cluster_36_macro": {},
+  "Cluster_37_macro": {},
+  "Cluster_38_macro": {},
+  "Cluster_39_macro": {},
+  "Cluster_40_macro": {
+    "position": {
+      "x": 525,
+      "y": 602
+    },
+    "owner": "antigone"
+  },
+  "Cluster_41_macro": {
+    "position": {
+      "x": 525,
+      "y": 516
+    },
+    "owner": "antigone"
+  },
+  "Cluster_42_macro": {},
+  "Cluster_43_macro": {},
+  "Cluster_44_macro": {},
+  "Cluster_45_macro": {},
+  "Cluster_46_macro": {
+    "position": {
+      "x": 525,
+      "y": 258
+    },
+    "owner": "argon"
+  },
+  "Cluster_47_macro": {},
+  "Cluster_48_macro": {
+    "position": {
+      "x": 300,
+      "y": 387
+    },
+    "owner": "antigone"
+  },
+  "Cluster_49_macro": {
+    "position": {
+      "x": 375,
+      "y": 602
+    },
+    "owner": "antigone"
+  },
+  "Cluster_50_macro": {},
+  "Cluster_400_macro": {
+    "position": {
+      "x": 450,
+      "y": 129
+    },
+    "owner": "split"
+  },
+  "Cluster_401_macro": {
+    "position": {
+      "x": 600,
+      "y": 129
+    },
+    "owner": "split"
+  },
+  "Cluster_402_macro": {
+    "position": {
+      "x": 600,
+      "y": 43
+    },
+    "owner": "split"
+  },
+  "Cluster_403_macro": {
+    "position": {
+      "x": 375,
+      "y": 172
+    },
+    "owner": "split"
+  },
+  "Cluster_404_macro": {},
+  "Cluster_405_macro": {},
+  "Cluster_406_macro": {},
+  "Cluster_407_macro": {},
+  "Cluster_408_macro": {},
+  "Cluster_409_macro": {},
+  "Cluster_410_macro": {},
+  "Cluster_411_macro": {},
+  "Cluster_412_macro": {},
+  "Cluster_413_macro": {},
+  "Cluster_414_macro": {
+    "position": {
+      "x": 600,
+      "y": -43
+    },
+    "owner": "xenon"
+  },
+  "Cluster_415_macro": {
+    "position": {
+      "x": 675,
+      "y": -86
+    },
+    "owner": "xenon"
+  },
+  "Cluster_416_macro": {},
+  "Cluster_417_macro": {},
+  "Cluster_418_macro": {},
+  "Cluster_419_macro": {},
+  "Cluster_420_macro": {},
+  "Cluster_421_macro": {},
+  "Cluster_422_macro": {
+    "position": {
+      "x": 300,
+      "y": 129
+    },
+    "owner": "paranid"
+  },
+  "Cluster_423_macro": {
+    "position": {
+      "x": 150,
+      "y": 129
+    },
+    "sectorsPosition": "top-right",
+    "owner": "paranid"
+  },
+  "Cluster_424_macro": {
+    "position": {
+      "x": 75,
+      "y": 86
+    },
+    "sectorsPosition": "top-right",
+    "owner": "xenon"
+  },
+  "Cluster_425_macro": {}
+}

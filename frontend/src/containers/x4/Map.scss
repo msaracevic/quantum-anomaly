@@ -1,0 +1,49 @@
+.x4 {
+  &__map {
+    position: relative;
+  }
+
+  &__map-wrapper {
+    overflow: auto;
+    max-width: 105%;
+    max-height: calc(100vh - calc(3rem + 2rem + 4.3rem));
+    margin: -1rem;
+    border-radius: 10px;
+    background: whitesmoke;
+  }
+
+  &__map-controls {
+    position: absolute;
+    z-index: 100;
+    right: 10px;
+    top: 0;
+    padding: 3px;
+
+    span {
+      display: inline-block;
+      margin-right: 5px;
+      padding: 3px;
+      border-radius: 3px;
+      text-align: center;
+      width: 15px;
+      color: white;
+      background: black;
+      cursor: pointer;
+    }
+  }
+
+  svg {
+    pointer-events: none;
+  }
+}
+
+.map {
+  &__sector-name {
+    font-size: 4px;
+    fill: white;
+  }
+
+  &__hexagon {
+    opacity: 1;
+  }
+}

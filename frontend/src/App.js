@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Route, Switch, withRouter, Redirect} from 'react-router-dom';
+import {Redirect, Route, Switch, withRouter} from 'react-router-dom';
 
 import {connect} from 'react-redux';
 import * as authActions from './redux/authActions';
@@ -16,6 +16,7 @@ import Cookies from './components/Cookies';
 import EpicArcsOverview from './containers/epic-arcs/Overview';
 import EpicArc from './containers/epic-arcs/Arc';
 import X4ShipEfficiency from './containers/x4/ShipEfficiency';
+import X4Map from './containers/x4/Map';
 import X4OldShipEfficiency from './containers/x4/OldShipEfficiency';
 import X4 from './containers/x4';
 
@@ -42,6 +43,7 @@ class App extends Component {
             <Route exact path='/x4/efficiency/old' render={props => <X4OldShipEfficiency {...props}/>}/>
             <Route exact path='/x4/efficiency/' render={props => <X4ShipEfficiency {...props}/>}/>
             <Route exact path='/x4/ships' render={props => <X4 {...props}/>}/>
+            <Route exact path='/x4/map' render={props => <X4Map {...props}/>}/>
             <Route exact path='/x4-ships'><Redirect to='/x4/ships'/></Route>
             <Route path='*' component={NotFound}/>
           </Switch>

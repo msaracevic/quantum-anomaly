@@ -7,7 +7,7 @@ const Navigation = () => {
   const userLoggedIn = document.cookie.indexOf('loggedIn=') === -1;
 
   const closeMobileNavigation = event => {
-    event.target.className.indexOf('navigation') === -1 && setMobile(false);
+    if (event.target.classname) event.target.className.indexOf('navigation') === -1 && setMobile(false);
   };
 
   useEffect(() => {

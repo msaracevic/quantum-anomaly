@@ -1,0 +1,8 @@
+{
+  "superHighways": [
+    {"origin": {"x": 64, "y": 101}, "destination": {"x": 85, "y": 63}},
+    {"origin": {"x": 149, "y": 151}, "destination": {"x": 161, "y": 106}},
+    {"origin": {"x": 588, "y": 206}, "destination": {"x": 611, "y": 222}},
+    {"origin": {"x": 608, "y": 376}, "destination": {"x": 588, "y": 396}}
+  ]
+}

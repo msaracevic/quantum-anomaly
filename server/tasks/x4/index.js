@@ -4,7 +4,7 @@ import path from 'path';
 import {appLog} from '../../helpers/logger';
 
 import {getTranslations} from './translations';
-import {getDefaults} from './defaults';
+import {getDefaults, getMapDefaults} from './defaults';
 import {getEquipment} from './equipment';
 import {saveToFile} from './helpers';
 import {getShips} from './ships';
@@ -55,6 +55,11 @@ async function composeIndexTree(type, dlc = null) {
 async function start() {
   const translations = await getTranslations(sourceBasePath);
   await saveToFile(translations, '_translations', 'translations');
+
+  const mapInformation = await getMapDefaults(sourceBasePath, translations);
+  await saveToFile(mapInformation, '_map', 'map');
+
+  return null;
 
   const wares = await getWares(sourceBasePath);
   await saveToFile(wares, '_wares', 'wares');

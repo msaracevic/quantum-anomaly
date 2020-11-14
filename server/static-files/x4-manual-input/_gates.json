@@ -1,0 +1,17 @@
+{
+  "gates":[
+    {"origin": {"x": 52, "y": 120}, "destination": {"x": 124, "y": 146}},
+    {"origin": {"x": 148, "y": 155}, "destination": {"x": 275, "y": 109}},
+    {"origin": {"x": 328, "y": 128}, "destination": {"x": 356, "y": 179}},
+    {"origin": {"x": 388, "y": 198}, "destination": {"x": 371, "y": 257}},
+    {"origin": {"x": 402, "y": 164}, "destination": {"x": 430, "y": 126}},
+    {"origin": {"x": 468, "y": 123}, "destination": {"x": 582, "y": 123}},
+    {"origin": {"x": 600, "y": 108}, "destination": {"x": 615, "y": 60}},
+    {"origin": {"x": 620, "y": 123}, "destination": {"x": 666, "y": 123}},
+    {"origin": {"x": 550, "y": 170}, "destination": {"x": 574, "y": 186}},
+    {"origin": {"x": 607, "y": 147}, "destination": {"x": 628, "y": 232}},
+    {"origin": {"x": 600, "y": 25}, "destination": {"x": 600, "y": -18}},
+    {"origin": {"x": 631, "y": -60}, "destination": {"x": 650, "y": -88}},
+    {"origin": {"x": 586, "y": 391}, "destination": {"x": 626, "y": 249}}
+  ]
+}

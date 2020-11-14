@@ -39,6 +39,15 @@ export const maps = {
     xenon: 'Xenon',
     scaleplate: 'Scale Plate Pact',
     split: 'Zyarth Patriarcy'
+  },
+  colors: {
+    xenon: {color: '#570000', border: '#c90000'},
+    paranid: {color: '#2d0050', border: '#8000ff'},
+    split: {color: '#5e2204', border: '#ff691e'},
+    argon: {color: '#00256e', border: '#0055ff'},
+    antigone: {color: '#4023ae', border: '#5033de'},
+    hatikvah: {color: '#147a70', border: '#20f6e1'},
+    none: {color: '#999', border: '#333'}
   }
 };
 

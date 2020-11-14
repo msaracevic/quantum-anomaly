@@ -12,6 +12,12 @@ export default function reducer(state = null, action) {
         equipment: {...action.payload}
       };
     }
+    case 'FETCH_X4_MAP': {
+      return {
+        ...state,
+        map: {...action.payload}
+      };
+    }
     default: {
       return {...state};
     }

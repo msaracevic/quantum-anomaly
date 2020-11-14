@@ -18,8 +18,8 @@ import * as eveNpcs from './eve-npcs';
 import * as tasks from './tasks';
 
 const router = express.Router(),
-      upload = multer({dest: 'uploads/'}),
-      root   = env === 'production' ? path.join(__dirname, '..', '..') : path.join(__dirname, '..');
+  upload = multer({dest: 'uploads/'}),
+  root = env === 'production' ? path.join(__dirname, '..', '..') : path.join(__dirname, '..');
 
 export default function (app) {
   const frontendPublicPath = path.join(root, '..', 'frontend', 'build');
@@ -35,8 +35,9 @@ export default function (app) {
   router.get('/api/npcs/:indices', eveNpcs.getNpcByIndex);
   router.get('/api/npcs/', eveNpcs.getNpcs);
 
-  router.get('/api/x4/ships', x4.getShips)
-  router.get('/api/x4/equipment', x4.getEquipment)
+  router.get('/api/x4/ships', x4.getShips);
+  router.get('/api/x4/equipment', x4.getEquipment);
+  router.get('/api/x4/map', x4.getMap);
 
   router.use('/api/get-incursions', incursions.getIncursions);
 

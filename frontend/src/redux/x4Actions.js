@@ -21,3 +21,14 @@ export function fetchX4Equipment() {
       .catch(err => console.log(err));
   };
 }
+
+export function fetchX4Map() {
+  return (dispatch) => {
+    return axios.get('/api/x4/map')
+      .then(response => dispatch({
+        type: 'FETCH_X4_MAP',
+        payload: response.data
+      }))
+      .catch(err => console.log(err));
+  };
+}
