@@ -32,3 +32,14 @@ export function fetchX4Map() {
       .catch(err => console.log(err));
   };
 }
+
+export function fetchX4Modifications() {
+  return (dispatch) => {
+    return axios.get('/api/x4/modifications')
+      .then(response => dispatch({
+        type: 'FETCH_X4_MODIFICATIONS',
+        payload: response.data
+      }))
+      .catch(err => console.log(err));
+  };
+}

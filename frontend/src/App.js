@@ -20,6 +20,7 @@ import X4ShipEfficiency from './containers/x4/ShipEfficiency';
 import X4Map from './containers/x4/Map';
 import X4Ships from './containers/x4/Ships';
 import X4ResourcesTable from './containers/x4/Resources';
+import X4Modifications from './containers/x4/Modifications';
 import {deleteCookie, getCookie, setCookie} from './helpers/cookies';
 
 class App extends Component {
@@ -54,6 +55,7 @@ class App extends Component {
             <Route exact path='/x4/ships' render={props => <X4Ships {...props}/>}/>
             <Route exact path='/x4/map' render={props => <X4Map {...props}/>}/>
             <Route exact path='/x4/resources' render={props => <X4ResourcesTable {...props}/>}/>
+            <Route exact path='/x4/modifications' render={props => <X4Modifications {...props}/>}/>
             <Route exact path='/x4-ships'><Redirect to='/x4/ships'/></Route>
             <Route path='*' component={NotFound}/>
           </Switch>

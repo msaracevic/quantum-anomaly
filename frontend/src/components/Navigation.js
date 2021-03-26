@@ -25,6 +25,7 @@ const Navigation = () => {
         <li className='navigation__link'><a href='/x4/ships' title='X4 Ships'>X4 Ships</a></li>
         <li className='navigation__link'><a href='/x4/map' title='X4 Ships'>X4 Map</a></li>
         <li className='navigation__link'><a href='/x4/resources' title='X4 Ships'>X4 Resources</a></li>
+        <li className='navigation__link'><a href='/x4/modifications' title='X4 Ships'>X4 Modifications</a></li>
         <li className='navigation__link'><a href='/x4/efficiency' title='X4 Ships'>X4 Efficiency</a></li>
         {userLoggedIn ? (
           <li className='navigation__link'><a href='/auth/google'>Login</a></li>

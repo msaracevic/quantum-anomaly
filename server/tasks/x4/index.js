@@ -70,7 +70,7 @@ async function start() {
   const wares = await getWares(sourceBasePath);
   await saveToFile(wares, '_wares', 'wares');
 
-  const modifications = await getModifications(sourceBasePath);
+  const modifications = await getModifications(sourceBasePath, wares, translations);
   await saveToFile(modifications, '_modifications', 'modifications');
 
   let macrosIndex = await composeIndexTree('macros');

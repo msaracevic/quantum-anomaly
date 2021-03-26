@@ -1,4 +1,4 @@
-import {translate} from './translations';
+import {translate, translateRecursive} from './translations';
 
 const getRace = (name) => {
   if (name.indexOf('arg') !== -1) return 'arg';
@@ -23,11 +23,10 @@ export function addDataFromMacroFile(data, translations, defaults, storage, ship
     class: classOfShip,
     race: getRace(data.macros.macro.name),
     name: translate(properties.identification.name, translations, true).replace(/\\/g, ''),
-    basename: translate(properties.identification.basename, translations),
-    description: getRace(data.macros.macro.name) !== 'atf' && getRace(data.macros.macro.name) !== 'ter' && getRace(data.macros.macro.name) !== 'yak'
-      ? translate(properties.identification.description, translations, false, true) : '',
-    shortvariation: translate(properties.identification.shortvariation, translations),
-    variation: translate(properties.identification.variation, translations),
+    basename: translateRecursive(properties.identification.basename, translations),
+    description: translateRecursive(properties.identification.description, translations),
+    shortvariation: translateRecursive(properties.identification.shortvariation, translations),
+    variation: translateRecursive(properties.identification.variation, translations),
     type: properties.ship.type,
     radarRange: defaults[classOfShip].radarRange,
     docksize: defaults[classOfShip].docksize,

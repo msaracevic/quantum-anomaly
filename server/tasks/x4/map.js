@@ -1,8 +1,7 @@
 import path from 'path';
 import xml2js from 'xml2js';
 import {promises as fs} from 'fs';
-import {translate} from './translations';
-import {saveToFile} from './helpers';
+import {translate, translateRecursive} from './translations';
 
 // it's 3 am, this thing is so messed up and all over the place in source... deal with it... and pray it doesn't break
 // if it did break, just give up and do something else with your life...
@@ -148,8 +147,8 @@ export async function getMap(sourceBasePath, translations) {
     if (mapDefault.macro.indexOf('Sector') === -1) {
       if (!result[mapDefault.macro]) result[mapDefault.macro] = {};
       result[mapDefault.macro] = {
-        name: translate(mapDefault.properties.identification.name, translations, true),
-        description: translate(mapDefault.properties.identification.description, translations),
+        name:  translate(mapDefault.properties.identification.name, translations, true),
+        description: translateRecursive(mapDefault.properties.identification.description, translations),
         area: mapDefault.properties.area,
         sectors: []
       };
@@ -158,7 +157,7 @@ export async function getMap(sourceBasePath, translations) {
       const parent = mapDefault.macro.replace(/Sector\d\d\d_/, '');
       result[parent].sectors.push({
         name: translate(mapDefault.properties.identification.name, translations, true),
-        description: translate(mapDefault.properties.identification.description, translations),
+        description: translateRecursive(mapDefault.properties.identification.description, translations),
         id: mapDefault.macro,
         resources: totalYields[mapDefault.macro] || null,
         stations: result.stations[mapDefault.macro] || null

@@ -18,6 +18,12 @@ export default function reducer(state = null, action) {
         map: {...action.payload}
       };
     }
+    case 'FETCH_X4_MODIFICATIONS': {
+      return {
+        ...state,
+        modifications: {...action.payload}
+      };
+    }
     default: {
       return {...state};
     }
