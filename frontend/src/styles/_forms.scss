@@ -7,10 +7,37 @@ $form-padding: 0.5rem 1rem;
   text-align: center;
 }
 
-.label--checkbox {
-  input {
-    position: relative;
-    top: 2px;
-    margin: 0 0.2rem 0 0;
+label {
+  display: block;
+  margin-bottom: 0.3rem;
+
+  input[type=radio], input[type=checkbox] {
+    height: 10px;
+  }
+
+  input[type=text] {
+    margin: 0 0 0 0.2rem;
+  }
+
+  input[type=number] {
+    font-size: 12px;
+    height: 16px;
+    width: 60px;
+    text-align: right;
+  }
+}
+
+.label {
+  &--row {
+    display: inline-block;
+    margin: 0 0.6rem;
+  }
+
+  &--small {
+    width: 70px;
+  }
+
+  &--medium {
+    width: 110px;
   }
 }

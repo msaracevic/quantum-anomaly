@@ -162,7 +162,7 @@ const Map = (props) => {
       removeEventListener('mousedown', mouseDownHandler);
       removeEventListener('mousemove', mouseMoveHandler);
       removeEventListener('mouseup', mouseUpHandler);
-      if(wrapper.current) wrapper.current.removeEventListener('wheel', wheelHandler);
+      if (wrapper.current) wrapper.current.removeEventListener('wheel', wheelHandler);
     };
   }, [props.x4.map, scale]);
 
@@ -170,7 +170,7 @@ const Map = (props) => {
     if (props.x4.map) seo({
       title: 'X4 Foundations Map',
       metaDescription: 'X4 Foundations, Split Vendetta and Cradle of Humanity map.',
-      keywords:`${props.x4.map.systems.map(system => system.sectors.map(sector => sector.name).join(', '))}`
+      keywords: `${props.x4.map.systems.map(system => system.sectors.map(sector => sector.name).join(', '))}`
     });
   }, [props.x4.map]);
 
@@ -182,7 +182,7 @@ const Map = (props) => {
           <div className='x4__map-controls'>
             <Link to={'/x4/resources'} className='link'>Go to resource table</Link>
             <span onClick={() => setShowLegend(!showLegend)}>
-              {showLegend ? 'Hide' : 'Show'}  legend
+              {showLegend ? 'Hide' : 'Show'} legend
             </span>
           </div>
           <div ref={wrapper} className='x4__map-wrapper'>

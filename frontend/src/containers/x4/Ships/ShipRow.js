@@ -1,13 +1,12 @@
 import React from 'react';
 import {float, int, maps, separateWord, translateRace} from '../helpers';
-import './ShipPreview.scss';
 
 const Armaments = props => {
   const {extralarge, large, medium, small} = props.ship.armaments[props.type];
   if (extralarge === 0 && large === 0 && medium === 0 && small === 0) return '';
   return (
     <span>
-      {extralarge !== 0 && <span className='x4__armament-item'>{extralarge} XLarge</span>}
+      {extralarge !== 0 && <span className='x4__armament-item'>{extralarge} XL</span>}
       {extralarge !== 0 && large !== 0 && <br/>}
       {large !== 0 && <span className='x4__armament-item'>{large} Large</span>}
       {large !== 0 && medium !== 0 && <br/>}
@@ -18,14 +17,14 @@ const Armaments = props => {
   );
 };
 
-const ShipPreview = ({ship}) => (
-  <tr className='x4__ship-row'>
+const ShipRow = ({ship}) => (
+  <tr>
     <td>
-      <div className='x4__ship-name'>
-        <div className='x4__ship-image'>
+      <div className='x4-ships__ship-name'>
+        <div className='x4-ships__ship-image'>
           <img src={`/images/x4/${ship.id}.jpg`}/>
           {ship.description && (
-            <div className='x4__ship-description' title={ship.description.replace(/\\n/g, ' ')}>?</div>
+            <div className='x4-ships__ship-description' title={ship.description.replace(/\\n/g, ' ')}>?</div>
           )}
         </div>
         <div className='capitalize'>
@@ -49,11 +48,17 @@ const ShipPreview = ({ship}) => (
       <span className='unit-shifted'>{int(ship.speed.acceleration)} m/s²</span>
     </td>
     <td className='number'>
-      {int(ship.speed.travel)} m/s<br/>
-      {int(ship.speed.boost)} m/s
+      {int(ship.speed.boost.speed)} m/s<br/>
+      {int(ship.speed.boost.attack)} s<br/>
+      {int(ship.speed.boost.duration)} s / {int(ship.speed.boost.release)} s
+    </td>
+    <td className='number'>
+      {int(ship.speed.travel.speed)} m/s<br/>
+      {int(ship.speed.travel.attack)} s<br/>
+      {int(ship.speed.travel.charge)} s / {int(ship.speed.travel.release)} s
     </td>
     <td className='center'>
-      {float(ship.speed.pitch)} °/s {float(ship.speed.roll)} °/s {float(ship.speed.yaw)} °/s
+      {float(ship.speed.pitch)} °/s<br/>{float(ship.speed.roll)} °/s<br/>{float(ship.speed.yaw)} °/s
     </td>
     <td className='center'>
       <Armaments ship={ship} type='weapons'/>
@@ -77,27 +82,27 @@ const ShipPreview = ({ship}) => (
     <td className='number'>
       <span className='unit-shifted'>{int(ship.storage.capacity)} m³</span><br/>
       <span className='value capitalize'>
-        {ship.storage.capacityType === 'container solid liquid' ? 'any' : ship.storage.capacityType }
+        {ship.storage.capacityType === 'container solid liquid' ? 'any' : ship.storage.capacityType}
       </span>
     </td>
     <td className='number'>
-      {ship.shipstorage.dock_m} Medium<br />
+      {ship.shipstorage.dock_m} Medium<br/>
       {ship.shipstorage.dock_s} Small
     </td>
     <td className='number'>
       {ship.manufacturer !== 'khaak' && (
         <React.Fragment>
           {Math.floor(ship.production.time / 60)} min {ship.production.time % 60} s <br/>
-            {ship.production.primary.ware.map(item => (
-              <div className='x4__materials-list' key={Math.random()}>
-                <span className='label capitalize'>{separateWord(item.ware)}</span>
-                <span> {int(item.amount)}</span><br/>
-              </div>
-            ))}
+          {ship.production.primary.ware.map(item => (
+            <div className='x4__materials-list' key={Math.random()}>
+              <span className='label capitalize'>{separateWord(item.ware)}</span>
+              <span> {int(item.amount)}</span><br/>
+            </div>
+          ))}
         </React.Fragment>
       )}
     </td>
   </tr>
 );
 
-export default ShipPreview;
+export default ShipRow;

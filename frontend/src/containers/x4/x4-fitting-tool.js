@@ -22,8 +22,18 @@ export function fillOntoShip(ship, equipment, size, items) {
         ...modifiedShip.speed,
         forward: (int(ship.engines.quantity) * float(thrust)) / float(ship.drag.forward),
         acceleration: (int(ship.engines.quantity) * float(thrust)) / float(ship.mass),
-        travel: (float(ship.engines.quantity) * float(thrust) * float(travel)) / float(ship.drag.forward),
-        boost: (float(ship.engines.quantity) * float(thrust) * float(boost)) / float(ship.drag.forward)
+        travel: {
+          speed: (float(ship.engines.quantity) * float(thrust) * float(travel)) / float(ship.drag.forward),
+          attack: float(equipment[size][item].travel.attack),
+          charge: float(equipment[size][item].travel.charge),
+          release: float(equipment[size][item].travel.release)
+        },
+        boost: {
+          speed: (float(ship.engines.quantity) * float(thrust) * float(boost)) / float(ship.drag.forward),
+          attack: float(equipment[size][item].boost.attack),
+          duration: float(equipment[size][item].boost.duration),
+          release: float(equipment[size][item].boost.release)
+        }
       };
     }
     if (item.indexOf('thruster') !== -1) {

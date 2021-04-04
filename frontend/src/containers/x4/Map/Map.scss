@@ -17,7 +17,7 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    max-height: 750px;
+    max-height: calc(100vh - 250px);
   }
 
   &__map-controls {
@@ -43,6 +43,7 @@
       justify-content: space-between;
       flex-wrap: wrap;
       color: black;
+
       > p {
         flex: 0 0 30%;
         text-align: center;

@@ -1,5 +1,5 @@
 import React from 'react';
-import {seo} from '../helpers/';
+import {seo} from '../../helpers';
 import './NotFound.scss';
 
 const NotFound = () => {

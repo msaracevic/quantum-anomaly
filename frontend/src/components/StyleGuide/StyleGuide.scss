@@ -1,0 +1,39 @@
+@import 'src/styles/variables';
+@import 'src/styles/mixins/breakpoints';
+
+.styleguide {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  &__section {
+    flex: 0 0 100%;
+
+    &--small {
+      flex: 0 0 30%;
+    }
+
+    &--medium {
+      flex: 0 0 48%;
+    }
+
+    &--large {
+      flex: 0 0 68%;
+    }
+  }
+
+  &__block {
+    flex: 0 0 100%;
+  }
+
+  &__flex {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  code {
+    font-weight: normal;
+    font-style: normal;
+    text-transform: none;
+  }
+}

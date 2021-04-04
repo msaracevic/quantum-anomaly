@@ -12,6 +12,7 @@ import Footer from './components/Footer';
 import NotFound from './components/NotFound';
 import Home from './components/Home';
 import Cookies from './components/Cookies';
+import StyleGuide from './components/StyleGuide';
 
 import EpicArcsOverview from './containers/epic-arcs/Overview';
 import EpicArc from './containers/epic-arcs/Arc';
@@ -46,6 +47,7 @@ class App extends Component {
           <Cookies/>
           <Switch>
             <Route exact path='/' component={Home}/>
+            <Route exact path='/styleguide' render={props => <StyleGuide {...props}/>}/>
             <Route exact path='/epic-arcs/:faction(amarr|caldari|gallente|minmatar)/:mission' component={EpicArc}/>
             <Route exact path='/epic-arcs/:faction(amarr|caldari|gallente|minmatar)' component={EpicArc}/>
             <Route exact path='/epic-arcs' render={props => <EpicArcsOverview {...props}/>}/>

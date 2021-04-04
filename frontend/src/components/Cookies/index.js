@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {deleteAllCookies, getCookie, setCookie} from '../helpers/cookies';
+import {deleteAllCookies, getCookie, setCookie} from '../../helpers/cookies';
 import './Cookies.scss';
 
 const disableCookies = () => {

@@ -16,7 +16,7 @@ export const maps = {
     ship_m: 'medium',
     ship_s: 'small'
   },
-  subtype: [
+  variations: [
     {label: 'Base variation', value: 'BV'},
     {label: 'Vanguard', value: 'VA'},
     {label: 'Sentinel', value: 'ST'},

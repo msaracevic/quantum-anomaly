@@ -37,7 +37,8 @@ const ShipEfficiency = (props) => {
         let ship = props.x4.ships.ship_l[key];
         if (ship.type === 'freighter') {
           ship = {...fillOntoShip(ship, props.x4.equipment, 'large', [`engine_${race}_l_travel_01_mk1`])};
-          ship.travelTime = distance * 1000 / ship.speed.travel + extraNormalTravelDistance * 1000 / ship.speed.forward;
+          ship.accelerationTime = ship.speed.forward / ship.speed.acceleration;
+          ship.travelTime = distance * 1000 / ship.speed.travel.speed + extraNormalTravelDistance * 1000 / ship.speed.forward;
           ship.tradeScore = ship.storage.capacity / ship.travelTime;
           shipCollection.push(ship);
         }
@@ -47,7 +48,8 @@ const ShipEfficiency = (props) => {
         let ship = props.x4.ships.ship_m[key];
         if (ship.type === 'transporter') {
           ship = {...fillOntoShip(ship, props.x4.equipment, 'medium', [`engine_${race}_m_travel_01_mk3`])};
-          ship.travelTime = (distance - highwayDistance) * 1000 / ship.speed.travel + highwayDistance * 1000 / highwaySpeed;
+          ship.accelerationTime = ship.speed.forward / ship.speed.acceleration;
+          ship.travelTime = (distance - highwayDistance) * 1000 / ship.speed.travel.speed + highwayDistance * 1000 / highwaySpeed;
           ship.tradeScore = ship.storage.capacity / ship.travelTime;
           shipCollection.push(ship);
         }
@@ -57,7 +59,8 @@ const ShipEfficiency = (props) => {
         let ship = props.x4.ships.ship_s[key];
         if (ship.type === 'courier') {
           ship = {...fillOntoShip(ship, props.x4.equipment, 'small', [`engine_${race}_s_travel_01_mk3`])};
-          ship.travelTime = (distance - highwayDistance) * 1000 / ship.speed.travel + highwayDistance * 1000 / highwaySpeed;
+          ship.accelerationTime = ship.speed.forward / ship.speed.acceleration;
+          ship.travelTime = (distance - highwayDistance) * 1000 / ship.speed.travel.speed + highwayDistance * 1000 / highwaySpeed;
           ship.tradeScore = ship.storage.capacity / ship.travelTime;
           shipCollection.push(ship);
         }
@@ -70,34 +73,34 @@ const ShipEfficiency = (props) => {
   }, [props.x4.equipment, race, distance, jumpGates, percentHighway, highwaySpeed]);
 
   return (
-    <div className='x4'>
+    <div className='x4-efficiency'>
       <h1>X4 Ship Efficiency</h1>
-      <p className='muted'>Explanation of values is under the table. Still not fully adjusted for v4.0</p>
+      <p className='muted'>Explanation of values is under the table. Still not fully adjusted for v4.0. Time to reach full speed is also not yet in calculation.</p>
 
-      <div className='x4__controls'>
-        <div className='x4__radio-group x4__radio-group--numbers'>
-          <p className='x4__control-title'>Variables used for calcuation</p>
+      <div className='flex'>
+        <div>
+          <p className='bold'>Variables used for calculations</p>
           <label>
             <input type='number' defaultValue='1000' min='10' max='10000'
                    onChange={e => setDistance(parseInt(e.target.value, 10))}/> km of total whole trip
-          </label><br/>
+          </label>
           <label>
             <input type='number' defaultValue='4' min='0' max='15'
                    onChange={e => setJumpGates(parseInt(e.target.value, 10))}/> jump gates
-          </label><br/>
+          </label>
           <label>
             <input type='number' defaultValue='80' min='0' max='100'
                    onChange={e => setPercentHighway(parseInt(e.target.value, 10))}/> percent of travel on highway
-          </label><br/>
+          </label>
           <label>
             <input type='number' defaultValue='13500' min='10000' max='15000'
                    onChange={e => setHighwaySpeed(parseInt(e.target.value, 10))}/> m/s highway speed
           </label>
         </div>
-        <div className='x4__radio-group x4__radio-group--wide x4__radio-group'>
-          <p className='x4__control-title'>Travel engines you want to use (highest Mk available for class)</p>
+        <div>
+          <p className='bold'>Travel engines you want to use (highest Mk available for class)</p>
           {ENGINE_RACES.map((race, index) => (
-            <label className='x4__radio-label' key={race}>
+            <label className='label--row' key={race}>
               <input type='radio'
                      name='engines'
                      value={race}
@@ -108,7 +111,7 @@ const ShipEfficiency = (props) => {
         </div>
       </div>
 
-      <div className='x4-ships-efficiency'>
+      <div className='x4-efficiency__table-wrapper'>
         <table>
           <thead>
           <tr>
@@ -116,8 +119,14 @@ const ShipEfficiency = (props) => {
             <th onClick={() => sortBy('name')}>Ship</th>
             <th onClick={() => sortBy('class')} className='number'>Size</th>
             <th onClick={() => sortBy('storage')} className='number'>Storage</th>
-            <th onClick={() => sortBy('speed')} className='number'>Speed</th>
-            <th onClick={() => sortBy('travelSpeed')} className='number'>Travel</th>
+            <th onClick={() => sortBy('speed')} className='number'>
+              Speed<br/>
+              <span className='muted'>Time to reach</span>
+            </th>
+            <th onClick={() => sortBy('travelSpeed')} className='number'>
+              Travel<br/>
+              <span className='muted'>Time to reach</span>
+            </th>
             <th onClick={() => sortBy('travelTime')} className='number'>Time</th>
             <th onClick={() => sortBy('tradeScore')} className='number'>Throughput</th>
           </tr>
@@ -125,6 +134,7 @@ const ShipEfficiency = (props) => {
           <tbody>
           {results.map(ship => (
             <tr key={Math.random()}>
+              {console.log(ship)}
               <td className='number'>{ship.tradeIndex}.</td>
               <td className='capitalize'>
                 <span className='bold'>{ship.name}</span><br/>
@@ -137,10 +147,12 @@ const ShipEfficiency = (props) => {
                 {int(ship.storage.capacity)}m³
               </td>
               <td className='number'>
-                {int(ship.speed.forward)} m/s
+                {int(ship.speed.forward)} m/s<br/>
+                {int(ship.accelerationTime)} s
               </td>
               <td className='number'>
-                {int(ship.speed.travel)} m/s
+                {int(ship.speed.travel.speed)} m/s<br/>
+                {int(ship.speed.travel.attack)} s
               </td>
               <td className='number'>
                 {int(ship.travelTime)} s

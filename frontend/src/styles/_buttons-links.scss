@@ -21,12 +21,13 @@ button:focus {
   &--cta {
     color: white;
     background: #000051;
+    border: 1px solid transparent;
   }
 
   &--secondary {
     color: white;
     background-color: #666;
-    border: 2px solid #000051;
+    border: 1px solid transparent;
   }
 
   &--seperated {

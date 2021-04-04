@@ -9,8 +9,6 @@ export function lowercaseComparison(arg) {
 export function seo(data = {}) {
   const keywords = data.keywords || [];
 
-  console.log(keywords)
-
   data.title = data.title || 'Quantum Anomaly';
   data.metaDescription = data.metaDescription || 'Quantum Anomaly websites contains useful information and resources about online games such as EVE Online, Elite Dangerous, X4 Foundations, X4 Split Vendetta';
   data.keywords = ['Quantum Anomaly', 'X4', 'Split Vendetta', 'Cradle of Humanity', 'EVE Online', 'Epic Arcs'].concat(keywords).join(',');

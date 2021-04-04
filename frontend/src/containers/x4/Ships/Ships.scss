@@ -1,0 +1,89 @@
+@import 'src/styles/variables';
+@import 'src/styles/mixins/breakpoints';
+
+.x4-ships {
+  .label {
+    &--row {
+      font-size: 13px;
+
+      input {
+        height: 9px;
+      }
+    }
+
+    &--small {
+      width: 60px;
+    }
+
+    &--medium {
+      width: 100px;
+    }
+  }
+
+  &__radio-group {
+    margin: 0 2rem 1rem 0;
+    width: 225px;
+
+    .label--row {
+      font-size: 12px;
+      margin: 0;
+      width: 75px;
+
+      input {
+        height: 8px;
+      }
+    }
+  }
+
+  &__table-wrapper {
+    overflow-x: scroll;
+  }
+
+  table {
+    min-width: 1700px;
+
+    td {
+      vertical-align: middle;
+    }
+  }
+
+  .unit-shifted {
+    position: relative;
+    right: -4px;
+  }
+
+  &__ship-name {
+    display: flex;
+  }
+
+  &__materials-list {
+    font-size: 12px;
+  }
+
+  &__ship-description {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    color: black;
+    cursor: pointer;
+    background: white;
+    width: 0.6rem;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 8px;
+    font-weight: bold;
+  }
+
+  &__ship-image {
+    display: block;
+    max-width: 64px;
+    margin-right: 1rem;
+    position: relative;
+
+    img {
+      display: block;
+      filter: brightness(2) contrast(1.1) saturate(1.2);
+      border-radius: 10px;
+    }
+  }
+}

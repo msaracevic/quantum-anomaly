@@ -95,3 +95,14 @@ strong {
 .capitalize {
   text-transform: capitalize;
 }
+
+.monospace {
+  font-family: monospace;
+}
+
+code {
+  background: #ddd;
+  padding: 0 3px;
+  border-radius: 3px;
+  font-family: monospace;
+}
