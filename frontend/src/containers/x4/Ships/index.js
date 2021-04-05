@@ -135,7 +135,6 @@ const Ships = (props) => {
       });
 
       setShips(sortShips(shipCollection, sort));
-      setTimeout(() => console.log(shipCollection), 3000);
     }
   }, [props.x4, size, activeEngine, activeShield, activeThruster, activeType, shipVariation, race]);
 

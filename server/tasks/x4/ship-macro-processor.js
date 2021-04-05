@@ -89,8 +89,21 @@ export function addDataFromMacroFile(data, translations, defaults, storage, ship
     else if (ship.name.indexOf('Sentinel') !== -1) ship.shortvariation = 'ST';
     else ship.shortvariation = 'BV';
   }
-  // because Split are the only one who have this types, we will unify it under BV, like rest of the ships
-  ship.shortvariation = ship.shortvariation.replace('\\(Gas\\)', 'BV').replace('\\(Mineral\\)', 'BV');
+
+  if (!ship.variation) ship.variation = 'Base Variation';
+
+  ship.shortvariation = ship.shortvariation.replace('\\(Gas\\) VA', 'VA').replace('\\(Gas\\) ST', 'ST');
+  ship.variation = ship.variation.replace('\\(Gas\\)', '').replace('\\(Gas\\)', '').trim();
+  ship.shortvariation = ship.shortvariation.replace('\\(Mineral\\) VA', 'VA').replace('\\(Mineral\\) ST', 'ST');
+  ship.variation = ship.variation.replace('\\(Mineral\\)', '').replace('\\(Mineral\\)', '').trim();
+
+  // if we still don't have shortvariation, set it as BV
+  if (['RD', 'VA', 'ST', 'BV'].indexOf(ship.shortvariation) === -1) {
+    ship.shortvariation = 'BV';
+    ship.variation = 'Base Variation';
+  }
+
+  if (ship.id === 'ship_arg_m_bomber_02_a_macro') ship.type = 'gunboat';
 
   return ship;
 }
