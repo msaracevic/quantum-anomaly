@@ -42,8 +42,13 @@
   table {
     min-width: 1700px;
 
+    th {
+      cursor: pointer;
+    }
+
     td {
       vertical-align: middle;
+      height: 80px;
     }
   }
 

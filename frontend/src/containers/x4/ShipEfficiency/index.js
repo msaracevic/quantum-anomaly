@@ -134,7 +134,6 @@ const ShipEfficiency = (props) => {
           <tbody>
           {results.map(ship => (
             <tr key={Math.random()}>
-              {console.log(ship)}
               <td className='number'>{ship.tradeIndex}.</td>
               <td className='capitalize'>
                 <span className='bold'>{ship.name}</span><br/>

@@ -30,7 +30,7 @@ export function addDataFromMacroFile(data, translations, defaults, storage, ship
     type: properties.ship.type,
     radarRange: defaults[classOfShip].radarRange,
     docksize: defaults[classOfShip].docksize,
-    hull: properties.hull.max,
+    hull: parseFloat(properties.hull.max),
     shield: {max: 0, rate: 0, delay: 0},
     speed: {forward: 0, acceleration: 0, boost: 0, travel: 0, pitch: 0, roll: 0, yaw: 0},
     armaments: {weapons: {large: 0, medium: 0, small: 0}, turrets: {large: 0, medium: 0, small: 0}},
@@ -43,20 +43,20 @@ export function addDataFromMacroFile(data, translations, defaults, storage, ship
       capacity: 0,
       capacityType: null
     },
-    mass: properties.physics.mass,
+    mass: parseFloat(properties.physics.mass),
     inertia: {
-      pitch: properties.physics.inertia.pitch,
-      yaw: properties.physics.inertia.yaw,
-      roll: properties.physics.inertia.roll
+      pitch: parseFloat(properties.physics.inertia.pitch),
+      yaw: parseFloat(properties.physics.inertia.yaw),
+      roll: parseFloat(properties.physics.inertia.roll)
     },
     drag: {
-      forward: properties.physics.drag.forward,
-      reverse: properties.physics.drag.reverse,
-      horizontal: properties.physics.drag.horizontal,
-      vertical: properties.physics.drag.vertical,
-      pitch: properties.physics.drag.pitch,
-      yaw: properties.physics.drag.yaw,
-      roll: properties.physics.drag.roll
+      forward: parseFloat(properties.physics.drag.forward),
+      reverse: parseFloat(properties.physics.drag.reverse),
+      horizontal: parseFloat(properties.physics.drag.horizontal),
+      vertical: parseFloat(properties.physics.drag.vertical),
+      pitch: parseFloat(properties.physics.drag.pitch),
+      yaw: parseFloat(properties.physics.drag.yaw),
+      roll: parseFloat(properties.physics.drag.roll)
     },
     thrusters: {
       size: properties.thruster.tags

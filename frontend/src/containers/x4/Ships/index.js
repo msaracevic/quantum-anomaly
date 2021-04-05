@@ -12,6 +12,7 @@ import FilterRacesAndShipVariation from './FilterRacesAndShipVariation';
 import ShipRow from './ShipRow';
 
 import './Ships.scss';
+import {sortShips} from '../ship-sorter';
 
 const RadioGroups = props => {
   if (props.items.length === 0) return null;
@@ -71,6 +72,8 @@ const Ships = (props) => {
   });
   const [shipVariation, setShipVariation] = useState({BV: true, VA: true, ST: true, RD: true});
   const [types, setTypes] = useState([]);
+  const [ships, setShips] = useState([]);
+  const [sort, setSort] = useState('name');
 
   const [shields, setShields] = useState([]);
   const [activeShield, setActiveShield] = useState(null);
@@ -79,6 +82,8 @@ const Ships = (props) => {
   const [thrusters, setThrusters] = useState([]);
   const [activeThruster, setActiveThruster] = useState(null);
   const [activeType, setActiveType] = useState('all');
+
+  const sortBy = arg => setSort(arg === sort ? `-${arg}` : arg);
 
   useEffect(() => {
     if (!props.x4.ships) props.fetchX4Ships().then(() => props.fetchX4Equipment());
@@ -115,6 +120,29 @@ const Ships = (props) => {
     }
   }, [props.x4, size]);
 
+  useEffect(() => {
+    if (props.x4.ships && props.x4.equipment) {
+      const shipCollection = [];
+      Object.keys(props.x4.ships[size]).map(id => {
+        let ship = {...props.x4.ships[size][id]};
+        if (!race[ship.race]) return null;
+        if (!shipVariation[ship.shortvariation]) return null;
+        if (activeType && activeType !== 'all' && ship.type !== activeType) return null;
+        if (activeShield) ship = fillOntoShip(ship, props.x4.equipment, maps.size[size], [activeShield]);
+        if (activeEngine) ship = fillOntoShip(ship, props.x4.equipment, maps.size[size], [activeEngine]);
+        if (activeThruster) ship = fillOntoShip(ship, props.x4.equipment, maps.size[size], [activeThruster]);
+        shipCollection.push(ship);
+      });
+
+      setShips(sortShips(shipCollection, sort));
+      setTimeout(() => console.log(shipCollection), 3000);
+    }
+  }, [props.x4, size, activeEngine, activeShield, activeThruster, activeType, shipVariation, race]);
+
+  useEffect(() => {
+    if (ships.length) setShips(sortShips(ships, sort));
+  }, [sort]);
+
   return (
     <div className={clsx('x4-ships')}>
       <h1>X4 Ship Previewer</h1>
@@ -143,25 +171,33 @@ const Ships = (props) => {
         <table>
           <thead>
           <tr>
-            <th>Name</th>
-            <th className='number'>Hull<br/><span className='muted'>Mass</span></th>
-            <th className='number'>Shields<br/><span className='muted'>Recharge</span></th>
-            <th className='number'>Speed<br/><span className='muted'>Acceleration</span></th>
-            <th className='number'>
+            <th onClick={() => sortBy('name')}>Name</th>
+            <th className='number' onClick={() => sortBy('hull')}>
+              Hull<br/><span className='muted'>Mass</span>
+            </th>
+            <th className='number' onClick={() => sortBy('shield')}>
+              Shields<br/><span className='muted'>Recharge</span>
+            </th>
+            <th className='number' onClick={() => sortBy('speed')}>
+              Speed<br/><span className='muted'>Acceleration</span>
+            </th>
+            <th className='number' onClick={() => sortBy('boostSpeed')}>
               Boost<br/>
               <span className='muted' title='Time needed to reach full boost speed'>Attack</span><br/>
               <span className='muted'
                     title='Time needed to drain shields/return to normal speed'>Duration/Release</span>
             </th>
-            <th className='number'>
+            <th className='number' onClick={() => sortBy('travelSpeed')}>
               Travel<br/>
               <span className='muted' title='Time needed to reach full travel speed'>Attack</span><br/>
               <span className='muted'
                     title='Time needed to activate travel drive/return to normal speed'>Charge/Release</span>
             </th>
-            <th className='center'>Manuverability<br/><span className='muted'>Pitch/Roll/Yaw</span></th>
-            <th className='center'>Weapons</th>
-            <th className='center'>Turrets</th>
+            <th className='center' onClick={() => sortBy('pitch')}>
+              Manuverability<br/><span className='muted'>Pitch/Roll/Yaw</span>
+            </th>
+            <th className='center' onClick={() => sortBy('weapons')}>Weapons</th>
+            <th className='center' onClick={() => sortBy('turrets')}>Turrets</th>
             <th className='number'>Missiles<br/><span className='muted'>Cntermeas.</span></th>
             <th className='number'>Drones</th>
             <th className='number'>Deployables</th>
@@ -172,16 +208,7 @@ const Ships = (props) => {
           </tr>
           </thead>
           <tbody>
-          {props.x4.ships && Object.keys(props.x4.ships[size]).map(id => {
-            let ship = {...props.x4.ships[size][id]};
-            if (!race[ship.race]) return null;
-            if (!shipVariation[ship.shortvariation]) return null;
-            if (activeType && activeType !== 'all' && ship.type !== activeType) return null;
-            if (activeShield) ship = fillOntoShip(ship, props.x4.equipment, maps.size[size], [activeShield]);
-            if (activeEngine) ship = fillOntoShip(ship, props.x4.equipment, maps.size[size], [activeEngine]);
-            if (activeThruster) ship = fillOntoShip(ship, props.x4.equipment, maps.size[size], [activeThruster]);
-            return <ShipRow key={ship.id} ship={ship}/>;
-          })}
+          {ships.map(ship => <ShipRow key={ship.id} ship={ship}/>)}
           </tbody>
         </table>
       </div>
