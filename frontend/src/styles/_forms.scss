@@ -25,6 +25,29 @@ label {
     width: 60px;
     text-align: right;
   }
+
+  input[type=radio] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+
+    transition: 0.1s all linear;
+
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+
+    border: 1px solid #999;
+    margin: 0 3px 0 0;
+
+    position: relative;
+    top: 0px;
+
+    &:checked {
+      background: #0067f8;
+    }
+  }
 }
 
 .label {

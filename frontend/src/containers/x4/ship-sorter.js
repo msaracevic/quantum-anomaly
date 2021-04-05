@@ -38,17 +38,30 @@ export function sortShips(ships, sort) {
     case 'boostSpeed':
       shipCollection.sort((a, b) => (a.speed.boost.speed < b.speed.boost.speed) ? 1 : ((b.speed.boost.speed < a.speed.boost.speed) ? -1 : 0));
       break;
+    case 'missiles':
+      shipCollection.sort((a, b) => (a.storage.missile < b.storage.missile) ? 1 : ((b.storage.missile < a.storage.missile) ? -1 : 0));
+      break;
+    case 'drones':
+      shipCollection.sort((a, b) => (a.storage.unit < b.storage.unit) ? 1 : ((b.storage.unit < a.storage.unit) ? -1 : 0));
+      break;
+    case 'crew':
+      shipCollection.sort((a, b) => (a.storage.people < b.storage.people) ? 1 : ((b.storage.people < a.storage.people) ? -1 : 0));
+      break;
     case 'weapons':
-      shipCollection.sort((a, b) => (a.armaments.weapons.small < b.armaments.weapons.small ) ? 1 : ((b.armaments.weapons.small  < a.armaments.weapons.small ) ? -1 : 0));
-      shipCollection.sort((a, b) => (a.armaments.weapons.medium < b.armaments.weapons.medium ) ? 1 : ((b.armaments.weapons.medium  < a.armaments.weapons.medium ) ? -1 : 0));
-      shipCollection.sort((a, b) => (a.armaments.weapons.large < b.armaments.weapons.large ) ? 1 : ((b.armaments.weapons.large  < a.armaments.weapons.large ) ? -1 : 0));
-      shipCollection.sort((a, b) => (a.armaments.weapons.extralarge < b.armaments.weapons.extralarge ) ? 1 : ((b.armaments.weapons.extralarge  < a.armaments.weapons.extralarge ) ? -1 : 0));
+      shipCollection.sort((a, b) => (a.armaments.weapons.small < b.armaments.weapons.small) ? 1 : ((b.armaments.weapons.small < a.armaments.weapons.small) ? -1 : 0));
+      shipCollection.sort((a, b) => (a.armaments.weapons.medium < b.armaments.weapons.medium) ? 1 : ((b.armaments.weapons.medium < a.armaments.weapons.medium) ? -1 : 0));
+      shipCollection.sort((a, b) => (a.armaments.weapons.large < b.armaments.weapons.large) ? 1 : ((b.armaments.weapons.large < a.armaments.weapons.large) ? -1 : 0));
+      shipCollection.sort((a, b) => (a.armaments.weapons.extralarge < b.armaments.weapons.extralarge) ? 1 : ((b.armaments.weapons.extralarge < a.armaments.weapons.extralarge) ? -1 : 0));
       break;
     case 'turrets':
-      shipCollection.sort((a, b) => (a.armaments.turrets.small < b.armaments.turrets.small ) ? 1 : ((b.armaments.turrets.small  < a.armaments.turrets.small ) ? -1 : 0));
-      shipCollection.sort((a, b) => (a.armaments.turrets.medium < b.armaments.turrets.medium ) ? 1 : ((b.armaments.turrets.medium  < a.armaments.turrets.medium ) ? -1 : 0));
-      shipCollection.sort((a, b) => (a.armaments.turrets.large < b.armaments.turrets.large ) ? 1 : ((b.armaments.turrets.large  < a.armaments.turrets.large ) ? -1 : 0));
-      shipCollection.sort((a, b) => (a.armaments.turrets.extralarge < b.armaments.turrets.extralarge ) ? 1 : ((b.armaments.turrets.extralarge  < a.armaments.turrets.extralarge ) ? -1 : 0));
+      shipCollection.sort((a, b) => (a.armaments.turrets.small < b.armaments.turrets.small) ? 1 : ((b.armaments.turrets.small < a.armaments.turrets.small) ? -1 : 0));
+      shipCollection.sort((a, b) => (a.armaments.turrets.medium < b.armaments.turrets.medium) ? 1 : ((b.armaments.turrets.medium < a.armaments.turrets.medium) ? -1 : 0));
+      shipCollection.sort((a, b) => (a.armaments.turrets.large < b.armaments.turrets.large) ? 1 : ((b.armaments.turrets.large < a.armaments.turrets.large) ? -1 : 0));
+      shipCollection.sort((a, b) => (a.armaments.turrets.extralarge < b.armaments.turrets.extralarge) ? 1 : ((b.armaments.turrets.extralarge < a.armaments.turrets.extralarge) ? -1 : 0));
+      break;
+    case 'dock':
+      shipCollection.sort((a, b) => (a.shipstorage.dock_s < b.shipstorage.dock_s) ? 1 : ((b.shipstorage.dock_s < a.shipstorage.dock_s) ? -1 : 0));
+      shipCollection.sort((a, b) => (a.shipstorage.dock_m < b.shipstorage.dock_m) ? 1 : ((b.shipstorage.dock_m < a.shipstorage.dock_m) ? -1 : 0));
       break;
     case 'travelTime':
       shipCollection.sort((a, b) => (a.travelTime < b.travelTime) ? 1 : ((b.travelTime < a.travelTime) ? -1 : 0));

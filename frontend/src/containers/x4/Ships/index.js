@@ -41,7 +41,7 @@ const RadioGroups = props => {
           {Object.keys(mkGroups[baseKey]).map(raceKey => (
             <div key={raceKey}>
               {mkGroups[baseKey][raceKey].map(item => (
-                <label className='label--row monospace' key={item.id}>
+                <label className='monospace' key={item.id}>
                   <input type='radio'
                          name={groupRandomName}
                          value={item.id}
@@ -159,8 +159,10 @@ const Ships = (props) => {
       <FilterRacesAndShipVariation setRace={setRace} setShipVariation={setShipVariation}/>
 
       <p className='divider divider--tm'/>
-      <div className='flex'>
-        <RadioGroups items={[...engines]} onChange={setActiveEngine} isBig/>
+      <div className='x4-ships__equipment'>
+        <RadioGroups items={[...engines]} onChange={setActiveEngine}/>
+      </div>
+      <div className='x4-ships__equipment'>
         <RadioGroups items={[...shields]} onChange={setActiveShield}/>
         <RadioGroups items={[...thrusters]} onChange={setActiveThruster}/>
       </div>
@@ -170,7 +172,9 @@ const Ships = (props) => {
         <table>
           <thead>
           <tr>
-            <th onClick={() => sortBy('name')}>Name</th>
+            <th onClick={() => sortBy('name')}>
+              Name
+            </th>
             <th className='number' onClick={() => sortBy('hull')}>
               Hull<br/><span className='muted'>Mass</span>
             </th>
@@ -195,14 +199,27 @@ const Ships = (props) => {
             <th className='center' onClick={() => sortBy('pitch')}>
               Manuverability<br/><span className='muted'>Pitch/Roll/Yaw</span>
             </th>
-            <th className='center' onClick={() => sortBy('weapons')}>Weapons</th>
-            <th className='center' onClick={() => sortBy('turrets')}>Turrets</th>
-            <th className='number'>Missiles<br/><span className='muted'>Cntermeas.</span></th>
-            <th className='number'>Drones</th>
-            <th className='number'>Deployables</th>
-            <th className='number'>Crew</th>
-            <th className='number'>Cargo<br/><span className='muted'>Type</span></th>
-            <th className='number'>Dock<br/><span className='muted'>Medium/Small</span></th>
+            <th className='center' onClick={() => sortBy('weapons')}>
+              Weapons
+            </th>
+            <th className='center' onClick={() => sortBy('turrets')}>
+              Turrets
+            </th>
+            <th className='number' onClick={() => sortBy('missiles')}>
+              Missiles<br/><span className='muted'>Cntermeas.</span>
+            </th>
+            <th className='number' onClick={() => sortBy('drones')}>
+              Drones
+            </th>
+            <th className='number' onClick={() => sortBy('crew')}>
+              Crew<br/><span className='muted'>Deployables</span>
+            </th>
+            <th className='number' onClick={() => sortBy('storage')}>
+              Cargo<br/><span className='muted'>Type</span>
+            </th>
+            <th className='number'onClick={() => sortBy('dock')}>
+              Dock<br/><span className='muted'>Medium/Small</span>
+            </th>
             <th className='number'>Building<br/><span className='muted'>Time/Mats</span></th>
           </tr>
           </thead>

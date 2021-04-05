@@ -67,17 +67,15 @@ const ShipRow = ({ship}) => (
       <Armaments ship={ship} type='turrets'/>
     </td>
     <td className='number'>
-      {ship.storage.missile}<br/>
-      {ship.storage.countermeasure}
+      {ship.storage.missile} Missiles<br/>
+      {ship.storage.countermeasure} Cntermeas
     </td>
     <td className='number'>
-      {ship.storage.unit || 0}
+      {ship.storage.unit || 0} Drones
     </td>
     <td className='number'>
-      {ship.storage.deployable || 0}
-    </td>
-    <td className='number'>
-      {ship.storage.people}
+      {ship.storage.people} Crew<br/>
+      {ship.storage.deployable || 0} items
     </td>
     <td className='number'>
       <span className='unit-shifted'>{int(ship.storage.capacity)} m³</span><br/>

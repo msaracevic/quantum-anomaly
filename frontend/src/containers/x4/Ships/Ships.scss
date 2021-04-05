@@ -6,7 +6,7 @@
     &--row {
       font-size: 13px;
 
-      input {
+      input[type=checkbox] {
         height: 9px;
       }
     }
@@ -20,18 +20,31 @@
     }
   }
 
+  &__equipment {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
   &__radio-group {
-    margin: 0 2rem 1rem 0;
-    width: 225px;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    flex: 0 0 100%;
 
-    .label--row {
-      font-size: 12px;
-      margin: 0;
-      width: 75px;
+    @include media-breakpoint-up(md) {
+      max-width: 325px;
+      margin-right: 2rem;
+    }
 
-      input {
-        height: 8px;
-      }
+    p {
+      flex: 0 0 100%;
+    }
+
+    label {
+      font-size: 11px;
+      margin: 0 0 3px 5px;
     }
   }
 
