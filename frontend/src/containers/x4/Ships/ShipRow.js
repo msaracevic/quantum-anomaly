@@ -22,7 +22,7 @@ const ShipRow = ({ship}) => (
     <td>
       <div className='x4-ships__ship-name'>
         <div className='x4-ships__ship-image'>
-          <img src={`/images/x4/${ship.id}.jpg`}/>
+          <img src={`/images/x4/${ship.id}.jpg`} alt={ship.name}/>
           {ship.description && (
             <div className='x4-ships__ship-description' title={ship.description.replace(/\\n/g, ' ')}>?</div>
           )}
