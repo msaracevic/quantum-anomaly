@@ -7,6 +7,11 @@
     overflow-y: scroll;
   }
 
+  &__method {
+    display: block;
+    text-align: center;
+  }
+
   table {
     margin: 0 0 1em;
     min-width: 680px;

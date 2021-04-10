@@ -11,6 +11,7 @@ import {saveToFile} from './helpers';
 import {getShips} from './ships';
 import {getWares} from './wares';
 import {getModifications} from './modifications';
+import {getMapV2} from './mapV2';
 
 /*  NOTE: This task only runs on local machine. Even though path is being used in most places, this is still best ran
           to run on windows machine, which you probably have so that you can run the game as well, right? It expects
@@ -64,6 +65,10 @@ async function start() {
   const translations = await getTranslations(sourceBasePath);
   await saveToFile(translations, '_translations', 'translations');
 
+  const mapInformationV2 = await getMapV2(sourceBasePath, translations);
+  await saveToFile(mapInformationV2, '_mapV2', 'map');
+
+  // uses file from mapInformationV2
   const mapInformation = await getMap(sourceBasePath, translations);
   await saveToFile(mapInformation, '_map', 'map');
 

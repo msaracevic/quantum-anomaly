@@ -210,8 +210,9 @@ const Map = (props) => {
               <ClusterTexts {...props} />
             </svg>
           </div>
-          <div style={{textAlign: 'right'}}>
-            <button onClick={downloadSvgFile} className='link'>Click here to download as svg</button>
+          <div style={{textAlign: 'right', padding: '3px'}}>
+            <span>Special thank you to Allectus, DeadAir and UniTrader from Egosoft discord for helping&nbsp;&nbsp;</span>
+            <button onClick={downloadSvgFile} className='btn btn--cta'>Click here to download as svg</button>
           </div>
         </React.Fragment>
       )}

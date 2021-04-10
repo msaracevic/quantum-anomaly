@@ -10,6 +10,9 @@ export async function getMap(sourceBasePath, translations) {
   let terranSourcePath = path.join(sourceBasePath, 'extensions', 'ego_dlc_terran');
   let parser = new xml2js.Parser({mergeAttrs: true, explicitArray: false});
 
+  let resourcesInField = await fs.readFile(path.join(__dirname, '..', '..', 'static-files', 'x4', '_map-step-resourcesInField.json'));
+  resourcesInField = JSON.parse(resourcesInField);
+
   // from here we get list of all sectors with their name and descriptions, they can be then grouped by macro which
   // points to cluster
   let pathToFile = path.join(sourceBasePath, 'libraries', 'mapdefaults.xml');
@@ -61,24 +64,22 @@ export async function getMap(sourceBasePath, translations) {
           const cluster = name.match(/C(.*)S/)[1];
           const sector = '0' + name.match(/S(.*)/)[1];
           name = `Cluster_${cluster}_Sector${sector}_macro`;
+          const referenceName = result.regions[connection.macro.properties.region.ref].name;
           if (!result.resources[name]) result.resources[name] = [];
-          Array.isArray(resources.resource)
-            ? result.resources[name] = result.resources[name].concat(resources.resource)
-            : result.resources[name].push(resources.resource);
+          result.resources[name].push(resourcesInField[referenceName].relativeResources);
         }
       }
     });
   });
 
-  // resources can be medium, high and veryhigh. Since this is arbitery to show how much it is present per system
-  // we can just give 5 points for medium occurance, 10 for high and 20 for veryhigh
-
   const totalYields = {};
   Object.keys(result.resources).map(key => {
     totalYields[key] = {ore: 0, silicon: 0, nividium: 0, ice: 0, hydrogen: 0, helium: 0, methane: 0};
-    result.resources[key].map(res => {
-      let values = {lowest: 1, verylow: 2, low: 3, medium: 5, high: 10, veryhigh: 20};
-      totalYields[key][res.ware] += values[res.yield];
+    result.resources[key].forEach(resourceGroup => {
+      Object.keys(resourceGroup).forEach(ware => {
+        totalYields[key][ware] += resourceGroup[ware];
+        if (totalYields[key][ware] > 99) totalYields[key][ware] = 99;
+      });
     });
   });
 
@@ -147,7 +148,7 @@ export async function getMap(sourceBasePath, translations) {
     if (mapDefault.macro.indexOf('Sector') === -1) {
       if (!result[mapDefault.macro]) result[mapDefault.macro] = {};
       result[mapDefault.macro] = {
-        name:  translate(mapDefault.properties.identification.name, translations, true),
+        name: translate(mapDefault.properties.identification.name, translations, true),
         description: translateRecursive(mapDefault.properties.identification.description, translations),
         area: mapDefault.properties.area,
         sectors: []

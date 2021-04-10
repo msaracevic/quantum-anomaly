@@ -27,3 +27,5 @@ build
 
 # compiled CSS files
 **/*.css
+
+/server/static-files/x4-game-files/*

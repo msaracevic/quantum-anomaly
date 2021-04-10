@@ -65,9 +65,13 @@ export function translateRecursive(string, translations) {
     const group = match[1].split(',');
     const pageId = group[0];
     const translationId = group[1];
-    if(!translations[pageId]) console.log(pageId)
+    if (!translations[pageId]) throw new Error(`${pageId} not defined in 'getTranslations'`);
     translation = translation.replace(match[0], translations[pageId].translations[translationId]);
   });
 
   return translateRecursive(translation, translations);
+}
+
+export function translateRecursiveTrim(string, translations) {
+  return translateRecursive(string, translations).replace(/\((.*?)\)/g, '');
 }

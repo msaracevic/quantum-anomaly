@@ -31,3 +31,10 @@ export async function getModifications(req, res) {
   const response = {...JSON.parse(data)};
   res.json(response);
 }
+
+export async function getResourcesInField(req, res) {
+  const pathToFile = path.join(root, 'static-files', 'x4', '_map-step-resourcesInField.json');
+  const data = await fs.readFile(pathToFile, 'utf-8');
+  const response = {...JSON.parse(data)};
+  res.json(response);
+}

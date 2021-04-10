@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/msaracevic/quantum_anomaly/issues"
   },
-  "proxy": "https://quantum-anomaly.herokuapp.com/",
+  "proxy": "http://localhost:3000",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

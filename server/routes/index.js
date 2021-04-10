@@ -39,6 +39,7 @@ export default function (app) {
   router.get('/api/x4/equipment', x4.getEquipment);
   router.get('/api/x4/map', x4.getMap);
   router.get('/api/x4/modifications', x4.getModifications);
+  router.get('/api/x4/resources', x4.getResourcesInField);
 
   router.use('/api/get-incursions', incursions.getIncursions);
 
