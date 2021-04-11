@@ -38,6 +38,7 @@ export default function (app) {
   router.get('/api/x4/ships', x4.getShips);
   router.get('/api/x4/equipment', x4.getEquipment);
   router.get('/api/x4/map', x4.getMap);
+  router.get('/api/v2/x4/map', x4.getMapV2);
   router.get('/api/x4/modifications', x4.getModifications);
   router.get('/api/x4/resources', x4.getResourcesInField);
 

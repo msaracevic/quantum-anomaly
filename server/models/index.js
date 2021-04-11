@@ -53,7 +53,7 @@ function overwriteEntry(error, response, Model) {
 
 function updateEntry(Model, modelName, timer) {
   const urls = {
-    incursions:     'https://esi.evetech.net/latest/incursions/?datasource=tranquility',
+    incursions: 'https://esi.evetech.net/latest/incursions/?datasource=tranquility',
   };
 
   helpers.request({url: urls[modelName]}, overwriteEntry, Model);
@@ -65,28 +65,28 @@ function updateEntry(Model, modelName, timer) {
 
 let models = {};
 
-export default function (sequelize, silent) {
+export default async function (sequelize, silent) {
   models = {
-    EsiMarketGroups:       esiMarketGroupsModel(sequelize),
+    EsiMarketGroups: esiMarketGroupsModel(sequelize),
     EsiUniverseCategories: esiUniverseCategoriesModel(sequelize),
-    EsiUniverseTypes:      esiUniverseTypesModel(sequelize),
-    EsiUniverseGroups:     esiUniverseModel(sequelize),
-    EsiDogmaAttributes:    esiDogmaAttributesModel(sequelize),
-    EsiDogmaEffects:       esiDogmaEffectsModel(sequelize),
-    EveShips:              eveShipsModel(sequelize),
-    EveShipGroups:         eveShipGroupsModel(sequelize),
-    EveModules:            eveModulesModel(sequelize),
-    EveModuleGroups:       eveModuleGroupsModel(sequelize),
-    EveNpcs:               eveNpcsModel(sequelize),
-    EveCache:              eveCacheModel(sequelize),
-    Sessions:              sessionsModel(sequelize),
-    Users:                 usersModel(sequelize),
-    Skills:                skillsModel(sequelize),
-    IncursionMaps:         incursionMapModel(sequelize),
-    Incursions:            incursionsModel(sequelize)
+    EsiUniverseTypes: esiUniverseTypesModel(sequelize),
+    EsiUniverseGroups: esiUniverseModel(sequelize),
+    EsiDogmaAttributes: esiDogmaAttributesModel(sequelize),
+    EsiDogmaEffects: esiDogmaEffectsModel(sequelize),
+    EveShips: eveShipsModel(sequelize),
+    EveShipGroups: eveShipGroupsModel(sequelize),
+    EveModules: eveModulesModel(sequelize),
+    EveModuleGroups: eveModuleGroupsModel(sequelize),
+    EveNpcs: eveNpcsModel(sequelize),
+    EveCache: eveCacheModel(sequelize),
+    Sessions: sessionsModel(sequelize),
+    Users: usersModel(sequelize),
+    Skills: skillsModel(sequelize),
+    IncursionMaps: incursionMapModel(sequelize),
+    Incursions: incursionsModel(sequelize)
   };
 
-  return sequelize.sync().then(() => {
+  await sequelize.sync().then(() => {
     if (!silent) logger.appLog('Database models synced');
     updateEntry(models.Incursions, 'incursions', 10);
     return models;

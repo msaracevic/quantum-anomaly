@@ -133,12 +133,19 @@ export const backgroundLabelRectWidth = label => {
   const bigZ = label.match(/Z/g);
   const bigA = label.match(/A/g);
 
-  if (i) numberOfShortLetters += i.length * 2;
-  if (l) numberOfShortLetters += l.length * 2;
+  if (i) numberOfShortLetters += i.length;
+  if (l) numberOfShortLetters += l.length;
   if (apo) numberOfShortLetters += apo.length * 2;
   if (bigZ) numberOfShortLetters -= bigZ.length;
   if (bigA) numberOfShortLetters -= bigA.length * 2;
   if (m) numberOfShortLetters -= m.length * 2;
 
   return numberOfShortLetters;
+};
+
+export const getHexagonPointsV2 = (props, divider = 1) => {
+  const {x, y} = props;
+  const hx = 62 / divider;
+  const hy = 108 / divider;
+  return `${x - hx},${y - hy} ${x + hx},${y - hy} ${x + hx * 2},${y} ${x + hx},${y + hy} ${x - hx},${y + hy} ${x - hx * 2},${y} ${x - hx},${y - hy}`;
 };

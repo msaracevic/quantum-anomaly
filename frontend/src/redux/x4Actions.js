@@ -24,7 +24,7 @@ export function fetchX4Equipment() {
 
 export function fetchX4Map() {
   return (dispatch) => {
-    return axios.get('/api/x4/map')
+    return axios.get('/api/v2/x4/map')
       .then(response => dispatch({
         type: 'FETCH_X4_MAP',
         payload: response.data

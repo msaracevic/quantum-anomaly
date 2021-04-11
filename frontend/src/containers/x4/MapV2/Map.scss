@@ -1,0 +1,57 @@
+.x4 {
+  &__map {
+    position: relative;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  &__map-wrapper {
+    overflow: hidden;
+    background: #000011;
+    cursor: grab;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    max-height: calc(100vh - 250px);
+  }
+
+  &__map-controls {
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__legend {
+    font-size: 11px;
+    position: absolute;
+    color: white;
+    right: 10px;
+    top: 80px;
+    width: 220px;
+    padding: 5px;
+    z-index: 1000;
+    background: rgba(#051238, 0.9);
+
+    .x4__resources {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      color: black;
+
+      > p {
+        flex: 0 0 30%;
+        text-align: center;
+        padding: 3px;
+        border-radius: 3px;
+        line-height: 0.8;
+        margin: 3px;
+      }
+    }
+  }
+}

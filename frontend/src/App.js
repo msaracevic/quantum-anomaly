@@ -17,7 +17,7 @@ import StyleGuide from './components/StyleGuide';
 import EpicArcsOverview from './containers/epic-arcs/Overview';
 import EpicArc from './containers/epic-arcs/Arc';
 import X4ShipEfficiency from './containers/x4/ShipEfficiency';
-import X4Map from './containers/x4/Map';
+import X4Map from './containers/x4/MapV2';
 import X4Ships from './containers/x4/Ships';
 import X4ResourcesTable from './containers/x4/Resources';
 import X4Modifications from './containers/x4/Modifications';

@@ -67,11 +67,7 @@ async function start() {
 
   const mapInformationV2 = await getMapV2(sourceBasePath, translations);
   await saveToFile(mapInformationV2, '_mapV2', 'map');
-
-  // uses file from mapInformationV2
-  const mapInformation = await getMap(sourceBasePath, translations);
-  await saveToFile(mapInformation, '_map', 'map');
-
+  return;
   const wares = await getWares(sourceBasePath);
   await saveToFile(wares, '_wares', 'wares');
 

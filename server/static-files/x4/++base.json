@@ -1,0 +1,2114 @@
+{
+  "components": {
+    "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "component": [
+      {
+        "name": "testminingnode",
+        "class": "miningnode",
+        "connections": {
+          "connection": {
+            "name": "space",
+            "tags": "miningnode"
+          }
+        }
+      },
+      {
+        "name": "standardholomap",
+        "class": "holomap",
+        "connections": {
+          "connection": {
+            "name": "space",
+            "tags": "holomap",
+            "value": "0",
+            "optional": "0"
+          }
+        }
+      },
+      {
+        "name": "standardgalaxy",
+        "class": "galaxy",
+        "connections": {
+          "connection": [
+            {
+              "name": "clusters",
+              "tags": "cluster",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "ships",
+              "tags": "ship",
+              "value": "0",
+              "optional": "1"
+            }
+          ]
+        }
+      },
+      {
+        "name": "standardcluster",
+        "class": "cluster",
+        "connections": {
+          "connection": [
+            {
+              "name": "galaxy",
+              "tags": "cluster",
+              "value": "0",
+              "optional": "0"
+            },
+            {
+              "name": "content",
+              "tags": "celestialbody",
+              "value": "0",
+              "optional": "0"
+            },
+            {
+              "name": "sectors",
+              "tags": "sector",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "areas",
+              "tags": "area",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "sechighways",
+              "tags": "sechighway",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "planets",
+              "tags": "planet",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "suns",
+              "tags": "sun",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "nebulas",
+              "tags": "nebula",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "rendereffects",
+              "tags": "rendereffect"
+            },
+            {
+              "name": "lensflares",
+              "tags": "lensflare"
+            },
+            {
+              "name": "regions",
+              "tags": "region",
+              "value": "0",
+              "optional": "1"
+            }
+          ]
+        }
+      },
+      {
+        "name": "standardsector",
+        "class": "sector",
+        "connections": {
+          "connection": [
+            {
+              "name": "cluster",
+              "tags": "sector",
+              "value": "0",
+              "optional": "0"
+            },
+            {
+              "name": "lensflares",
+              "tags": "lensflare",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "lights",
+              "tags": "light",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "zones",
+              "tags": "zone",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "zonehighways",
+              "tags": "zonehighway",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "rendereffects",
+              "tags": "rendereffect"
+            },
+            {
+              "name": "stardust",
+              "tags": "stardust"
+            }
+          ]
+        }
+      },
+      {
+        "name": "standardsechighway",
+        "class": "highway",
+        "connections": {
+          "connection": [
+            {
+              "name": "cluster",
+              "tags": "sechighway",
+              "value": "0",
+              "optional": "0"
+            },
+            {
+              "name": "visiblezones",
+              "tags": "visible zone",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "occludedzones",
+              "tags": "occluded zone",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "stations",
+              "tags": "station",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "ships",
+              "tags": "ship",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "gates",
+              "tags": "gate",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "lights",
+              "tags": "light",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "lensflares",
+              "tags": "lensflare",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "entrypoint",
+              "tags": "entry",
+              "value": "-1",
+              "optional": "0"
+            },
+            {
+              "name": "exitpoint",
+              "tags": "exit",
+              "value": "1",
+              "optional": "0"
+            },
+            {
+              "name": "entrygate",
+              "tags": "entrygate",
+              "value": "-1",
+              "optional": "0"
+            },
+            {
+              "name": "exitgate",
+              "tags": "exitgate",
+              "value": "1",
+              "optional": "0"
+            },
+            {
+              "name": "highwayscene",
+              "tags": "highwayscene",
+              "value": "1",
+              "optional": "0"
+            },
+            {
+              "name": "uielement",
+              "tags": "ui info",
+              "value": "-1",
+              "optional": "0"
+            },
+            {
+              "name": "rendereffects",
+              "tags": "rendereffect"
+            },
+            {
+              "name": "stardust",
+              "tags": "stardust"
+            },
+            {
+              "name": "bullet",
+              "tags": "bullet",
+              "value": "0",
+              "optional": "0"
+            }
+          ]
+        }
+      },
+      {
+        "name": "standardzone",
+        "class": "zone",
+        "connections": {
+          "connection": [
+            {
+              "name": "sector",
+              "tags": "zone",
+              "value": "0",
+              "optional": "0"
+            },
+            {
+              "name": "visiblezones",
+              "tags": "visible zone",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "occludedzones",
+              "tags": "occluded zone",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "stations",
+              "tags": "station",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "ships",
+              "tags": "ship",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "gates",
+              "tags": "gate",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "sh",
+              "tags": "sechighway",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "lights",
+              "tags": "light",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "lensflares",
+              "tags": "lensflare",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "bullets",
+              "tags": "bullet",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "countermeasures",
+              "tags": "countermeasure",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "missiles",
+              "tags": "missile",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "asteroids",
+              "tags": "asteroid",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "stardust",
+              "tags": "stardust"
+            },
+            {
+              "name": "entrypoint1",
+              "tags": "exit",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "entrypoint2",
+              "tags": "exit",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "entrypoint3",
+              "tags": "exit",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "entrypoint4",
+              "tags": "exit",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "entrypoint5",
+              "tags": "exit",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "entrypoint6",
+              "tags": "exit",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "entrypoint7",
+              "tags": "exit",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "entrypoint8",
+              "tags": "exit",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "entrypoint9",
+              "tags": "exit",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "entrypoint10",
+              "tags": "exit",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "entrypoint11",
+              "tags": "exit",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "entrypoint12",
+              "tags": "exit",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "exitpoint1",
+              "tags": "entry",
+              "value": "1",
+              "optional": "1"
+            },
+            {
+              "name": "exitpoint2",
+              "tags": "entry",
+              "value": "1",
+              "optional": "1"
+            },
+            {
+              "name": "exitpoint3",
+              "tags": "entry",
+              "value": "1",
+              "optional": "1"
+            },
+            {
+              "name": "exitpoint4",
+              "tags": "entry",
+              "value": "1",
+              "optional": "1"
+            },
+            {
+              "name": "exitpoint5",
+              "tags": "entry",
+              "value": "1",
+              "optional": "1"
+            },
+            {
+              "name": "exitpoint6",
+              "tags": "entry",
+              "value": "1",
+              "optional": "1"
+            },
+            {
+              "name": "exitpoint7",
+              "tags": "entry",
+              "value": "1",
+              "optional": "1"
+            },
+            {
+              "name": "exitpoint8",
+              "tags": "entry",
+              "value": "1",
+              "optional": "1"
+            },
+            {
+              "name": "exitpoint9",
+              "tags": "entry",
+              "value": "1",
+              "optional": "1"
+            },
+            {
+              "name": "exitpoint10",
+              "tags": "entry",
+              "value": "1",
+              "optional": "1"
+            },
+            {
+              "name": "exitpoint11",
+              "tags": "entry",
+              "value": "1",
+              "optional": "1"
+            },
+            {
+              "name": "exitpoint12",
+              "tags": "entry",
+              "value": "1",
+              "optional": "1"
+            },
+            {
+              "name": "rendereffects",
+              "tags": "rendereffect"
+            },
+            {
+              "name": "scaneffects",
+              "tags": "scaneffect"
+            },
+            {
+              "name": "turrets",
+              "tags": "turret",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "positionals",
+              "tags": "positional position",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "anything",
+              "tags": "anything",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "SHCon1_Gate",
+              "tags": "sechighway",
+              "value": "0",
+              "optional": "1",
+              "offset": {
+                "position": {
+                  "x": "-2N0000",
+                  "y": "0",
+                  "z": "20000"
+                }
+              }
+            },
+            {
+              "name": "SHCon2_Gate",
+              "tags": "sechighway",
+              "value": "0",
+              "optional": "1",
+              "offset": {
+                "position": {
+                  "x": "-20000",
+                  "y": "0",
+                  "z": "-20000"
+                }
+              }
+            },
+            {
+              "name": "SHCon3_Gate",
+              "tags": "sechighway",
+              "value": "0",
+              "optional": "1",
+              "offset": {
+                "position": {
+                  "x": "20000",
+                  "y": "0",
+                  "z": "20000"
+                }
+              }
+            },
+            {
+              "name": "SHCon4_Gate",
+              "tags": "sechighway",
+              "value": "0",
+              "optional": "1",
+              "offset": {
+                "position": {
+                  "x": "20000",
+                  "y": "0",
+                  "z": "-20000"
+                }
+              }
+            },
+            {
+              "name": "SHCon5_Gate",
+              "tags": "sechighway",
+              "value": "0",
+              "optional": "1",
+              "offset": {
+                "position": {
+                  "x": "-5000",
+                  "y": "0",
+                  "z": "20000"
+                }
+              }
+            },
+            {
+              "name": "SHCon6_Gate",
+              "tags": "sechighway",
+              "value": "0",
+              "optional": "1",
+              "offset": {
+                "position": {
+                  "x": "-5000",
+                  "y": "0",
+                  "z": "-20000"
+                }
+              }
+            },
+            {
+              "name": "SHCon7_Gate",
+              "tags": "sechighway",
+              "value": "0",
+              "optional": "1",
+              "offset": {
+                "position": {
+                  "x": "-20000",
+                  "y": "0",
+                  "z": "5000"
+                }
+              }
+            },
+            {
+              "name": "SHCon8_Gate",
+              "tags": "sechighway",
+              "value": "0",
+              "optional": "1",
+              "offset": {
+                "position": {
+                  "x": "-20000",
+                  "y": "0",
+                  "z": "-5000"
+                }
+              }
+            },
+            {
+              "name": "SHCon9_Gate",
+              "tags": "sechighway",
+              "value": "0",
+              "optional": "1",
+              "offset": {
+                "position": {
+                  "x": "5000",
+                  "y": "0",
+                  "z": "20000"
+                }
+              }
+            },
+            {
+              "name": "SHCon10_Gate",
+              "tags": "sechighway",
+              "value": "0",
+              "optional": "1",
+              "offset": {
+                "position": {
+                  "x": "5000",
+                  "y": "0",
+                  "z": "-20000"
+                }
+              }
+            },
+            {
+              "name": "SHCon11_Gate",
+              "tags": "sechighway",
+              "value": "0",
+              "optional": "1",
+              "offset": {
+                "position": {
+                  "x": "20000",
+                  "y": "0",
+                  "z": "5000"
+                }
+              }
+            },
+            {
+              "name": "SHCon12_Gate",
+              "tags": "sechighway",
+              "value": "0",
+              "optional": "1",
+              "offset": {
+                "position": {
+                  "x": "20000",
+                  "y": "0",
+                  "z": "-5000"
+                }
+              }
+            },
+            {
+              "name": "highway01connection01_gate",
+              "tags": "entry",
+              "value": "1",
+              "optional": "1"
+            },
+            {
+              "name": "highway01connection02_gate",
+              "tags": "exit",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "highway02connection01_gate",
+              "tags": "entry",
+              "value": "1",
+              "optional": "1"
+            },
+            {
+              "name": "highway02connection02_gate",
+              "tags": "exit",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "highway03connection01_gate",
+              "tags": "entry",
+              "value": "1",
+              "optional": "1"
+            },
+            {
+              "name": "highway03connection02_gate",
+              "tags": "exit",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "highway04connection01_gate",
+              "tags": "entry",
+              "value": "1",
+              "optional": "1"
+            },
+            {
+              "name": "highway04connection02_gate",
+              "tags": "exit",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "highway05connection01_gate",
+              "tags": "entry",
+              "value": "1",
+              "optional": "1"
+            },
+            {
+              "name": "highway05connection02_gate",
+              "tags": "exit",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "highway06connection01_gate",
+              "tags": "entry",
+              "value": "1",
+              "optional": "1"
+            },
+            {
+              "name": "highway06connection02_gate",
+              "tags": "exit",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "highway07connection01_gate",
+              "tags": "entry",
+              "value": "1",
+              "optional": "1"
+            },
+            {
+              "name": "highway07connection02_gate",
+              "tags": "exit",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "highway08connection01_gate",
+              "tags": "entry",
+              "value": "1",
+              "optional": "1"
+            },
+            {
+              "name": "highway08connection02_gate",
+              "tags": "exit",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "highway09connection01_gate",
+              "tags": "entry",
+              "value": "1",
+              "optional": "1"
+            },
+            {
+              "name": "highway09connection02_gate",
+              "tags": "exit",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "highway10connection01_gate",
+              "tags": "entry",
+              "value": "1",
+              "optional": "1"
+            },
+            {
+              "name": "highway10connection02_gate",
+              "tags": "exit",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "highway11connection01_gate",
+              "tags": "entry",
+              "value": "1",
+              "optional": "1"
+            },
+            {
+              "name": "highway11connection02_gate",
+              "tags": "exit",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "highway12connection01_gate",
+              "tags": "entry",
+              "value": "1",
+              "optional": "1"
+            },
+            {
+              "name": "highway12connection02_gate",
+              "tags": "exit",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "highway13connection01_gate",
+              "tags": "entry",
+              "value": "1",
+              "optional": "1"
+            },
+            {
+              "name": "highway13connection02_gate",
+              "tags": "exit",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "highway14connection01_gate",
+              "tags": "entry",
+              "value": "1",
+              "optional": "1"
+            },
+            {
+              "name": "highway14connection02_gate",
+              "tags": "exit",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "highway15connection01_gate",
+              "tags": "entry",
+              "value": "1",
+              "optional": "1"
+            },
+            {
+              "name": "highway15connection02_gate",
+              "tags": "exit",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "highway16connection01_gate",
+              "tags": "entry",
+              "value": "1",
+              "optional": "1"
+            },
+            {
+              "name": "highway16connection02_gate",
+              "tags": "exit",
+              "value": "-1",
+              "optional": "1"
+            }
+          ]
+        }
+      },
+      {
+        "name": "standardzonehighway",
+        "class": "highway",
+        "connections": {
+          "connection": [
+            {
+              "name": "sector",
+              "tags": "zone",
+              "value": "0",
+              "optional": "0"
+            },
+            {
+              "name": "visiblezones",
+              "tags": "visible zone",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "occludedzones",
+              "tags": "occluded zone",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "stations",
+              "tags": "station",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "ships",
+              "tags": "ship",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "gates",
+              "tags": "gate",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "lights",
+              "tags": "light",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "lensflares",
+              "tags": "lensflare",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "entrypoint",
+              "tags": "entry",
+              "value": "-1",
+              "optional": "0"
+            },
+            {
+              "name": "exitpoint",
+              "tags": "exit",
+              "value": "1",
+              "optional": "0"
+            },
+            {
+              "name": "entrygate",
+              "tags": "entrygate",
+              "value": "-1",
+              "optional": "0"
+            },
+            {
+              "name": "exitgate",
+              "tags": "exitgate",
+              "value": "1",
+              "optional": "0"
+            },
+            {
+              "name": "highwayscene",
+              "tags": "highwayscene",
+              "value": "1",
+              "optional": "0"
+            },
+            {
+              "name": "uielement",
+              "tags": "ui info",
+              "value": "-1",
+              "optional": "0"
+            },
+            {
+              "name": "rendereffects",
+              "tags": "rendereffect"
+            },
+            {
+              "name": "stardust",
+              "tags": "stardust"
+            },
+            {
+              "name": "bullet",
+              "tags": "bullet",
+              "value": "0",
+              "optional": "0"
+            }
+          ]
+        }
+      },
+      {
+        "name": "standardregion",
+        "class": "region",
+        "connections": {
+          "connection": {
+            "name": "cluster",
+            "tags": "region",
+            "value": "0",
+            "optional": "0"
+          }
+        }
+      },
+      {
+        "name": "stationregion",
+        "class": "region",
+        "connections": {
+          "connection": [
+            {
+              "name": "cluster",
+              "tags": "region",
+              "value": "0",
+              "optional": "0"
+            },
+            {
+              "name": "station",
+              "tags": "stationregion",
+              "value": "0",
+              "optional": "0"
+            }
+          ]
+        }
+      },
+      {
+        "name": "camera_anchor_scene",
+        "class": "scene",
+        "connections": {
+          "connection": [
+            {
+              "name": "space",
+              "tags": "cameraanchorscene"
+            },
+            {
+              "name": "uianchor",
+              "tags": "uianchor"
+            }
+          ]
+        }
+      },
+      {
+        "name": "testgalaxy",
+        "connections": {
+          "connection": [
+            {
+              "name": "clusters",
+              "tags": "cluster",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "ships",
+              "tags": "ship",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "lights",
+              "tags": "light",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "rendereffects",
+              "tags": "rendereffect"
+            }
+          ]
+        }
+      },
+      {
+        "name": "dummystation",
+        "connections": {
+          "connection": [
+            {
+              "name": "space",
+              "tags": "station",
+              "value": "0",
+              "optional": "0"
+            },
+            {
+              "name": "docked",
+              "tags": "ship",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "dockingbay",
+              "tags": "dockingbay"
+            },
+            {
+              "name": "production",
+              "tags": "production",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "uielement",
+              "tags": "ui",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "uielement01",
+              "tags": "ui info",
+              "value": "-1",
+              "optional": "1",
+              "offset": {
+                "position": {
+                  "x": "200",
+                  "y": "0",
+                  "z": "-200"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "testcluster",
+        "offset": {
+          "position": {
+            "x": "0",
+            "y": "0",
+            "z": "0"
+          }
+        },
+        "connections": {
+          "connection": [
+            {
+              "name": "galaxy",
+              "tags": "cluster",
+              "value": "0",
+              "optional": "0"
+            },
+            {
+              "name": "sectors",
+              "tags": "sector",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "areas",
+              "tags": "area",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "sechighways",
+              "tags": "sechighway",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "planets",
+              "tags": "planet",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "suns",
+              "tags": "sun",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "nebulas",
+              "tags": "nebula",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "rendereffects",
+              "tags": "rendereffect"
+            }
+          ]
+        }
+      },
+      {
+        "name": "testsector",
+        "connections": {
+          "connection": [
+            {
+              "name": "cluster",
+              "tags": "sector",
+              "value": "0",
+              "optional": "0"
+            },
+            {
+              "name": "zones",
+              "tags": "zone",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "zonehighways",
+              "tags": "zonehighway",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "rendereffects",
+              "tags": "rendereffect"
+            }
+          ]
+        }
+      },
+      {
+        "name": "testsechighway",
+        "connections": {
+          "connection": [
+            {
+              "name": "cluster",
+              "tags": "sechighway",
+              "value": "0",
+              "optional": "0"
+            },
+            {
+              "name": "stations",
+              "tags": "station",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "ships",
+              "tags": "ship",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "gates",
+              "tags": "gate",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "lights",
+              "tags": "light",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "entrypoint",
+              "tags": "entry",
+              "value": "-1",
+              "optional": "0"
+            },
+            {
+              "name": "exitpoint",
+              "tags": "exit",
+              "value": "1",
+              "optional": "0"
+            },
+            {
+              "name": "entrygate",
+              "tags": "entrygate",
+              "value": "-1",
+              "optional": "0"
+            },
+            {
+              "name": "exitgate",
+              "tags": "exitgate",
+              "value": "1",
+              "optional": "0"
+            },
+            {
+              "name": "highwayscene",
+              "tags": "highwayscene",
+              "value": "1",
+              "optional": "0"
+            },
+            {
+              "name": "uielement",
+              "tags": "ui info",
+              "value": "-1",
+              "optional": "0"
+            },
+            {
+              "name": "rendereffects",
+              "tags": "rendereffect"
+            }
+          ]
+        }
+      },
+      {
+        "name": "testzonehighway",
+        "connections": {
+          "connection": [
+            {
+              "name": "sector",
+              "tags": "zone",
+              "value": "0",
+              "optional": "0"
+            },
+            {
+              "name": "stations",
+              "tags": "station",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "ships",
+              "tags": "ship",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "gates",
+              "tags": "gate",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "lights",
+              "tags": "light",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "entrypoint",
+              "tags": "entry",
+              "value": "-1",
+              "optional": "0"
+            },
+            {
+              "name": "exitpoint",
+              "tags": "exit",
+              "value": "1",
+              "optional": "0"
+            },
+            {
+              "name": "entrygate",
+              "tags": "entrygate",
+              "value": "-1",
+              "optional": "0"
+            },
+            {
+              "name": "exitgate",
+              "tags": "exitgate",
+              "value": "1",
+              "optional": "0"
+            },
+            {
+              "name": "highwayscene",
+              "tags": "highwayscene",
+              "value": "1",
+              "optional": "0"
+            },
+            {
+              "name": "uielement",
+              "tags": "ui info",
+              "value": "-1",
+              "optional": "0"
+            },
+            {
+              "name": "rendereffects",
+              "tags": "rendereffect"
+            }
+          ]
+        }
+      },
+      {
+        "name": "testplanet",
+        "connections": {
+          "connection": {
+            "name": "cluster",
+            "tags": "planet",
+            "value": "0",
+            "optional": "0"
+          }
+        }
+      },
+      {
+        "name": "testnebula",
+        "connections": {
+          "connection": {
+            "name": "cluster",
+            "tags": "nebula",
+            "value": "0",
+            "optional": "0"
+          }
+        }
+      },
+      {
+        "name": "testzone",
+        "class": "zone",
+        "layer": {
+          "size": {
+            "max": {
+              "x": "25000",
+              "y": "25000",
+              "z": "25000"
+            }
+          }
+        },
+        "connections": {
+          "connection": [
+            {
+              "name": "sector",
+              "tags": "zone",
+              "value": "0",
+              "optional": "0"
+            },
+            {
+              "name": "visiblezones",
+              "tags": "visible zone",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "occludedzones",
+              "tags": "occluded zone",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "stations",
+              "tags": "station",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "ships",
+              "tags": "ship",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "gates",
+              "tags": "gate",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "lights",
+              "tags": "light",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "bullets",
+              "tags": "bullet",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "countermeasures",
+              "tags": "countermeasure",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "entrypoint0",
+              "tags": "exit",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "entrypoint1",
+              "tags": "exit",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "entrypoint2",
+              "tags": "exit",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "entrypoint3",
+              "tags": "exit",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "entrypoint4",
+              "tags": "exit",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "entrypoint5",
+              "tags": "exit",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "entrypoint6",
+              "tags": "exit",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "entrypoint7",
+              "tags": "exit",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "entrypoint8",
+              "tags": "exit",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "entrypoint9",
+              "tags": "exit",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "entrypoint10",
+              "tags": "exit",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "entrypoint11",
+              "tags": "exit",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "entrypoint12",
+              "tags": "exit",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "exitpoint0",
+              "tags": "entry",
+              "value": "1",
+              "optional": "1"
+            },
+            {
+              "name": "exitpoint1",
+              "tags": "entry",
+              "value": "1",
+              "optional": "1"
+            },
+            {
+              "name": "exitpoint2",
+              "tags": "entry",
+              "value": "1",
+              "optional": "1"
+            },
+            {
+              "name": "exitpoint3",
+              "tags": "entry",
+              "value": "1",
+              "optional": "1"
+            },
+            {
+              "name": "exitpoint4",
+              "tags": "entry",
+              "value": "1",
+              "optional": "1"
+            },
+            {
+              "name": "exitpoint5",
+              "tags": "entry",
+              "value": "1",
+              "optional": "1"
+            },
+            {
+              "name": "exitpoint6",
+              "tags": "entry",
+              "value": "1",
+              "optional": "1"
+            },
+            {
+              "name": "exitpoint7",
+              "tags": "entry",
+              "value": "1",
+              "optional": "1"
+            },
+            {
+              "name": "exitpoint8",
+              "tags": "entry",
+              "value": "1",
+              "optional": "1"
+            },
+            {
+              "name": "exitpoint9",
+              "tags": "entry",
+              "value": "1",
+              "optional": "1"
+            },
+            {
+              "name": "exitpoint10",
+              "tags": "entry",
+              "value": "1",
+              "optional": "1"
+            },
+            {
+              "name": "exitpoint11",
+              "tags": "entry",
+              "value": "1",
+              "optional": "1"
+            },
+            {
+              "name": "exitpoint12",
+              "tags": "entry",
+              "value": "1",
+              "optional": "1"
+            },
+            {
+              "name": "rendereffects",
+              "tags": "rendereffect"
+            }
+          ]
+        }
+      },
+      {
+        "name": "viewerspace",
+        "connections": {
+          "connection": [
+            {
+              "name": "sector",
+              "tags": "zone",
+              "value": "0",
+              "optional": "0"
+            },
+            {
+              "name": "stations",
+              "tags": "station",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "ships",
+              "tags": "ship",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "lights",
+              "tags": "light",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "anything",
+              "value": "0",
+              "optional": "1"
+            }
+          ]
+        }
+      },
+      {
+        "name": "testagent",
+        "connections": {
+          "connection": [
+            {
+              "name": "space",
+              "tags": "ship",
+              "value": "0",
+              "optional": "0"
+            },
+            {
+              "name": "engine",
+              "tags": "engine",
+              "value": "0",
+              "optional": "0"
+            },
+            {
+              "name": "dock",
+              "tags": "station",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "storage",
+              "tags": "storage",
+              "value": "0",
+              "optional": "0"
+            },
+            {
+              "name": "cockpit",
+              "tags": "cockpit",
+              "value": "-1",
+              "optional": "0",
+              "offset": {
+                "position": {
+                  "x": "-3.112764E-07",
+                  "y": "2.295255",
+                  "z": "-5.684728"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "testcargobay",
+        "connections": {
+          "connection": {
+            "name": "storage",
+            "tags": "cargobay",
+            "value": "1",
+            "optional": "0"
+          }
+        },
+        "properties": {
+          "cargo": {
+            "max": "1500",
+            "tags": "raw energy dirty part drone econtest food intermediate illegal container liquid bulk solid"
+          }
+        }
+      },
+      {
+        "name": "testcargobay2",
+        "connections": {
+          "connection": {
+            "name": "storage",
+            "tags": "cargobay",
+            "value": "1",
+            "optional": "0"
+          }
+        },
+        "properties": {
+          "cargo": {
+            "max": "20",
+            "tags": "raw energy dirty part drone econtest food intermediate illegal container liquid bulk solid"
+          }
+        }
+      },
+      {
+        "name": "playercargobay",
+        "connections": {
+          "connection": {
+            "name": "storage",
+            "tags": "cargobay",
+            "value": "1",
+            "optional": "0"
+          }
+        },
+        "properties": {
+          "cargo": {
+            "max": "100",
+            "tags": "weapon"
+          }
+        }
+      },
+      {
+        "name": "teststorage",
+        "connections": {
+          "connection": [
+            {
+              "name": "cargo",
+              "tags": "cargobay",
+              "value": "4",
+              "optional": "0"
+            },
+            {
+              "name": "object",
+              "tags": "storage",
+              "value": "1",
+              "optional": "0"
+            }
+          ]
+        }
+      },
+      {
+        "name": "testproduction",
+        "connections": {
+          "connection": {
+            "name": "station",
+            "tags": "production",
+            "value": "1",
+            "optional": "0"
+          }
+        }
+      },
+      {
+        "name": "standardproduction",
+        "connections": {
+          "connection": {
+            "name": "productioncon01",
+            "tags": "production",
+            "value": "1",
+            "optional": "0"
+          }
+        }
+      },
+      {
+        "name": "testengine",
+        "connections": {
+          "connection": [
+            {
+              "name": "rendereffects",
+              "tags": "rendereffect",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "ship",
+              "tags": "component engine",
+              "optional": "0"
+            }
+          ]
+        }
+      },
+      {
+        "name": "testshieldgenerator",
+        "connections": {
+          "connection": {
+            "name": "object",
+            "tags": "shieldgenerator",
+            "value": "1",
+            "optional": "0"
+          }
+        }
+      },
+      {
+        "name": "testbullet",
+        "connections": {
+          "connection": {
+            "name": "space",
+            "tags": "zone",
+            "value": "1",
+            "optional": "0"
+          }
+        }
+      },
+      {
+        "name": "testcockpit",
+        "class": "cockpit",
+        "connections": {
+          "connection": [
+            {
+              "name": "ship",
+              "tags": "cockpit",
+              "value": "1",
+              "optional": "0"
+            },
+            {
+              "name": "pilot",
+              "tags": "pilot",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "player",
+              "tags": "player",
+              "value": "-1",
+              "optional": "1"
+            }
+          ]
+        }
+      },
+      {
+        "name": "testroom",
+        "connections": {
+          "connection": [
+            {
+              "name": "space",
+              "tags": "station"
+            },
+            {
+              "name": "container",
+              "tags": "contents",
+              "value": "1",
+              "optional": "1"
+            },
+            {
+              "name": "lights",
+              "tags": "light",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "player",
+              "tags": "player",
+              "value": "-1",
+              "optional": "1"
+            }
+          ]
+        }
+      },
+      {
+        "name": "targetpoint_dummy",
+        "connections": {
+          "connection": [
+            {
+              "name": "space",
+              "tags": "targetpoint",
+              "optional": "0"
+            },
+            {
+              "name": "ConnectionUI",
+              "tags": "ui"
+            }
+          ]
+        }
+      },
+      {
+        "name": "testuielement",
+        "connections": {
+          "connection": {
+            "name": "anchor",
+            "tags": "ui",
+            "value": "1",
+            "optional": "1"
+          }
+        }
+      },
+      {
+        "name": "uiteststation",
+        "connections": {
+          "connection": [
+            {
+              "name": "space",
+              "tags": "station",
+              "value": "0",
+              "optional": "0"
+            },
+            {
+              "name": "docked",
+              "tags": "ship",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "production",
+              "tags": "production",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "shields",
+              "tags": "shield",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "shieldgenerators",
+              "tags": "shieldgenerator",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "uielement01",
+              "tags": "ui info",
+              "value": "-1",
+              "optional": "1",
+              "offset": {
+                "position": {
+                  "x": "200",
+                  "y": "0",
+                  "z": "-200"
+                }
+              }
+            },
+            {
+              "name": "uielement02",
+              "tags": "ui waretrade",
+              "value": "-1",
+              "optional": "1",
+              "offset": {
+                "position": {
+                  "x": "0",
+                  "y": "200",
+                  "z": "200"
+                }
+              }
+            },
+            {
+              "name": "uielement03",
+              "tags": "ui mission",
+              "value": "-1",
+              "optional": "1",
+              "offset": {
+                "position": {
+                  "x": "-200",
+                  "y": "0",
+                  "z": "200"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "dummyship",
+        "connections": {
+          "connection": [
+            {
+              "name": "space",
+              "tags": "ship",
+              "value": "0",
+              "optional": "0"
+            },
+            {
+              "name": "cockpit",
+              "tags": "cockpit",
+              "value": "-1",
+              "optional": "0"
+            },
+            {
+              "name": "shields",
+              "tags": "shield",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "shieldgenerators",
+              "tags": "shieldgenerator",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "engine",
+              "tags": "engine",
+              "value": "0",
+              "optional": "0"
+            },
+            {
+              "name": "frontweapon",
+              "tags": "weapon",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "playercontrol",
+              "tags": "playercontrol"
+            },
+            {
+              "name": "countermeasures",
+              "tags": "countermeasures"
+            }
+          ]
+        }
+      },
+      {
+        "name": "pathfinding_debug_gate",
+        "connections": {
+          "connection": [
+            {
+              "name": "space",
+              "tags": "gate",
+              "value": "0",
+              "optional": "0"
+            },
+            {
+              "name": "destination",
+              "tags": "gate",
+              "value": "0",
+              "optional": "0"
+            }
+          ]
+        }
+      },
+      {
+        "name": "stardust",
+        "connections": {
+          "connection": {
+            "name": "space",
+            "tags": "stardust"
+          }
+        }
+      },
+      {
+        "name": "dummy",
+        "class": "positional",
+        "connections": {
+          "connection": [
+            {
+              "name": "contents",
+              "tags": "contents",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "position",
+              "tags": "position",
+              "value": "-1",
+              "optional": "1"
+            },
+            {
+              "name": "space",
+              "tags": "station",
+              "value": "0",
+              "optional": "0"
+            },
+            {
+              "name": "uielement",
+              "tags": "ui",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "engine",
+              "tags": "engine",
+              "value": "0",
+              "optional": "1"
+            },
+            {
+              "name": "uielement01",
+              "tags": "ui info",
+              "value": "-1",
+              "optional": "1",
+              "offset": {
+                "position": {
+                  "x": "200",
+                  "y": "0",
+                  "z": "-200"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "testnpc",
+        "class": "npc",
+        "model": {
+          "type": "body",
+          "name": "assets/characters/test/EMFXExamples/Models/HumanPhonemes/HumanPhonemes"
+        }
+      }
+    ]
+  }
+}
